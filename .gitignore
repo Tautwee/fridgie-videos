@@ -1,0 +1,5 @@
+pipeline/frames/
+pipeline/*.wav
+pipeline/timeline.json
+pipeline/__pycache__/
+pipeline/app/
