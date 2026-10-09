@@ -60,7 +60,7 @@ async def main():
             return None if not r else [SX + r[0] * Z, SY + r[1] * Z, r[2] * Z, r[3] * Z]
         async def maxscroll(): return await app.evaluate("()=>document.scrollingElement.scrollHeight-innerHeight")
         async def reset():
-            await app.evaluate("()=>{try{closeSheet()}catch(e){};document.querySelector('[data-tab=fridge]')?.click();}")
+            await app.evaluate("()=>{try{closeSheet()}catch(e){};document.querySelector('[data-tab=fridge]')?.click();try{if(place!=='fridge')setPlace('fridge')}catch(e){}}")
             await pg.wait_for_timeout(120)
             await app.evaluate("()=>document.scrollingElement.scrollTop=0")
 
