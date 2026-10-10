@@ -90,7 +90,7 @@ async def main():
                 if scr == 'item':
                     EV.append((t + 2.0, 'slider', (t + 2.0, t + 3.6, 100, 50)))
                 else:
-                    sel = "[...document.querySelectorAll('button')].find(b=>/Freeze it/.test(b.textContent)&&b.offsetParent)"
+                    sel = "(document.querySelector('#dSpace [data-sp=freezer]')||[...document.querySelectorAll('button')].find(b=>/Freeze it/.test(b.textContent)&&b.offsetParent))"
                     hl(t + 1.5, t + 2.4, sel); tapjs(t + 2.3, sel); clickjs(t + 2.55, sel)
                     tapjs(t + 3.7, "document.querySelector('[data-place=freezer]')"); clickjs(t + 3.95, "document.querySelector('[data-place=freezer]')")
                     EV.append((t + 4.1, 'scroll_to', (t + 4.1, t + 4.9, f"__byText('^{name}$','#fridgeView *')")))
