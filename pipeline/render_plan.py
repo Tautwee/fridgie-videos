@@ -3,11 +3,11 @@
 Usage: python3 render_plan.py plan.json out.mp4 [upbeat|chill|energy]
 Needs: FRIDGIE_APP_HTML=<path to a saved copy of myfridgie.netlify.app index.html>
 """
-import asyncio, json, sys, subprocess, re, html
+import shutil, os, asyncio, json, sys, subprocess, re, html
 from playwright.async_api import async_playwright
 from common import *
 
-plan = json.load(open(sys.argv[1])); OUTMP4 = sys.argv[2]; STYLE = sys.argv[3] if len(sys.argv) > 3 else 'energy'
+plan = json.load(open(sys.argv[1])); OUTMP4 = sys.argv[2]; STYLE = sys.argv[3] if len(sys.argv) > 3 else plan.get('music', 'auto')  # auto = new genre/melody per video (music3.py)
 FPS = 30
 FR = D / 'frames'; FR.mkdir(exist_ok=True)
 for f in FR.glob('*.png'): f.unlink()
@@ -157,8 +157,11 @@ async def main():
         await br.close()
 
 asyncio.run(main())
-wav = str(D / f'music_{STYLE}.wav')
-subprocess.run(['python3', str(D / 'music2.py'), STYLE, wav], check=True, cwd=str(D))
+# keep the timeline so the music can be swapped later without re-rendering (remix_audio.py)
+TLD = D / 'timelines'; TLD.mkdir(exist_ok=True)
+shutil.copy(D / 'timeline.json', TLD / (os.path.basename(OUTMP4).rsplit('.', 1)[0] + '.json'))
+wav = str(D / 'music_tmp.wav')
+subprocess.run(['python3', str(D / 'music3.py'), STYLE, wav, os.path.basename(OUTMP4), str(D / 'timeline.json')], check=True, cwd=str(D))
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-framerate', str(FPS), '-i', str(FR / 'f%04d.png'), '-i', wav, '-c:v', 'libx264', '-preset', 'slow', '-crf', '17',
                 '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-movflags', '+faststart', '-c:a', 'aac', '-b:a', '192k', '-shortest', OUTMP4], check=True)
 print('done', OUTMP4)

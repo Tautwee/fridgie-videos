@@ -1,12 +1,14 @@
 # Fridgeroo video pipeline (formerly Fridgie)
 
-Turns a locked plan from the **Fridgie Bot Room** into a 9:16 video in the house style (real app screens in a phone, coloured scene backgrounds, white headline with one yellow keyword, navy end card, music + tap sounds).
+Turns a locked plan from the **Fridgeroo Bot Room** into a 9:16 video in the house style (real app screens in a phone, coloured scene backgrounds, white headline with one yellow keyword, navy end card, music + tap sounds).
 
 ## Files
-- `render_plan.py` – the engine. `python3 render_plan.py plan.json out.mp4 [energy|upbeat|chill]`
+- `render_plan.py` – the engine. `python3 render_plan.py plan.json out.mp4 [auto|house|futurebass|lofi|disco|afro|synthwave|trap|tropical]` (default auto)
 - `common.py` – routes the app, fonts and stage page offline; seeds demo fridge / freezer / cupboard data.
 - `stage.html` – the 1080×1920 stage (background, headline, phone frame, end card).
-- `music2.py` – generates the soundtrack (default style: **energy**, the founder's pick).
+- `music3.py` – generates a fresh soundtrack per video: 8 genres, rotated by posting slot so back-to-back posts never share a genre; key, tempo, chords and melody come from the file name. Mixed for phone speakers.
+- `remix_audio.py` – swap the music on a finished video: `python3 remix_audio.py ../videos/<file>.mp4 [style]` (uses `timelines/<file>.json`, saved by every render).
+- `music2.py` – old single-track generator (kept for reference).
 - `fonts/` – Gabarito + Atkinson Hyperlegible (SIL Open Font License, from Google Fonts).
 
 ## Inputs
