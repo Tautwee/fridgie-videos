@@ -1,0 +1,13 @@
+{"title":"Fridge glow-up","bpm":130,"music":"phonk","drop_beat":8,
+ "shots":[
+  {"beats":4,"kind":"text","text":"my fridge <b>before</b> Fridgeroo","bg":"#262626","fx":"shake"},
+  {"beats":2,"kind":"text","text":"\"is this milk still <b>ok?</b>\"","bg":"#363636","fx":"shake"},
+  {"beats":2,"kind":"text","text":"\"who bought <b>3</b> ketchups?\"","bg":"#4a1f1f","fx":"shake"},
+  {"beats":2,"kind":"app","focus":"Milk","head":"<b>after</b>","bg":"#185c3c"},
+  {"beats":2,"kind":"app","screen":"freezer","focus":"Pizza","head":"freezer: <b>sorted</b>","bg":"#1c5c9d"},
+  {"beats":2,"kind":"app","screen":"cupboard","focus":"Pasta","head":"cupboard: <b>sorted</b>","bg":"#794820"},
+  {"beats":2,"kind":"app","focus":"Chicken","head":"eat <b>this</b> first","bg":"#a96300"},
+  {"beats":2,"kind":"app","screen":"recipes","head":"dinner: <b>sorted</b>","bg":"#185c3c"},
+  {"beats":6,"kind":"end"}],
+ "caption":"Fridge glow-up 😮‍💨 from \"is this still ok?\" to sorted. Free, no download: fridgeroo.netlify.app",
+ "hashtags":["#glowup","#fridgeroo","#studentlife","#studenthouse","#organisation"]}

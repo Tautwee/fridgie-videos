@@ -138,10 +138,11 @@ PROGS = {'maj': [[0, 4, 5, 3], [5, 3, 0, 4], [0, 5, 3, 4], [3, 4, 2, 5], [0, 3, 
 CFG = {  # bpm range, mode, swing
     'house': ((120, 126), 'min', 0.0), 'futurebass': ((144, 152), 'maj', 0.0), 'lofi': ((78, 90), 'maj', 0.16),
     'disco': ((112, 120), 'min', 0.0), 'afro': ((108, 116), 'min', 0.06), 'synthwave': ((96, 106), 'min', 0.0),
-    'trap': ((136, 146), 'min', 0.0), 'tropical': ((100, 110), 'maj', 0.0)}
+    'trap': ((136, 146), 'min', 0.0), 'tropical': ((100, 110), 'maj', 0.0),
+    'spookyhouse': ((122, 126), 'min', 0.0), 'phonk': ((128, 132), 'min', 0.0)}
 (b0, b1), mode, SWING = CFG[style]
 if style in ('house', 'disco', 'afro') and rng.random() < 0.35: mode = 'maj'
-bpm = int(rng.integers(b0, b1 + 1)); beat = 60 / bpm; bar = beat * 4
+bpm = tl.get('bpm') or int(rng.integers(b0, b1 + 1)); beat = 60 / bpm; bar = beat * 4  # beat videos lock the tempo
 key = 52 + int(rng.integers(0, 10))  # E3..C#4 root
 scale = MAJ if mode == 'maj' else MIN
 prog = PROGS[mode][int(rng.integers(0, len(PROGS[mode])))]
@@ -157,7 +158,7 @@ def sw(k16):  # swing 16ths
 # melody: a 2-bar hook, chord tones on strong steps, repeated with a twist
 def make_hook():
     rhythms = {'house': '1.1.1..1.1.11..1', 'futurebass': '1..1..1.1..1.1..', 'lofi': '1...1.1.....1...', 'disco': '1.11.1.1.11.1...',
-               'afro': '1..1..1...1.1...', 'synthwave': '1...1...1.1.1...', 'trap': '1..1..1.....1.1.', 'tropical': '1..1..1.1..1..1.'}
+               'afro': '1..1..1...1.1...', 'synthwave': '1...1...1.1.1...', 'trap': '1..1..1.....1.1.', 'tropical': '1..1..1.1..1..1.', 'spookyhouse': '1.1.1...1.1.1...', 'phonk': '1.11.1.11.1.1.1.'}
     r = rhythms[style]; notes = []
     for half in range(2):
         cd = prog[half % len(prog)]; tones = [cd, cd + 2, cd + 4]; prev = cd + 7
@@ -177,9 +178,9 @@ def hook_events(rep):
 
 # ---------------------------------------------------------------- arrangement
 scenes = tl['scenes']
-intro_end = bar if T > 10 else 0
+intro_end = tl['drop'] if 'drop' in tl else (bar if T > 10 else 0)
 kicks = []
-melody_start = scenes[1] if len(scenes) > 2 else bar * 2
+melody_start = tl['drop'] if 'drop' in tl else (scenes[1] if len(scenes) > 2 else bar * 2)
 
 for b in range(nbars):
     t0 = b * bar
@@ -215,12 +216,29 @@ for b in range(nbars):
             add('music', filt(saw(hz(m), beat / 4 * 0.9), 1300 + 700 * np.sin(b + k / 8)) * env(int(SR * (beat / 4 * 0.9)), 0.002, 0.08), t0 + k * beat / 4, 0.045, pan=0.3 if k % 2 else -0.3)
     elif style == 'trap':
         for m in chord(cd, False, 1): add('music', supersaw(hz(m), bar, 3, 0.1, 1100, 0.4, 2, 0.8, 0.5), t0, 0.018)
+    elif style == 'spookyhouse':
+        arp = chord(cd, False, 2)
+        for k in range(8):  # music-box arpeggio
+            add('music', bell(hz(arp[[0, 2, 1, 2][k % 4]]), beat * 0.9), t0 + k * beat / 2, 0.05, pan=0.35 if k % 2 else -0.35)
+        for h in (0.5, 1.5, 2.5, 3.5):
+            for m in chord(cd, False, 1): add('music', organ_stab(hz(m), beat * 0.35), t0 + h * beat, 0.07, pan=(m % 3 - 1) * 0.2)
+        if t0 < intro_end:  # eerie theremin in the build
+            th = deg(cd + 4, 2); tq = tt(bar); x = np.sin(2 * np.pi * hz(th) * tq + 0.6 * np.sin(2 * np.pi * 5.5 * tq) * 6)
+            add('music', E(x, 0.4, 3, 0.8, 0.4), t0, 0.03)
+    elif style == 'phonk':
+        for m in chord(cd, False, 0): add('music', supersaw(hz(m), bar, 3, 0.15, 900, 0.3, 2, 0.8, 0.4), t0, 0.02)
     elif style == 'tropical':
         for h in (0, 0.75, 1.5, 2.5, 3.25):
             for m in chord(cd, False, 1): add('music', marimba(hz(m), 0.45) * 0.8 + pluck(hz(m), 0.45, 0.5) * 0.5, t0 + h * beat, 0.085, pan=(m % 3 - 1) * 0.3)
 
     # ---------------- bass
     root = deg(cd, -2)
+    if style == 'spookyhouse':
+        for k in range(1, 8, 2):
+            add('bass', E(filt(saw(hz(root), beat * 0.42), 800), 0.003, 0.15, 0.3, 0.03), t0 + k * beat / 2, 0.3)
+    elif style == 'phonk' and t0 >= intro_end:
+        for k16, gl in ((0, None), (3, None), (6, None), (10, root + 3)):
+            add('bass', np.tanh(k808(root, beat * 0.7, gl) * 1.8), t0 + k16 * beat / 4, 0.42)
     if style in ('house', 'disco'):
         for k in range(8):
             m = root + (12 if (style == 'disco' and k % 2) else 0)
@@ -250,7 +268,7 @@ for b in range(nbars):
     for q in range(4):
         tb = t0 + q * beat
         if tb > T - 0.8: break
-        if style in ('house', 'disco', 'synthwave', 'tropical'):
+        if style in ('house', 'disco', 'synthwave', 'tropical', 'spookyhouse'):
             add('drums', kick(1.1, 8 if style != 'synthwave' else 6), tb, 0.85); kicks.append(tb)
         elif style == 'afro':
             if q in (0, 2): add('drums', kick(0.9, 9), tb, 0.8); kicks.append(tb)
@@ -261,7 +279,7 @@ for b in range(nbars):
             if q == 0: add('drums', kick(1.2, 7), tb, 0.85); kicks.append(tb)
             if style == 'futurebass' and q == 1: add('drums', kick(1.0, 9), tb + beat * 0.5, 0.6); kicks.append(tb + beat * 0.5)
         # backbeat
-        if style in ('house', 'disco', 'tropical', 'afro') and q in (1, 3): add('drums', clap(), tb, 0.45, 0.05)
+        if style in ('house', 'disco', 'tropical', 'afro', 'spookyhouse') and q in (1, 3): add('drums', clap(), tb, 0.45, 0.05)
         if style == 'lofi' and q in (1, 3): add('drums', filt(snare(200, 0.09, 0.6), 4000), tb + SWING * beat / 2, 0.5)
         if style == 'synthwave' and q in (1, 3):
             s = snare(180, 0.18); add('drums', s, tb, 0.55); add('send', s, tb, 0.6)
@@ -290,11 +308,23 @@ for b in range(nbars):
             elif k16 % 2 == 0: add('drums', hat(), tk, 0.06, 0.3)
         elif style == 'tropical':
             if k16 % 2 == 1: add('drums', shaker(), tk, 0.06, 0.3)
+        elif style == 'spookyhouse':
+            if k16 % 4 == 2: add('drums', hat(True), tk, 0.12, 0.2)
+            elif k16 % 2 == 1: add('drums', hat(), tk, 0.06, -0.2)
+        elif style == 'phonk':  # brega-funk / tamborzao style groove
+            if k16 in (0, 3, 6, 10): add('drums', kick(1.3, 7), tk, 0.85); kicks.append(tk)
+            if k16 in (4, 12): add('drums', snare(220, 0.1) * 0.7 + clap() * 0.8, tk, 0.6); add('send', clap(), tk, 0.2)
+            if k16 in (7, 13, 15): add('drums', tom(160 if k16 == 7 else 240), tk, 0.25, 0.3)
+            if k16 % 2 == 0: add('drums', hat(k16 == 14), tk, 0.06, 0.3)
 
 # ---------------- lead hook (from scene 2, and loud on the end card)
 rep = 0; t = melody_start - (melody_start % (bar * 2)) if melody_start > bar * 2 else melody_start
 t = max(t, intro_end)
-LEADV = {'house': 'pluck', 'futurebass': 'saw', 'lofi': 'sine', 'disco': 'saw', 'afro': 'bell', 'synthwave': 'saw', 'trap': 'bell', 'tropical': 'pluck'}[style]
+LEADV = {'house': 'pluck', 'futurebass': 'saw', 'lofi': 'sine', 'disco': 'saw', 'afro': 'bell', 'synthwave': 'saw', 'trap': 'bell', 'tropical': 'pluck',
+         'spookyhouse': 'pluck', 'phonk': 'cowbell'}[style]
+def cowbell(f, dur):  # phonk cowbell: two clangy square partials
+    x = sq(f, dur) * 0.6 + sq(f * 1.48, dur) * 0.4
+    return E(filt(np.tanh(x * 1.5), 5000), 0.001, 0.12, 0.0, 0.02)
 while t < T - 1.2:
     for k16, d in hook_events(rep):
         tn = t + sw(k16)
@@ -302,6 +332,7 @@ while t < T - 1.2:
         m = deg(d, 1 if style not in ('trap', 'afro') else 1); f = hz(m); du = beat * 0.45
         if LEADV == 'pluck': x = pluck(f, du * 1.6, 0.9, 0.994)
         elif LEADV == 'bell': x = bell(f, du * 2)
+        elif LEADV == 'cowbell': x = cowbell(f * 2, du * 1.2)
         elif LEADV == 'sine': x = E((sine(f, du * 1.5) + 0.2 * sine(2 * f, du * 1.5)), 0.01, 0.4, 0.3, 0.1)
         else: x = filt(supersaw(f, du, 3, 0.1, 3500, 0.005, 0.25, 0.5, 0.05).mean(1), 4000)
         g = 0.11 if tn >= END - 0.2 else 0.08
@@ -309,6 +340,12 @@ while t < T - 1.2:
         add('lead', x, tn + beat * 0.75, g * 0.3, pan=-0.4)  # dotted-8th echo
     t += bar * 2; rep += 1
 
+# ---------------- build-up into the drop (beat videos)
+if 'drop' in tl and tl['drop'] > bar:
+    D0 = tl['drop']
+    for k in range(16):
+        tk = D0 - bar + k * beat / 4
+        if tk < D0 - beat / 2: add('drums', snare(230, 0.07), tk, 0.08 + 0.4 * (k / 16) ** 2, 0.1)
 # ---------------- transitions
 for i, sc in enumerate(scenes[1:]):
     add('sfx', riser(min(1.2, bar / 2)), sc - min(1.2, bar / 2), 0.08)
@@ -335,7 +372,7 @@ def duck_curve(times, depth=0.5, rel=0.22):
         i = int(k * SR); n = int(rel * SR); seg = d[i:i + n]
         d[i:i + n] = np.minimum(seg, (1 - depth) + depth * np.linspace(0, 1, len(seg)) ** 1.5)
     return d[:, None]
-sc_depth = {'futurebass': 0.7, 'house': 0.5, 'disco': 0.4, 'synthwave': 0.35, 'tropical': 0.45, 'afro': 0.35, 'trap': 0.2, 'lofi': 0.15}[style]
+sc_depth = {'spookyhouse': 0.5, 'phonk': 0.3, 'futurebass': 0.7, 'house': 0.5, 'disco': 0.4, 'synthwave': 0.35, 'tropical': 0.45, 'afro': 0.35, 'trap': 0.2, 'lofi': 0.15}[style]
 dk = duck_curve(kicks, sc_depth)
 ir_n = int(SR * (2.2 if style in ('synthwave', 'lofi') else 1.5)); it = np.arange(ir_n) / SR
 ir = np.stack([rng.normal(0, 1, ir_n), rng.normal(0, 1, ir_n)], 1) * np.exp(-it / (0.45 if style != 'synthwave' else 0.7))[:, None]
@@ -358,6 +395,9 @@ k = int(min(intro_end, T) * SR)
 if k:
     lowv = filt(mix[:k], 700); ramp = np.linspace(0, 1, k)[:, None] ** 2
     mix[:k] = lowv * (1 - ramp) + mix[:k] * ramp
+if 'drop' in tl:  # a breath of silence right before the drop
+    g0, g1 = int((tl['drop'] - beat / 2) * SR), int(tl['drop'] * SR)
+    mix[g0:g1] *= np.linspace(0.25, 0.02, g1 - g0)[:, None]
 mix += bus['sfx']
 # master: gentle glue + limiter + fades
 fade = np.ones(N); fo = int(1.4 * SR); fade[-fo:] = np.linspace(1, 0, fo) ** 1.5; fade[:int(0.03 * SR)] = np.linspace(0, 1, int(0.03 * SR))

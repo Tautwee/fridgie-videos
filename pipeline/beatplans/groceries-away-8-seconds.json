@@ -1,0 +1,10 @@
+{"title":"Groceries away in 8 seconds","bpm":124,"music":"house","drop_beat":4,
+ "shots":[
+  {"beats":4,"kind":"text","text":"putting groceries away in <b>8 seconds</b>","bg":"#1c5c9d"},
+  {"beats":8,"kind":"add","name":"Tosti ham","head":"type it <b>once</b>","bg":"#185c3c"},
+  {"beats":2,"kind":"app","focus":"Tosti ham","head":"date <b>guessed</b>","bg":"#a96300"},
+  {"beats":2,"kind":"app","screen":"freezer","focus":"Pizza","head":"freezer <b>too</b>","bg":"#1c5c9d"},
+  {"beats":2,"kind":"app","screen":"cupboard","focus":"Soy sauce","head":"and the <b>cupboard</b>","bg":"#794820"},
+  {"beats":6,"kind":"end"}],
+ "caption":"Groceries away in 8 seconds ⏱️ Fridgeroo guesses the dates for you: fridgeroo.netlify.app",
+ "hashtags":["#groceryhaul","#fridgeroo","#studentlife","#lifehack","#organisation"]}

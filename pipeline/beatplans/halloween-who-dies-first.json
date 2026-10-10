@@ -1,0 +1,13 @@
+{"title":"Who dies first (Halloween)","bpm":124,"music":"spookyhouse","drop_beat":8,
+ "shots":[
+  {"beats":4,"kind":"text","text":"POV: you open your fridge on <b>Halloween</b>","bg":"#140b24","fx":"flicker"},
+  {"beats":4,"kind":"text","text":"something in here is <b>dying</b>","bg":"#22091a","fx":"shake"},
+  {"beats":2,"kind":"app","focus":"Chicken","head":"Who dies <b>first?</b>","bg":"#3b1060"},
+  {"beats":2,"kind":"app","focus":"Salmon","head":"Who dies <b>first?</b>","bg":"#b4500a"},
+  {"beats":2,"kind":"app","focus":"Lettuce","head":"Who dies <b>first?</b>","bg":"#3b1060"},
+  {"beats":2,"kind":"app","focus":"Leftover pasta","head":"Who dies <b>first?</b>","bg":"#b4500a"},
+  {"beats":2,"kind":"app","focus":"Strawberries","head":"Who dies <b>first?</b>","bg":"#3b1060"},
+  {"beats":4,"kind":"app","focus":"Chicken","label":"eat me tonight","head":"Fridgeroo <b>warns</b> you first","bg":"#185c3c"},
+  {"beats":6,"kind":"end"}],
+ "caption":"Something in your fridge is dying this Halloween 💀 Fridgeroo tells you what to eat first: fridgeroo.netlify.app",
+ "hashtags":["#halloween","#spookyseason","#fridgeroo","#studentlife","#foodwaste"]}
