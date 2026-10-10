@@ -25,7 +25,7 @@ def headline_html(s):
 
 SCENES = [(i * SCENE_LEN, COL.get(s.get('bg'), COL['navy']), headline_html(s)) for i, s in enumerate(scenes)]
 END_AT = len(scenes) * SCENE_LEN; TOTAL = END_AT + END_LEN
-SX, SY, Z = 224, 458, 1.6205
+SX, SY, Z = 262, 626, 1.4256  # phone screen origin + zoom; keep in sync with stage.html (iPhone safe area)
 TAPS = []
 NAMES = ['Chicken','Lettuce','Greek yogurt','Milk','Eggs','Cheddar','Butter','Salmon','Ham','Tomatoes','Peppers','Carrots','Cucumber','Strawberries','Apples','Bananas','Orange juice','Cola','Ketchup','Pesto','Hummus','Tortilla wraps','Bread','Leftover pasta',
          'Ice cream','Burgers','Frozen peas','Fries','Pizza','Dumplings','Fish fingers','Frozen berries','Chicken nuggets','Spinach',
