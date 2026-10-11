@@ -105,8 +105,8 @@ async def main():
                   'phone': 1, 'ps': 1 + bump, 'px': 0, 'py': 0, 'flash': 0, 'stick': None, 'hl': None, 'tap': None, 'end': 0, 'vig': 0.6 if s.get('fx') else 0.25}
             if t >= DROP and t - DROP < 0.3: st['flash'] = 0.85 * (1 - (t - DROP) / 0.3)
             if s['kind'] == 'text':
-                st['phone'] = 0; st['big'] = s['text']; st['bigo'] = 1; st['bigs'] = 1 + math.exp(-since * 9) * 0.05 + (0.06 * (1 - ease(lt / 0.18)))
-                if s.get('fx') == 'flicker' and lt < 0.6: st['bigo'] = 1 if random.random() > 0.35 else 0.15
+                st['phone'] = 0; st['big'] = s['text']; st['bigo'] = 1; st['bigs'] = 1 + math.exp(-since * 9) * 0.05 + (0.06 * (1 - ease(lt / 0.18)) if t > 0.05 else 0)
+                if s.get('fx') == 'flicker' and 0.1 < lt < 0.6: st['bigo'] = 1 if random.random() > 0.35 else 0.15
                 if s.get('fx') == 'shake': st['px'] = random.uniform(-1, 1) * 14 * math.exp(-since * 6); st['py'] = random.uniform(-1, 1) * 14 * math.exp(-since * 6)
             elif s['kind'] in ('app', 'add'):
                 st['head'] = s.get('head', ''); st['heado'] = ease(lt / 0.12)

@@ -23,3 +23,7 @@ Finished videos go in `videos/` (this repo is public) and are scheduled through 
 (brand `7328598`, TikTok + Instagram Reel + YouTube Short) using the raw link
 `https://raw.githubusercontent.com/Tautwee/fridgie-videos/main/videos/<file>.mp4`.
 Never schedule without the founder's explicit yes.
+
+## Covers
+Every render's first frame is a complete picture (headline + phone), so it works as the cover.
+When booking, also make `covers/<file>.jpg` (`ffmpeg -ss 2.0 -i videos/<file>.mp4 -frames:v 1 -q:v 2 covers/<file>.jpg`; for beat videos use `-ss 0.5`), push it, and pass it to Metricool as `videoThumbnailUrl`.

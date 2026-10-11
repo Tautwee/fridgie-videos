@@ -133,9 +133,9 @@ async def main():
                 v = round(sld[2] + (sld[3] - sld[2]) * ease((t - sld[0]) / (sld[1] - sld[0])))
                 await app.evaluate(f"()=>{{const r=document.getElementById('dRange');if(r){{r.value={v};r.dispatchEvent(new Event('input',{{bubbles:true}}))}}}}")
             si = max(k for k, s in enumerate(SCENES) if t >= s[0]); s0 = SCENES[si]; prev = SCENES[si - 1] if si else s0
-            k = ease((t - s0[0]) / 0.45) if si else 1; hk = ease((t - s0[0]) / 0.4) if si else ease(t / 0.4)
+            k = ease((t - s0[0]) / 0.45) if si else 1; hk = ease((t - s0[0]) / 0.4) if si else 1  # frame 0 is complete = good cover
             st = {'bg': 'rgb(%d,%d,%d)' % mix(prev[1], s0[1], k), 'cur': s0[2], 'prev': prev[2] if si else '', 'ci': hk,
-                  'endk': ease((t - END_AT) / 0.4), 'popk': ease((t - END_AT - 0.15) / 0.5), 'phone': ease(t / 0.5), 'tap': None, 'hl': None}
+                  'endk': ease((t - END_AT) / 0.4), 'popk': ease((t - END_AT - 0.15) / 0.5), 'phone': 1, 'tap': None, 'hl': None}
             if tap and 0 <= t - tap[2] <= 0.6:
                 q = (t - tap[2]) / 0.6; st['tap'] = [tap[0], tap[1], 0.6 + 0.6 * q, 1 - q]
             if hlc and hlc[0] and hlc[1] <= t <= hlc[2]:
