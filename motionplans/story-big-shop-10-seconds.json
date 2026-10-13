@@ -1,0 +1,6 @@
+{"title":"Big shop, logged in 10 seconds","bpm":116,"music":"disco","palette":"charcoal",
+ "scenes":[
+  {"type":"hook","beats":3,"text":"Big shop?","sub":"Logged in <b>10 seconds</b> ⚡","size":130},
+  {"type":"scan","beats":7,"title":"Scan. <b>Beep.</b> Done.","items":["🧃","🥚","🧀","🍌","🥦","🍗","🥛","🍝","🍫"]},
+  {"type":"punch","beats":2,"text":"Done. ✅"},
+  {"type":"end","beats":5}]}

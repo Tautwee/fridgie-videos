@@ -1,0 +1,6 @@
+{"title":"Chicken countdown","bpm":128,"music":"futurebass","palette":"sunset",
+ "scenes":[
+  {"type":"hook","beats":4,"text":"POV: the chicken you <b>forgot</b>","sub":"has 3 days to live 😬"},
+  {"type":"countdown","beats":9,"emoji":"🍗","from":3,"stepBeats":2,"notify":"Chicken goes off tomorrow! Tacos tonight? 🌮","end":"Tacos tonight 🌮"},
+  {"type":"punch","beats":2,"text":"Saved. 😮‍💨"},
+  {"type":"end","beats":5}]}

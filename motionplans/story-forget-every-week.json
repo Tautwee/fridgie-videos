@@ -1,0 +1,6 @@
+{"title":"What do you forget every week?","bpm":104,"music":"tropical","palette":"lagoon",
+ "scenes":[
+  {"type":"hook","beats":3,"text":"Be <b>honest</b> 👀","size":140},
+  {"type":"grid","beats":6,"title":"What do you forget <b>every</b> week?","items":["🥒","🍋","🥑","🍞"],"loser":0,"verdict":"RIP cucumber, again 🥒"},
+  {"type":"text","beats":4,"text":"Fridgeroo warns you","pill":"2 days before 🔔"},
+  {"type":"end","beats":5}]}

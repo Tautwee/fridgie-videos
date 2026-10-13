@@ -361,7 +361,12 @@ def whoosh(d=0.45):
 def ding():
     n = int(SR * 1.4); t = np.arange(n) / SR
     return (np.sin(2 * np.pi * 1318.5 * t) + 0.5 * np.sin(2 * np.pi * 1975.5 * t)) * env(n, 0.002, 0.45)
+def beep():
+    n = int(SR * 0.09); t = np.arange(n) / SR
+    return (np.sign(np.sin(2 * np.pi * 1760 * t)) * 0.5 + np.sin(2 * np.pi * 3520 * t) * 0.3) * env(n, 0.002, 0.06)
 for tp in tl['taps']: add('sfx', pop(), tp, 0.35)
+for tp in tl.get('beeps', []): add('sfx', beep(), tp, 0.13)
+for tp in tl.get('dings', []): add('sfx', ding(), tp, 0.14)
 for sc in scenes[1:]: add('sfx', whoosh(), sc - 0.2, 0.3)
 add('sfx', ding(), END + 0.15, 0.16)
 

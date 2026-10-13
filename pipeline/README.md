@@ -27,3 +27,11 @@ Never schedule without the founder's explicit yes.
 ## Covers
 Every render's first frame is a complete picture (headline + phone), so it works as the cover.
 When booking, also make `covers/<file>.jpg` (`ffmpeg -ss 2.0 -i videos/<file>.mp4 -frames:v 1 -q:v 2 covers/<file>.jpg`; for beat videos use `-ss 0.5`), push it, and pass it to Metricool as `videoThumbnailUrl`.
+
+## Stories and ad-style videos (13 Oct 2026, the style Tautvydas picked)
+Every Instagram story is a VIDEO (no more photos), made with `render_motion.py` from `motionplans/<name>.json`:
+`cd pipeline && python3 render_motion.py ../motionplans/<name>.json ../stories/<name>.mp4`
+Look at `examples/` (his 4 reference ads; `fridgeroo-story-countdown-SOUND.mp4` is the one with music he liked):
+fast, bouncy, eye-catching motion, cuts and pops on the beat, music genre matching the energy, starry gradient
+background, logo outro. Rotate palettes so two days in a row never look the same.
+`render_story.py` (still images) is retired.
