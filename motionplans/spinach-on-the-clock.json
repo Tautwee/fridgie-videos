@@ -1,0 +1,55 @@
+{
+  "title": "Spinach on the Clock",
+  "feature": "Evening \"goes off tomorrow\" notification",
+  "energy": "upbeat",
+  "bpm": 124,
+  "music": "house",
+  "palette": "cobalt",
+  "modules": [
+    "hook",
+    "countdown",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "Your spinach has 3 days <b>left</b>. 🥬",
+      "sub": "Will you notice in <b>time</b>?"
+    },
+    {
+      "type": "countdown",
+      "beats": 10,
+      "emoji": "🥬",
+      "from": 3,
+      "stepBeats": 2,
+      "unit": "days left",
+      "unit1": "day left ⚠️",
+      "notify": "Spinach goes off <b>tomorrow</b>! Stir-fry tonight?",
+      "end": "Spinach <b>saved</b>. 😮‍💨"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Fridgeroo pings you the evening before your food goes off, so the spinach gets eaten, not binned 🥬 Free at fridgeroo.netlify.app, no download needed.",
+  "hashtags": [
+    "#fridgeroo",
+    "#foodtok",
+    "#lifehack",
+    "#foodwaste",
+    "#studentlife"
+  ],
+  "cover": {
+    "words": "3 Days Left",
+    "emoji": "🥬"
+  },
+  "igSound": "Ramalama (Bang Bang) – Róisín Murphy",
+  "ytTitle": "Your spinach has 3 days left 🥬 #shorts",
+  "slot": "Wed 14 Oct 18:30 Berlin",
+  "beatsTotal": 18,
+  "seconds": 8.71,
+  "why": "Fixes \"Not sure whats going on\": one clear story, no in-jokes or Dutch. The hook states the problem in plain English (spinach, 3 days left). The countdown shows the days ticking 3-2-1 while green turns amber turns red, then a phone notification reads 'Spinach goes off tomorrow!' and the end text says 'Spinach saved.' It copies the founder's favourite countdown example. New sequence hook→countdown→end, not used in the last 6.",
+  "score": 9
+}

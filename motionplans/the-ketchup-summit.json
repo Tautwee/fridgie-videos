@@ -1,0 +1,64 @@
+{
+  "title": "The Ketchup Summit",
+  "feature": "Shared home: one shopping list for housemates",
+  "energy": "upbeat",
+  "bpm": 106,
+  "music": "tropical",
+  "palette": "lagoon",
+  "modules": [
+    "hook",
+    "list",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "We bought <b>ketchup</b> again. 🙃",
+      "sub": "Now there are three in the fridge."
+    },
+    {
+      "type": "list",
+      "beats": 6,
+      "title": "One <b>shared</b> list for your house",
+      "stepBeats": 1,
+      "items": [
+        {
+          "emoji": "🍅",
+          "text": "Ketchup: Sam already bought it ✅"
+        },
+        {
+          "emoji": "🥚",
+          "text": "Eggs: Lena is buying them"
+        },
+        {
+          "emoji": "🧻",
+          "text": "Toilet roll: still needed"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "beats": 5
+    }
+  ],
+  "caption": "One shared list for the whole house, so nobody buys the third ketchup again 🍅 Try Fridgeroo free at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#foodtok",
+    "#roommates",
+    "#sharedhouse",
+    "#studentenhuis"
+  ],
+  "cover": {
+    "words": "Three Ketchups?!",
+    "emoji": "🍅"
+  },
+  "igSound": "Be OK – Ingrid Michaelson",
+  "ytTitle": "Our house bought three ketchups again 🍅 #shorts",
+  "slot": "Sun 18 Oct 12:30 Berlin",
+  "beatsTotal": 15,
+  "seconds": 8.49,
+  "why": "Fixes the grammar complaint about the first words: the fragments '3 housemates. 3 ketchups.' are now one full sentence, 'Our house bought three ketchups again.' The sub uses the past perfect ('someone had already bought one'). 'Studentenhuis' is gone from the screen and only one Dutch hashtag remains. List rows are clear label: status phrases. Sequence hook→list→end has not been used in the last 6 (Sat's Freezer was hook→list→text→end). Tropical, lagoon and upbeat all differ from Sat's trap, forest and dramatic.",
+  "score": 8
+}

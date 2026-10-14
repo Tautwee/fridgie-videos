@@ -1,0 +1,56 @@
+{
+  "title": "Thirty-Eight Euros Richer",
+  "feature": "€ saved and no-waste streak",
+  "energy": "chill",
+  "bpm": 86,
+  "music": "lofi",
+  "palette": "berry",
+  "modules": [
+    "hook",
+    "punch",
+    "text",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "You saved <b>€38</b> this month. 💶",
+      "sub": "All you did was eat what you <b>bought</b>."
+    },
+    {
+      "type": "punch",
+      "beats": 2,
+      "text": "Zero food wasted in <b>21 days</b>. 🔥"
+    },
+    {
+      "type": "text",
+      "beats": 3,
+      "text": "Tap “<b>Ate it</b>” and watch the savings grow.",
+      "pill": "Savings and streak"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Tap “Ate it” in Fridgeroo and watch your savings and no-waste streak grow 💶🔥 Start free at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#fyp",
+    "#foodwaste",
+    "#budgettips",
+    "#studentenleven"
+  ],
+  "cover": {
+    "words": "€38 Saved",
+    "emoji": "💶"
+  },
+  "igSound": "Patient Zero – Taylor Swift",
+  "ytTitle": "I saved €38 just by eating what I bought 💶 #shorts",
+  "slot": "Sun 18 Oct 18:30 Berlin",
+  "beatsTotal": 13,
+  "seconds": 9.07,
+  "why": "Fixes 'Huis? House': there are no Dutch words on screen, and every line is a full correct English sentence. The punch is cut to 6 words ('Zero food wasted in 21 days.'), with no hyphen chains. The quotes match in the text and the caption. Hashtags share only 2 tags (#fridgeroo, #budgettips) with Mon 19, and there is one Dutch tag. Lofi, berry and chill differ from C (tropical, lagoon, upbeat) and from Mon (phonk, mint, hype).",
+  "score": 8
+}
