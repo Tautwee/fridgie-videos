@@ -1,0 +1,66 @@
+{
+  "title": "Dinner Is Already Here",
+  "feature": "recipes from what you have",
+  "energy": "upbeat",
+  "bpm": 118,
+  "music": "disco",
+  "palette": "sunset",
+  "modules": [
+    "hook",
+    "list",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Starving? What's for <b>dinner</b>? 🤤",
+      "sub": "Skip the <b>delivery</b> app",
+      "beats": 4
+    },
+    {
+      "type": "list",
+      "title": "Already in your <b>fridge</b>",
+      "items": [
+        {
+          "emoji": "🍝",
+          "text": "<b>Pasta</b>"
+        },
+        {
+          "emoji": "🍅",
+          "text": "<b>Tomatoes</b>"
+        },
+        {
+          "emoji": "🧀",
+          "text": "<b>Cheese</b>"
+        }
+      ],
+      "stepBeats": 1,
+      "beats": 5
+    },
+    {
+      "type": "punch",
+      "text": "Fridgeroo's <b>recipe</b>: cheesy tomato pasta 🔥",
+      "beats": 3
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Dinner is already in your fridge. 😋 Fridgeroo turns what you have into a recipe — free at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#dinnerideas",
+    "#easyrecipes",
+    "#studentmeals",
+    "#usewhatyouhave"
+  ],
+  "cover": {
+    "words": "Dinner's Already Here",
+    "emoji": "🍝"
+  },
+  "igSound": "",
+  "ytTitle": "What's for dinner? Your fridge already has a recipe 🍝 #shorts",
+  "why": "Fixes 'very similar to today's story': no countdown, no notification, no 'days left'. New feature (recipes from your fridge), new look (sunset, disco), same upbeat energy you liked."
+}
