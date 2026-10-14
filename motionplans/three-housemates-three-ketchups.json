@@ -1,0 +1,55 @@
+{
+ "title": "3 Housemates, 3 Ketchups",
+ "bpm": 116,
+ "music": "disco",
+ "palette": "berry",
+ "scenes": [
+  {
+   "type": "hook",
+   "text": "3 housemates. <b>3 ketchups</b>.",
+   "sub": "every studentenhuis ever 🙃",
+   "beats": 4
+  },
+  {
+   "type": "list",
+   "title": "Your list",
+   "items": [
+    {
+     "emoji": "🥚",
+     "text": "Eggs"
+    },
+    {
+     "emoji": "🧅",
+     "text": "Onions"
+    },
+    {
+     "emoji": "🍅",
+     "text": "Ketchup: in fridge ✓"
+    }
+   ],
+   "stepBeats": 1,
+   "beats": 4
+  },
+  {
+   "type": "punch",
+   "text": "This week: <b>zero</b> ketchups bought 🫡",
+   "beats": 3
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "Three housemates, three ketchups, sound familiar? 🙃 Your shopping list, in your pocket: fridgeroo.netlify.app 🛒",
+ "hashtags": [
+  "#fridgeroo",
+  "#lifehack",
+  "#studentenhuis",
+  "#studentenleven",
+  "#budgetfood"
+ ],
+ "cover": {
+  "words": "3 housemates, 3 ketchups",
+  "emoji": "🍅"
+ }
+}

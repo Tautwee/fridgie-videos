@@ -1,0 +1,41 @@
+{
+ "title": "Exam Brain, Happy Fridge",
+ "bpm": 112,
+ "music": "afro",
+ "palette": "mint",
+ "scenes": [
+  {
+   "type": "hook",
+   "text": "Me in <b>tentamenweek</b>:",
+   "sub": "3 exams, still vibing 💃",
+   "beats": 3
+  },
+  {
+   "type": "text",
+   "text": "🔔 Spinach: use by <b>tomorrow</b> 🥬",
+   "pill": "Fridgeroo · 20:00",
+   "beats": 4
+  },
+  {
+   "type": "punch",
+   "text": "Brain: full. Fridge: <b>handled</b>.",
+   "beats": 3
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "Exams all week? Fridgeroo gives you an evening heads-up when food goes off tomorrow 🔔 Free on any phone: fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#foodtok",
+  "#tentamenweek",
+  "#studentenleven",
+  "#foodwaste"
+ ],
+ "cover": {
+  "words": "Tentamenweek? Still vibing",
+  "emoji": "💃"
+ }
+}

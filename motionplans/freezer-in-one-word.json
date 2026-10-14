@@ -1,0 +1,56 @@
+{
+ "title": "Freezer in One Word",
+ "bpm": 140,
+ "music": "trap",
+ "palette": "forest",
+ "scenes": [
+  {
+   "type": "hook",
+   "text": "Your freezer in <b>one</b> word?",
+   "sub": "\"…unknown.\" 😶",
+   "beats": 4
+  },
+  {
+   "type": "list",
+   "title": "Actually in there",
+   "items": [
+    {
+     "emoji": "🍦",
+     "text": "Ice cream: 1 spoon"
+    },
+    {
+     "emoji": "🫛",
+     "text": "Peas: half bag"
+    },
+    {
+     "emoji": "🥟",
+     "text": "Dumplings: 3 left"
+    }
+   ],
+   "stepBeats": 1,
+   "beats": 6
+  },
+  {
+   "type": "text",
+   "text": "New word: <b>known</b>. 🧊",
+   "pill": "Know before it goes",
+   "beats": 4
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "Describe your freezer in one word 👇 If it's 'unknown', Fridgeroo shows what's in there and how much is left 🧊 fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#fyp",
+  "#freezerhacks",
+  "#zerowaste",
+  "#mealprep"
+ ],
+ "cover": {
+  "words": "Freezer. One word.",
+  "emoji": "🧊"
+ }
+}
