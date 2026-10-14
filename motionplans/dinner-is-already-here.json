@@ -14,10 +14,9 @@
   "scenes": [
     {
       "type": "hook",
-      "text": "Starving? What's for <b>dinner</b>? 🤤",
+      "text": "Starving? What's for <b>dinner</b>? 🤤",
       "sub": "Skip the <b>delivery</b> app",
-      "beats": 4,
-      "size": 96
+      "beats": 4
     },
     {
       "type": "list",
@@ -41,9 +40,8 @@
     },
     {
       "type": "punch",
-      "text": "Fridgeroo's <b>recipe</b>: cheesy tomato pasta 🔥",
-      "beats": 3,
-      "size": 128
+      "text": "Fridgeroo's <b>recipe</b>: cheesy tomato pasta 🔥",
+      "beats": 3
     },
     {
       "type": "end",
