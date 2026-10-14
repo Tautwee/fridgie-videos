@@ -1,0 +1,22 @@
+{
+  "title": "Peanut Butter Déjà Vu",
+  "feature": "cupboard",
+  "slot": "2026-10-19T12:30:00+02:00",
+  "remakeOf": "third-jar-of-peanut-butter-20261014-1830",
+  "energy": "hype",
+  "bpm": 130,
+  "music": "phonk",
+  "palette": "mint",
+  "modules": ["hook", "card", "end"],
+  "scenes": [
+    {"type": "hook", "beats": 4, "text": "Peanut butter <b>AGAIN</b>? 🥜", "sub": "check the cupboard first 👀"},
+    {"type": "card", "beats": 9, "title": "Your <b>cupboard</b>", "emoji": "🥜", "name": "Peanut butter", "days": 120, "left": 60, "sticker": "2 more jars at home 💀"},
+    {"type": "end", "beats": 5}
+  ],
+  "caption": "Peanut butter in the cart… again? 🥜 Fridgeroo shows what's already in your cupboard before you buy. Free: fridgeroo.netlify.app",
+  "hashtags": ["#fridgeroo", "#boodschappen", "#budgetfood", "#budgettips", "#mondaymood"],
+  "cover": {"words": "CHECK THE CUPBOARD", "emoji": "🥜"},
+  "igSound": "Ramalama (Bang Bang) Róisín Murphy",
+  "why": "Instant overbuying hook, then ONE cupboard card with the fill bar draining and a '2 more at home' sticker slam on a phonk drop, 8.3 s; replaces the long old-style shopping story.",
+  "score": 9
+}

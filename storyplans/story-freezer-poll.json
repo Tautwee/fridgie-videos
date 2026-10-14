@@ -1,0 +1,12 @@
+{
+  "title": "What's In Your Freezer?",
+  "slot": "2026-10-18T15:30:00+02:00",
+  "template": "poll",
+  "kind": "image",
+  "palette": "lagoon",
+  "emoji": "🧊",
+  "headline": "What's hiding in your <b>freezer</b>?",
+  "chips": ["🍕 Pizza", "❓ No idea"],
+  "kicker": "Reply 🍕 or ❓ in the DMs",
+  "url": "fridgeroo.netlify.app"
+}

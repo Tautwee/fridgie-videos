@@ -1,0 +1,23 @@
+{
+  "title": "Not In This Huis",
+  "feature": "€ saved & no-waste streak",
+  "slot": "2026-10-18T18:30:00+02:00",
+  "remakeOf": "a-third-of-food-gone-20261014-1230",
+  "energy": "chill",
+  "bpm": 90,
+  "music": "lofi",
+  "palette": "sunset",
+  "modules": ["hook", "scan", "punch", "end"],
+  "scenes": [
+    {"type": "hook", "beats": 3, "text": "A <b>third</b> of your food? Binned. 🗑️", "sub": "not in this huis 🏠"},
+    {"type": "scan", "beats": 6, "title": "Saved this month: <b>€38</b>", "items": ["🥛", "🥚", "🧀", "🍅", "🥦", "🍞", "🍗", "🍎"], "label": "saved", "stepBeats": 0.5},
+    {"type": "punch", "beats": 3, "text": "21-day <b>streak</b> 🔥"},
+    {"type": "end", "beats": 4}
+  ],
+  "caption": "A third of food gets binned, so watch your € saved and no-waste streak climb instead 🔥 Track yours free: fridgeroo.netlify.app",
+  "hashtags": ["#fridgeroo", "#foodwaste", "#zerowaste", "#studentenhuis", "#studentlife"],
+  "cover": {"words": "€38 SAVED", "emoji": "🔥"},
+  "igSound": "Autumn Colors LuLuMusic",
+  "why": "Turns the old waste statistic into ONE visible feature (€ saved counter + streak) with saved food stacking up on a chill lofi beat, 10.7 s, instead of a long stat lecture.",
+  "score": 8
+}
