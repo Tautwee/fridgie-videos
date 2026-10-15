@@ -1,0 +1,64 @@
+{
+  "slot": "2026-10-15T18:30:00+02:00",
+  "slug": "soups-last-night",
+  "remakeOf": "best-before-isnt-bad-after-20261015-1830",
+  "title": "Soup's Last Night",
+  "feature": "evening 'goes off tomorrow' notification",
+  "energy": "dramatic",
+  "mood": "spooky, suspenseful",
+  "format": "9 pm notification POV (Halloween)",
+  "bpm": 124,
+  "music": "spookyhouse",
+  "palette": "charcoal",
+  "modules": [
+    "hook",
+    "card",
+    "text",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "9 pm. Your fridge just <b>texted</b> you 👻",
+      "sub": "🔔 Fridgeroo: pumpkin soup goes off tomorrow!",
+      "beats": 4
+    },
+    {
+      "type": "card",
+      "title": "Goes off <b>tomorrow</b>",
+      "emoji": "🍲",
+      "name": "Pumpkin soup",
+      "days": 1,
+      "left": 100,
+      "sticker": "Eat it tonight 🎃",
+      "beats": 5
+    },
+    {
+      "type": "text",
+      "text": "You'll know the night <b>before</b> 🌙",
+      "pill": "🔔 Evening reminder",
+      "beats": 4
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Fridgeroo texts you the evening before your food goes off, so nothing gets spooky in your fridge 🎃 Try it free at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#halloween",
+    "#spookyseason",
+    "#foodwaste",
+    "#studenthouse"
+  ],
+  "cover": {
+    "words": "EAT IT TONIGHT",
+    "emoji": "🎃"
+  },
+  "ytTitle": "My Fridge Texted Me at 9 pm… and Saved the Soup 🎃",
+  "igSound": "Patient Zero – Taylor Swift",
+  "seconds": 8.23,
+  "score": 9,
+  "why": "Spooky 9 pm 'goes off tomorrow' alert on a pumpkin soup makes the one feature clear in the first second, rides Halloween and opens the run with dramatic energy."
+}

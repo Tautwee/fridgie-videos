@@ -1,0 +1,69 @@
+{
+  "slot": "2026-10-17T12:30:00+02:00",
+  "slug": "just-say-it",
+  "remakeOf": "groceries-away-8-seconds-20261017-1230",
+  "title": "Just Say It",
+  "feature": "voice add",
+  "energy": "upbeat",
+  "mood": "bouncy, feel-good",
+  "format": "hands-full POV",
+  "bpm": 112,
+  "music": "afro",
+  "palette": "sunset",
+  "modules": [
+    "hook",
+    "scan",
+    "text",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Hands full? Just <b>say</b> it 🎙️",
+      "sub": "🗣️ \"Milk, eggs and three apples\"",
+      "beats": 4
+    },
+    {
+      "type": "scan",
+      "title": "🎙️ Added by <b>voice</b>",
+      "items": [
+        "🥛",
+        "🥚",
+        "🥚",
+        "🍎",
+        "🍎",
+        "🍎"
+      ],
+      "label": "added",
+      "stepBeats": 0.5,
+      "beats": 6
+    },
+    {
+      "type": "text",
+      "text": "No typing. Just <b>talk</b>.",
+      "pill": "🎙️ Voice add",
+      "beats": 4
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Just say what you bought and Fridgeroo adds it to your fridge, even with your hands full 🎙️ Try it free at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#foodtok",
+    "#groceryhaul",
+    "#lifehack",
+    "#studenthouse"
+  ],
+  "cover": {
+    "words": "JUST SAY IT",
+    "emoji": "🎙️"
+  },
+  "ytTitle": "Too Many Bags to Type? Just Say It 🎙️",
+  "igSound": "Upside Down – Diana Ross",
+  "seconds": 9.64,
+  "score": 8,
+  "why": "Spoken words become fridge items on the beat, a single clear voice-add demo with upbeat afro energy that hands over cleanly to Saturday's dramatic trap Freezer video."
+}

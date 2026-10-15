@@ -1,0 +1,63 @@
+{
+  "slot": "2026-10-16T18:30:00+02:00",
+  "slug": "who-finished-the-oat-milk",
+  "remakeOf": "fridge-glow-up-20261016-1830",
+  "title": "Who Finished the Oat Milk?",
+  "feature": "fill-level slider",
+  "energy": "hype",
+  "mood": "playful housemate rage",
+  "format": "housemate rant + plot twist",
+  "bpm": 148,
+  "music": "futurebass",
+  "palette": "grape",
+  "modules": [
+    "hook",
+    "card",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Who finished my <b>oat milk</b>?! 😤",
+      "sub": "Wait… did they? 👀",
+      "beats": 4
+    },
+    {
+      "type": "card",
+      "title": "How much is <b>left</b>?",
+      "emoji": "🥛",
+      "name": "Oat milk",
+      "days": 4,
+      "left": 25,
+      "sticker": "Still 25% left 😅",
+      "beats": 7
+    },
+    {
+      "type": "punch",
+      "text": "Slide the bar. Never <b>guess</b> again.",
+      "beats": 4
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Slide the bar in Fridgeroo and see how much is really left before you blame your housemates 🥛 Free on any phone at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#fyp",
+    "#roommates",
+    "#studenthacks",
+    "#kitchenhacks"
+  ],
+  "cover": {
+    "words": "WHO DRANK IT?",
+    "emoji": "🥛"
+  },
+  "ytTitle": "Who Finished My Oat Milk?! (Plot Twist) 🥛",
+  "igSound": "Nicole Kidman – ADÉLA",
+  "seconds": 7.7,
+  "score": 9,
+  "why": "The strongest hook of the set: instant housemate drama resolved by the fill-level bar draining to 25%, peak hype for Friday evening."
+}

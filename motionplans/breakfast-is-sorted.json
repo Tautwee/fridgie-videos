@@ -1,0 +1,73 @@
+{
+  "slot": "2026-10-16T12:30:00+02:00",
+  "slug": "breakfast-is-sorted",
+  "remakeOf": "halloween-who-dies-first-20261016-1230",
+  "title": "Breakfast Is Sorted",
+  "feature": "morning breakfast idea notification",
+  "energy": "chill",
+  "mood": "cozy, calm morning",
+  "format": "morning notification POV",
+  "bpm": 100,
+  "music": "synthwave",
+  "palette": "cobalt",
+  "modules": [
+    "text",
+    "list",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "text",
+      "text": "Your fridge picked your <b>breakfast</b> ☀️",
+      "pill": "🔔 8 am · Morning notification",
+      "beats": 4
+    },
+    {
+      "type": "list",
+      "title": "From your <b>fridge</b>",
+      "items": [
+        {
+          "emoji": "🥚",
+          "text": "Two eggs"
+        },
+        {
+          "emoji": "🍅",
+          "text": "One tomato"
+        },
+        {
+          "emoji": "🧀",
+          "text": "A bit of feta"
+        }
+      ],
+      "stepBeats": 1,
+      "beats": 5
+    },
+    {
+      "type": "punch",
+      "text": "Today's breakfast: <b>shakshuka</b> 🍳",
+      "beats": 4
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Wake up to a breakfast idea made from what's already in your fridge ☀️ Free, no download: fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#studentlife",
+    "#breakfastideas",
+    "#budgetfood",
+    "#mealprep"
+  ],
+  "cover": {
+    "words": "BREAKFAST, SORTED",
+    "emoji": "☀️"
+  },
+  "ytTitle": "My Fridge Picks My Breakfast Every Morning ☀️",
+  "igSound": "La La La (Gilmore Girls theme)",
+  "seconds": 10.2,
+  "score": 8,
+  "why": "A calm lunchtime cooldown that shows only the 8 am breakfast-idea notification, clearly framed as a notification so it does not echo Wednesday's recipes video."
+}
