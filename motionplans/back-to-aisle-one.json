@@ -1,0 +1,75 @@
+{
+  "title": "Back to Aisle One",
+  "feature": "Shopping list sorted by aisle",
+  "energy": "upbeat",
+  "bpm": 124,
+  "music": "house",
+  "palette": "cobalt",
+  "modules": [
+    "hook",
+    "punch",
+    "list",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "POV: walking back to aisle one. <b>Again</b>.",
+      "sub": "Forgot the <b>milk</b> 🥛🙃",
+      "beats": 4
+    },
+    {
+      "type": "punch",
+      "text": "One lap. <b>Zero</b> backtracking. 🛒",
+      "beats": 3
+    },
+    {
+      "type": "list",
+      "title": "Your list, sorted by <b>aisle</b>",
+      "numbered": true,
+      "stepBeats": 1,
+      "items": [
+        {
+          "emoji": "🥦",
+          "text": "<b>Veg</b>: spinach, onions"
+        },
+        {
+          "emoji": "🥖",
+          "text": "<b>Bakery</b>: bread"
+        },
+        {
+          "emoji": "🧀",
+          "text": "<b>Dairy</b>: milk, cheese"
+        },
+        {
+          "emoji": "🍝",
+          "text": "<b>Pasta</b>: penne"
+        }
+      ],
+      "beats": 6
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Fridgeroo sorts your shopping list by aisle, so you shop in one lap and never walk back for the milk. 🛒 Free, no download: fridgeroo.netlify.app",
+  "hashtags": [
+    "#fridgeroo",
+    "#lifehack",
+    "#studenthacks",
+    "#studenthouse",
+    "#groceryhaul"
+  ],
+  "cover": {
+    "words": "One-lap shop",
+    "emoji": "🛒"
+  },
+  "igSound": "Funkytown Lipps Inc.",
+  "ytTitle": "Stop Walking Back to Aisle One: Your Shopping List, Sorted by Aisle 🛒",
+  "slot": "2026-10-19T18:30:00+02:00",
+  "beatsTotal": 17,
+  "seconds": 8.23,
+  "why": "Fresh feature (aisle-sorted list) shown in one list scene; relatable hook. Differs from Peanut Butter (cupboard, hype, phonk, mint, hook-card-end) on every axis.",
+  "score": 9
+}

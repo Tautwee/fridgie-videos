@@ -1,0 +1,15 @@
+{
+  "title": "Is Your Phone Full of Apps?",
+  "slot": "2026-10-19T15:30:00+02:00",
+  "template": "poll",
+  "kind": "image",
+  "palette": "sunset",
+  "emoji": "📱",
+  "headline": "Is your phone <b>full</b> of apps?",
+  "chips": [
+    "🙋 Too many",
+    "😌 Nope"
+  ],
+  "kicker": "Fridgeroo needs no download. 🙌",
+  "url": "fridgeroo.netlify.app"
+}
