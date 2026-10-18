@@ -1,0 +1,55 @@
+{
+  "slug": "something-dies-on-friday",
+  "title": "Something Dies on Friday",
+  "feature": "Expiry countdown (days left + goes-off-tomorrow ping)",
+  "energy": "dramatic",
+  "bpm": 126,
+  "music": "spookyhouse",
+  "palette": "berry",
+  "modules": [
+    "hook",
+    "countdown",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your cheese <b>dies</b> on Friday 👻",
+      "sub": "Spooky season, <b>fridge</b> edition 🎃",
+      "beats": 4
+    },
+    {
+      "type": "countdown",
+      "emoji": "🧀",
+      "from": 3,
+      "stepBeats": 2,
+      "unit": "days left",
+      "unit1": "day left ⚠️",
+      "notify": "Cheese goes off tomorrow! Toasties tonight? 🧀",
+      "end": "Cheese <b>saved</b> 🧀",
+      "beats": 10
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "The scariest thing in your fridge? The cheese you forgot 👻 Fridgeroo counts down the days and warns you the night before: fridgeroo.netlify.app",
+  "hashtags": [
+    "#fridgeroo",
+    "#spookyseason",
+    "#foodwaste",
+    "#studentmeals",
+    "#kitchenhacks"
+  ],
+  "cover": {
+    "words": "Dies on Friday",
+    "emoji": "👻"
+  },
+  "igSound": "Goo Goo Muck – The Cramps",
+  "slot": "2026-10-20T12:30:00+02:00",
+  "why": "Strongest unused feature, reads in 1 s; Tue→Fri = exactly the 3-2-1 countdown. Halloween hook with 👻 (playful, not violent). Punch cut (double ending). New sequence hook,countdown,end. Berry instead of charcoal so it doesn't clone 15 Oct; spookyhouse 126 to separate from Monday's house 124. Judge: caption cut to 2 sentences.",
+  "score": 9,
+  "beats": 18,
+  "seconds": 8.57
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "story-fastest-to-go-off",
+  "slot": "2026-10-21T15:30:00+02:00",
+  "title": "Fastest to go off",
+  "kind": "video",
+  "template": "motion",
+  "bpm": 100,
+  "music": "synthwave",
+  "palette": "lagoon",
+  "modules": [
+    "hook",
+    "list",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "These go off <b>fastest</b> ⏳",
+      "sub": "Eat them <b>first</b>.",
+      "beats": 4
+    },
+    {
+      "type": "list",
+      "title": "<b>Fridge</b> life ⏳",
+      "stepBeats": 1,
+      "items": [
+        {
+          "emoji": "🐟",
+          "text": "Fresh fish: <b>1–2</b> days"
+        },
+        {
+          "emoji": "🍓",
+          "text": "Berries: <b>2–3</b> days"
+        },
+        {
+          "emoji": "🥬",
+          "text": "Bagged salad: <b>3–5</b> days"
+        }
+      ],
+      "beats": 5
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "why": "Fun-fact video breaks the run of poll images; unrelated to Wednesday's videos (Ate it/Binned it, receipt). Emoji/text mismatch fixed (Berries). Flash on each row's beat. Judge: list title 'Use within days' was vague, now 'Fridge life ⏳'.",
+  "score": 8,
+  "beats": 13,
+  "seconds": 7.8
+}

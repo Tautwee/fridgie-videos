@@ -1,0 +1,62 @@
+{
+  "slug": "receipt-in-shop-done",
+  "title": "Receipt In, Shop Done",
+  "feature": "Receipt scan (whole shop in one photo)",
+  "energy": "upbeat",
+  "bpm": 116,
+  "music": "disco",
+  "palette": "sunset",
+  "modules": [
+    "hook",
+    "scan",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Receipt longer than my <b>essay</b> 😱",
+      "sub": "One <b>photo</b>. All in. 📸",
+      "beats": 4
+    },
+    {
+      "type": "scan",
+      "title": "Whole shop. <b>Added</b>. 🧾",
+      "items": [
+        "🍎",
+        "🥕",
+        "🧀",
+        "🍗",
+        "🥛",
+        "🍝",
+        "🥚",
+        "🍞",
+        "🍌"
+      ],
+      "label": "added",
+      "stepBeats": 0.25,
+      "beats": 7
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Snap the receipt and the whole haul lands in Fridgeroo at once 🧾 Free at fridgeroo.netlify.app",
+  "hashtags": [
+    "#fridgeroo",
+    "#foodtok",
+    "#groceryhaul",
+    "#budgetfood",
+    "#savemoney"
+  ],
+  "cover": {
+    "words": "One photo, whole shop",
+    "emoji": "🧾"
+  },
+  "igSound": "Last Train to London – Rikas",
+  "slot": "2026-10-21T18:30:00+02:00",
+  "why": "Upbeat slot, slam hook instead of text opener; new sequence hook,scan,end. Hook changed from '31 items' to the essay line so it can't clash with the scan counter (which shows 9) and lands with midterm-week students. stepBeats 0.25 = all items burst in at once, the visual opposite of #2's one-beep-each. Disco 116 (not tropical) and no 'big shop' wording (17 Oct story). Judge: 9 items × 0.25 beats burst, counter holds to beat 7.",
+  "score": 9,
+  "beats": 15,
+  "seconds": 7.76
+}

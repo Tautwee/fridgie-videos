@@ -1,0 +1,60 @@
+{
+  "slug": "ate-it-or-binned-it",
+  "title": "Ate It or Binned It?",
+  "feature": "Ate it / Binned it buttons",
+  "energy": "chill",
+  "bpm": 90,
+  "music": "lofi",
+  "palette": "forest",
+  "modules": [
+    "text",
+    "card",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "text",
+      "text": "Be honest. Avocado: <b>eaten</b> or binned? 🥑",
+      "pill": "No judgement 🙈",
+      "beats": 3
+    },
+    {
+      "type": "card",
+      "title": "Ate it or <b>binned</b> it?",
+      "emoji": "🥑",
+      "name": "Avocado",
+      "days": 1,
+      "left": 25,
+      "sticker": "Ate it ✅",
+      "beats": 4
+    },
+    {
+      "type": "punch",
+      "text": "One tap: <b>Ate it</b> ✅",
+      "beats": 3
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "One tap: \"Ate it\" or \"Binned it\". Fridgeroo keeps track of what you really finish 🥑 Free at fridgeroo.netlify.app",
+  "hashtags": [
+    "#fridgeroo",
+    "#cozyvibes",
+    "#nowaste",
+    "#sharedhouse",
+    "#budgettips"
+  ],
+  "cover": {
+    "words": "Eaten or binned?",
+    "emoji": "🥑"
+  },
+  "igSound": "Hello October – Sugar Lime Blue",
+  "slot": "2026-10-21T12:30:00+02:00",
+  "why": "Chill slot. Trimmed to 14 beats @90 (9.3 s). Streak removed so it's ONE feature; card title + sticker pop on the beat flash make the button the hero. Forest unused in last 10. Softly teased by Tuesday's 'what do you bin most?' story. Judge: punch rewritten to 'One tap: Ate it ✅' (was awkward and repeated the card), caption no longer over-claims 'learns'.",
+  "score": 8,
+  "beats": 14,
+  "seconds": 9.33
+}

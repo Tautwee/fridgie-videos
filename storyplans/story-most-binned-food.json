@@ -1,0 +1,18 @@
+{
+  "slug": "story-most-binned-food",
+  "slot": "2026-10-20T15:30:00+02:00",
+  "title": "Most binned food",
+  "kind": "image",
+  "template": "poll",
+  "palette": "mint",
+  "emoji": "🗑️",
+  "headline": "Which food do you bin <b>most</b>?",
+  "chips": [
+    "🥬 Salad",
+    "🥛 Milk"
+  ],
+  "kicker": "Tap <b>Binned it</b> and find out for sure.",
+  "url": "fridgeroo.netlify.app",
+  "why": "Doesn't repeat Tuesday's countdown/barcode; teases Wednesday's Ate it/Binned it video. Mint (not sunset, Monday's story). Milk instead of bread (avoids the disliked freeze-bread story). Judge: headline rephrased (no 'Be honest' — Wed's video opens with it), kicker gets its one keyword, duplicate 🗑️ dropped from kicker.",
+  "score": 8
+}

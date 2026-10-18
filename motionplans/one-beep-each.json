@@ -1,0 +1,65 @@
+{
+  "slug": "one-beep-each",
+  "title": "One Beep Each",
+  "feature": "Barcode scan",
+  "energy": "hype",
+  "bpm": 140,
+  "music": "trap",
+  "palette": "grape",
+  "modules": [
+    "hook",
+    "scan",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Groceries, but make it <b>beep</b> 📲",
+      "sub": "Just scan the <b>barcode</b>.",
+      "beats": 4
+    },
+    {
+      "type": "scan",
+      "title": "📷 Scan. <b>Beep</b>. Sorted.",
+      "items": [
+        "🥛",
+        "🧀",
+        "🥚",
+        "🍝",
+        "🥫",
+        "🍞"
+      ],
+      "label": "added",
+      "stepBeats": 0.5,
+      "beats": 7
+    },
+    {
+      "type": "punch",
+      "text": "<b>Done</b>. ✅",
+      "beats": 3
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Point your camera at a barcode, hear the beep, and it's in Fridgeroo 📲 Free, no download: fridgeroo.netlify.app",
+  "hashtags": [
+    "#fridgeroo",
+    "#fyp",
+    "#studentlife",
+    "#mealprep",
+    "#fridgeorganization"
+  ],
+  "cover": {
+    "words": "Beep it in",
+    "emoji": "📲"
+  },
+  "igSound": "WINDOWS IN BRAZIL (Sped Up) – VHM4D",
+  "slot": "2026-10-20T18:30:00+02:00",
+  "why": "Hype slot. No 'typing' premise (keeps it apart from receipt #3); barcode named in sub + 📷 title so the feature is clear in 1 s; 6 items so every BEEP lands on a half-beat. Trap 140 unused in last 10. Hashtags share only #fridgeroo with #1, #4 and Monday. Judge: caption no longer says 'added to your fridge' (it's added to the app).",
+  "score": 8,
+  "beats": 18,
+  "seconds": 7.71
+}
