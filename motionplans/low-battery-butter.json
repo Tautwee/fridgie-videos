@@ -1,0 +1,58 @@
+{
+  "slug": "low-battery-butter",
+  "title": "Low Battery Butter",
+  "feature": "fill-level slider (how much is left)",
+  "energy": "dramatic",
+  "bpm": 130,
+  "music": "phonk",
+  "palette": "charcoal",
+  "modules": [
+    "hook",
+    "grid",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "Butter's almost <b>gone.</b> 🧈",
+      "sub": "Right when the toast <b>pops.</b> 🍞"
+    },
+    {
+      "type": "grid",
+      "beats": 8,
+      "title": "Fridgeroo: what's running <b>low?</b>",
+      "items": [
+        "🥛",
+        "🧃",
+        "🫙",
+        "🧈"
+      ],
+      "loser": 3,
+      "dead": "🪫",
+      "verdict": "Butter: <b>5%</b> left 🪫",
+      "stepBeats": 0.5
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Know your butter is almost gone before toast time, not after. 🧈 See what's running low at fridgeroo.netlify.app.",
+  "hashtags": [
+    "#fridgeroo",
+    "#mealideas",
+    "#breakfastideas",
+    "#kitchenorganization",
+    "#budgetkitchen"
+  ],
+  "cover": {
+    "words": "BUTTER: 5% LEFT",
+    "emoji": "🪫"
+  },
+  "igSound": "STORM II – GENER8ION & Yung Lean",
+  "slot": "2026-10-22T12:30:00+02:00",
+  "seconds": 7.63,
+  "score": 9,
+  "why": "Fill-level feature shown as a grid: only the butter turns into a 5% battery while the rest dim, so the idea reads in one look. Dramatic phonk on a new charcoal palette, new hook,grid,end sequence, nothing shared with Wednesday's receipt video. Contact-sheet fix: hook shortened so the sub no longer overlaps it."
+}
