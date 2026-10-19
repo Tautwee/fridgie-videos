@@ -1,0 +1,45 @@
+{
+  "slug": "story-streak-mode",
+  "title": "Streak Mode",
+  "kind": "video",
+  "template": "motion",
+  "feature": "no-waste streak",
+  "energy": "hyped",
+  "bpm": 148,
+  "music": "futurebass",
+  "palette": "cobalt",
+  "modules": [
+    "hook",
+    "text",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 6,
+      "text": "Day 7 without <b>binning</b> food 🔥",
+      "sub": "My Fridgeroo streak"
+    },
+    {
+      "type": "text",
+      "beats": 5,
+      "text": "Every meal <b>used up</b> 🔥",
+      "pill": "Zero waste"
+    },
+    {
+      "type": "punch",
+      "beats": 4,
+      "text": "Don't <b>break</b> it 👀"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "slot": "2026-10-22T15:30:00+02:00",
+  "score": 8,
+  "why": "No-waste streak brag/teaser; no list or grid after Wednesday's list story; futurebass on cobalt.",
+  "beats": 19,
+  "seconds": 7.7
+}

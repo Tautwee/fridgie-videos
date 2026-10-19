@@ -1,0 +1,60 @@
+{
+  "slug": "nine-pm-ping",
+  "title": "9 PM Ping",
+  "feature": "evening \"goes off tomorrow\" notification",
+  "energy": "cheeky chill",
+  "bpm": 112,
+  "music": "afro",
+  "palette": "mint",
+  "modules": [
+    "text",
+    "card",
+    "punch",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "text",
+      "beats": 3,
+      "text": "Fridgeroo pings you at <b>9 PM</b> 🌙",
+      "pill": "Evening reminder"
+    },
+    {
+      "type": "card",
+      "beats": 5,
+      "title": "Expires <b>tomorrow!</b>",
+      "emoji": "🍗",
+      "name": "Chicken",
+      "days": 1,
+      "left": 60,
+      "sticker": "Cook it tonight ⏰"
+    },
+    {
+      "type": "punch",
+      "beats": 4,
+      "text": "<b>Saved.</b> 😮‍💨"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Fridgeroo pings you at 9 PM when your chicken goes off tomorrow 🌙 Free, no download: fridgeroo.netlify.app 🍗",
+  "hashtags": [
+    "#fridgeroo",
+    "#studentlife",
+    "#reels",
+    "#zerowastekitchen",
+    "#amsterdamstudent"
+  ],
+  "cover": {
+    "words": "9 PM PING",
+    "emoji": "🌙"
+  },
+  "igSound": "Water – Tyla",
+  "slot": "2026-10-22T18:30:00+02:00",
+  "score": 8,
+  "why": "Fresh feature (evening goes-off-tomorrow notification), one clear story: 9 PM ping → chicken card → Saved. New afro/mint vibe and text,card,punch modules, different from Thursday's 12:30 phonk/charcoal grid.",
+  "beats": 16,
+  "seconds": 8.57
+}
