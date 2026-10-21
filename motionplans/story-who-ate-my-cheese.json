@@ -1,0 +1,39 @@
+{
+  "slug": "story-who-ate-my-cheese",
+  "title": "Who Ate My Cheese?",
+  "kind": "video",
+  "template": "motion",
+  "feature": "shared home for housemates",
+  "energy": "cheeky",
+  "bpm": 104,
+  "music": "tropical",
+  "palette": "grape",
+  "modules": [
+    "hook",
+    "text",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "Who ate my <b>cheese</b>? 🧀",
+      "sub": "Every shared house, every week"
+    },
+    {
+      "type": "text",
+      "beats": 6,
+      "text": "Everyone sees what's <b>left</b> 🏠",
+      "pill": "One shared home in Fridgeroo"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "slot": "2026-10-23T15:30:00+02:00",
+  "score": 8,
+  "beats": 14,
+  "seconds": 8.08,
+  "why": "Shared-home teaser for student houses; different feature from the cupboard feed video; tropical on grape, hook,text,end."
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "cupboard-zombies",
+  "title": "Cupboard Zombies",
+  "feature": "cupboard tracking",
+  "energy": "spooky fun",
+  "bpm": 124,
+  "music": "house",
+  "palette": "lagoon",
+  "modules": [
+    "hook",
+    "card",
+    "list",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "Your cupboard has <b>zombies</b> 🧟",
+      "sub": "Fridgeroo checks it for you"
+    },
+    {
+      "type": "card",
+      "beats": 5,
+      "title": "Found in the <b>cupboard</b>",
+      "emoji": "🍪",
+      "name": "Biscuits (open pack)",
+      "days": 2,
+      "left": 40,
+      "sticker": "Eat me by Sunday 👀"
+    },
+    {
+      "type": "list",
+      "beats": 6,
+      "title": "Cupboard <b>check</b> 🧟",
+      "stepBeats": 1.5,
+      "items": [
+        {
+          "emoji": "🍝",
+          "text": "Pasta: <b>months</b> left"
+        },
+        {
+          "emoji": "🥫",
+          "text": "Beans: still <b>fine</b>"
+        },
+        {
+          "emoji": "🍪",
+          "text": "Biscuits: eat them <b>soon</b>"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Zombie food hiding at the back of your cupboard? 🧟 Fridgeroo tracks your cupboard too, free at fridgeroo.netlify.app 🥫",
+  "hashtags": [
+    "#fridgeroo",
+    "#halloween",
+    "#foodhacks",
+    "#studentfood",
+    "#pantryorganization"
+  ],
+  "cover": {
+    "words": "CUPBOARD ZOMBIES",
+    "emoji": "🧟"
+  },
+  "igSound": "Thriller – Michael Jackson",
+  "slot": "2026-10-23T18:30:00+02:00",
+  "score": 8,
+  "beats": 19,
+  "seconds": 9.19,
+  "why": "First cupboard video ever: Halloween 'cupboard zombies' hook, open-pack biscuits card with 2 days left, quick cupboard check. New house/lagoon look and hook,card,list modules, different from Thursday's afro/mint 9 PM Ping."
+}
