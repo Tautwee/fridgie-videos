@@ -1,0 +1,49 @@
+{
+  "slug": "story-talk-to-your-fridge",
+  "title": "Talk to Your Fridge",
+  "template": "motion",
+  "kind": "video",
+  "feature": "voice add",
+  "energy": "playful",
+  "bpm": 100,
+  "music": "synthwave",
+  "palette": "berry",
+  "modules": [
+    "text",
+    "punch",
+    "card",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "text",
+      "beats": 4,
+      "text": "Add food with your <b>voice</b>?",
+      "pill": "Would you? 🗳️"
+    },
+    {
+      "type": "punch",
+      "beats": 3,
+      "text": "Just <b>say</b> it 🎤"
+    },
+    {
+      "type": "card",
+      "beats": 5,
+      "title": "\"Milk\" → <b>added</b>",
+      "emoji": "🥛",
+      "name": "Milk",
+      "days": 7,
+      "left": 100,
+      "sticker": "Added by voice 🎤"
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "slot": "2026-10-24T15:30:00+02:00",
+  "score": 8,
+  "beats": 16,
+  "seconds": 9.85,
+  "why": "Voice add poll-style teaser; different feature from the recipe feed video; synthwave on berry, new text,punch,card order."
+}

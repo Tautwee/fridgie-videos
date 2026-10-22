@@ -1,0 +1,64 @@
+{
+  "slug": "fridge-brew",
+  "title": "Fridge Brew",
+  "feature": "recipes from what you have",
+  "energy": "spooky fun",
+  "bpm": 124,
+  "music": "spookyhouse",
+  "palette": "sunset",
+  "modules": [
+    "hook",
+    "list",
+    "end"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "beats": 4,
+      "text": "Only <b>3</b> things left?",
+      "sub": "🥚 🍚 🥬 → dinner"
+    },
+    {
+      "type": "list",
+      "beats": 8,
+      "title": "Dinner from <b>3</b> ingredients",
+      "stepBeats": 2,
+      "items": [
+        {
+          "emoji": "🍳",
+          "text": "Egg <b>fried</b> rice"
+        },
+        {
+          "emoji": "🥬",
+          "text": "Spinach <b>omelette</b>"
+        },
+        {
+          "emoji": "🍚",
+          "text": "Spinach <b>rice</b> bowl"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "beats": 4
+    }
+  ],
+  "caption": "Only 3 things left? 🎃 Fridgeroo turns them into dinner. Free at fridgeroo.netlify.app 🍳",
+  "hashtags": [
+    "#fridgeroo",
+    "#halloweenfood",
+    "#fyp",
+    "#studentrecipes",
+    "#fridgechallenge"
+  ],
+  "cover": {
+    "words": "ONLY 3 THINGS LEFT?",
+    "emoji": "🎃"
+  },
+  "igSound": "Monster Mash – Bobby \"Boris\" Pickett",
+  "slot": "2026-10-24T18:30:00+02:00",
+  "score": 8,
+  "beats": 16,
+  "seconds": 7.99,
+  "why": "Recipes from what you have (last shown 14 Oct): 3 ingredients → 3 dinners. Spookyhouse on sunset, hook,list,end — new look after Friday's house/lagoon Cupboard Zombies."
+}
