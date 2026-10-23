@@ -1,0 +1,25 @@
+{
+  "slug": "three-days-left",
+  "title": "Three Days Left",
+  "feature": "expiry countdown",
+  "energy": "spooky hype",
+  "bpm": 146,
+  "music": "futurebass",
+  "palette": "forest",
+  "modules": ["text", "countdown", "punch", "end"],
+  "scenes": [
+    {"type": "text", "beats": 4, "text": "Halloween candy lasts. Your <b>yoghurt</b> doesn't.", "pill": "🎃"},
+    {"type": "countdown", "beats": 8, "emoji": "🥛", "from": 3, "stepBeats": 2, "unit": "days left", "unit1": "day left ⚠️", "notify": "Yoghurt goes off tomorrow 🥛", "end": "Eat it today ✅"},
+    {"type": "punch", "beats": 4, "text": "Eaten, not <b>binned</b> 😮‍💨"},
+    {"type": "end", "beats": 4}
+  ],
+  "caption": "Candy survives Halloween. Your yoghurt won't 🎃 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app 🥛",
+  "hashtags": ["#fridgeroo", "#spookyseason", "#reels", "#expirydate", "#fridgetracker"],
+  "cover": {"words": "3 DAYS LEFT", "emoji": "🥛"},
+  "igSound": "Somebody's Watching Me – Rockwell",
+  "slot": "2026-10-25T18:30:00+01:00",
+  "score": 8,
+  "beats": 20,
+  "seconds": 8.22,
+  "why": "Expiry countdown (not shown in a feed video since 20 Oct): Halloween hook, 3-2-1 ring on the drop. Futurebass 146 on forest, text-countdown-punch-end — new look after Fridge Brew (spookyhouse/sunset)."
+}

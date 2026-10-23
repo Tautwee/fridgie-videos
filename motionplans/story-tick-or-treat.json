@@ -1,0 +1,23 @@
+{
+  "slug": "story-tick-or-treat",
+  "title": "Tick or Treat?",
+  "kind": "video",
+  "template": "motion",
+  "feature": "Ate it / Binned it buttons",
+  "energy": "cheeky poll",
+  "bpm": 130,
+  "music": "phonk",
+  "palette": "charcoal",
+  "modules": ["hook", "punch", "text", "end"],
+  "scenes": [
+    {"type": "hook", "beats": 4, "text": "Day-<b>3</b> pizza. Still eat it?", "sub": "No judging 👀"},
+    {"type": "punch", "beats": 4, "text": "<b>Ate it</b> ✅ or Binned it 🗑️"},
+    {"type": "text", "beats": 6, "text": "Vote 👇 Then tap it in <b>Fridgeroo</b>", "pill": "One tap, done ✅"},
+    {"type": "end", "beats": 4}
+  ],
+  "slot": "2026-10-25T15:30:00+01:00",
+  "score": 8,
+  "beats": 18,
+  "seconds": 8.31,
+  "why": "Poll-style story for the Ate it / Binned it buttons; phonk on charcoal, hook-punch-text-end — different feature, music and palette from the feed video."
+}
