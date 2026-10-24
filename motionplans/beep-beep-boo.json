@@ -1,0 +1,61 @@
+{
+ "slug": "beep-beep-boo",
+ "title": "Beep Beep Boo",
+ "feature": "barcode scan",
+ "energy": "high",
+ "bpm": 130,
+ "music": "phonk",
+ "palette": "mint",
+ "modules": [
+  "hook",
+  "scan",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Groceries home? <b>Scan</b> them 👻"
+  },
+  {
+   "type": "scan",
+   "beats": 8,
+   "title": "One <b>scan</b> each",
+   "items": [
+    "🥛",
+    "🧀",
+    "🍎",
+    "🥚",
+    "🍞",
+    "🥦",
+    "🍗",
+    "🍅",
+    "🧈"
+   ],
+   "label": "added",
+   "stepBeats": 0.5
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Groceries home? Scan them. Beep, done 👻 Try it free at fridgeroo.netlify.app 🛒",
+ "hashtags": [
+  "#fridgeroo",
+  "#fyp",
+  "#studentlife",
+  "#groceryhaul",
+  "#foodwastehack"
+ ],
+ "cover": {
+  "words": "BEEP BEEP BOO",
+  "emoji": "👻"
+ },
+ "igSound": "Ghostbusters – Ray Parker Jr.",
+ "score": 8,
+ "beats": 16,
+ "seconds": 7.4,
+ "why": "Barcode scan is unused since 20 Oct; phonk/mint/scan modules differ from neighbours; fast beep-per-half-beat items with Halloween hook.",
+ "slot": "2026-10-26T18:30:00+01:00"
+}

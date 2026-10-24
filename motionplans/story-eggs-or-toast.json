@@ -1,0 +1,44 @@
+{
+ "slug": "story-eggs-or-toast",
+ "title": "Eggs or Toast?",
+ "kind": "video",
+ "template": "motion",
+ "feature": "breakfast notification",
+ "energy": "medium",
+ "bpm": 112,
+ "music": "afro",
+ "palette": "cobalt",
+ "modules": [
+  "hook",
+  "text",
+  "punch",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Eggs or <b>toast</b>? 🍳"
+  },
+  {
+   "type": "text",
+   "beats": 4,
+   "text": "Fridgeroo sends a <b>breakfast</b> idea",
+   "pill": "Every morning ☀️"
+  },
+  {
+   "type": "punch",
+   "beats": 4,
+   "text": "From what you <b>already</b> have 🍞"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "score": 8,
+ "beats": 16,
+ "seconds": 8.6,
+ "why": "Poll-style hook then clear message: morning breakfast idea from what you have; afro/cobalt differ from 25 Oct phonk/charcoal story and the feed video.",
+ "slot": "2026-10-26T15:30:00+01:00"
+}
