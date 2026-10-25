@@ -1,0 +1,37 @@
+{
+ "slug": "story-no-tricks",
+ "title": "No Tricks",
+ "feature": "free / no download",
+ "energy": "bright and breezy",
+ "bpm": 104,
+ "music": "tropical",
+ "palette": "lagoon",
+ "modules": [
+  "hook",
+  "text",
+  "end"
+ ],
+ "cta": "Free · no sign-up · link in bio",
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "No download. <b>No tricks.</b> 🎃"
+  },
+  {
+   "type": "text",
+   "beats": 6,
+   "text": "Tap the link. <b>Open. Done.</b>",
+   "pill": "Free on any phone 📱"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "slot": "2026-10-27T15:30:00+01:00",
+ "score": 8,
+ "beats": 14,
+ "seconds": 8.08,
+ "why": "Free / no download teaser: Halloween 'no tricks' line, then the one-tap action. Tropical 104 on lagoon, hook-text-end — differs from Eggs or Toast? and from the video."
+}

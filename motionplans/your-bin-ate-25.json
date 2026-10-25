@@ -1,0 +1,70 @@
+{
+ "slug": "your-bin-ate-25",
+ "title": "Your Bin Ate €25",
+ "feature": "€ saved / no-waste streak",
+ "energy": "cheeky disco",
+ "bpm": 116,
+ "music": "disco",
+ "palette": "berry",
+ "modules": [
+  "hook",
+  "list",
+  "punch",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Your bin ate <b>€25</b> 🗑️",
+   "sub": "this month alone"
+  },
+  {
+   "type": "list",
+   "beats": 6,
+   "title": "What you <b>binned</b>",
+   "stepBeats": 1.5,
+   "items": [
+    {
+     "emoji": "🥛",
+     "text": "3 milk cartons: <b>€5</b>"
+    },
+    {
+     "emoji": "🥬",
+     "text": "4 salad bags: <b>€8</b>"
+    },
+    {
+     "emoji": "🍗",
+     "text": "2 chicken packs: <b>€12</b>"
+    }
+   ]
+  },
+  {
+   "type": "punch",
+   "beats": 2,
+   "text": "With Fridgeroo: <b>€25</b> saved 💸"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Your bin ate €25 this month. Fridgeroo counts what you save when food gets eaten, not binned 💸 Free at fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#savemoney",
+  "#moneytok",
+  "#studentbudget",
+  "#nlstudent"
+ ],
+ "cover": {
+  "words": "€25 IN THE BIN",
+  "emoji": "💸"
+ },
+ "igSound": "Money, Money, Money – ABBA",
+ "slot": "2026-10-27T18:30:00+01:00",
+ "score": 8,
+ "beats": 16,
+ "seconds": 8.28,
+ "why": "€ saved (not shown in a feed video since the old €38 one): bin-ate-€25 hook in 0.5 s, list adds up, punch on the counter. Disco 116 on berry, hook-list-punch-end — new after Beep Beep Boo (phonk/mint)."
+}
