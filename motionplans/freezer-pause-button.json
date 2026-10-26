@@ -1,0 +1,64 @@
+{
+ "slug": "freezer-pause-button",
+ "title": "Freezer Pause Button",
+ "feature": "freezer",
+ "energy": "dark trap hype",
+ "bpm": 140,
+ "music": "trap",
+ "palette": "grape",
+ "modules": [
+  "text",
+  "grid",
+  "punch",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "text",
+   "beats": 4,
+   "text": "Bread going <b>stale</b>?",
+   "pill": "5 days old"
+  },
+  {
+   "type": "grid",
+   "beats": 6,
+   "title": "Freeze it today",
+   "items": [
+    "🍞",
+    "🍌",
+    "🧀",
+    "🍗"
+   ],
+   "verdict": "<b>Frozen</b> = paused ❄️",
+   "loser": 0,
+   "dead": "🧊"
+  },
+  {
+   "type": "punch",
+   "beats": 6,
+   "text": "Pause it!"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Bread going stale? Freeze it and press pause on food waste 🍞❄️ Track it all for free at fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#lifehack",
+  "#freezerhacks",
+  "#studenthacks",
+  "#foodwaste"
+ ],
+ "cover": {
+  "words": "PAUSE IT",
+  "emoji": "❄️"
+ },
+ "igSound": "Spooky, Scary Skeletons – Andrew Gold",
+ "score": 8,
+ "beats": 20,
+ "seconds": 8.6,
+ "why": "Freezer unused in recent videos; trap/grape/text-grid-punch differ from neighbours; relatable stale-bread hook.",
+ "slot": "2026-10-28T18:30:00+01:00"
+}

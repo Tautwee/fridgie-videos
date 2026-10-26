@@ -1,0 +1,38 @@
+{
+ "slug": "story-half-left",
+ "title": "Half Left?",
+ "feature": "fill level slider",
+ "energy": "cosy poll",
+ "bpm": 84,
+ "music": "lofi",
+ "palette": "sunset",
+ "modules": [
+  "hook",
+  "card",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "How much <b>milk</b> is left?",
+   "sub": "Guess before you slide"
+  },
+  {
+   "type": "card",
+   "beats": 6,
+   "emoji": "🥛",
+   "name": "Milk",
+   "days": 2,
+   "sticker": "How full? Slide it 👆"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "score": 8,
+ "beats": 14,
+ "seconds": 10.0,
+ "slot": "2026-10-28T15:30:00+01:00"
+}
