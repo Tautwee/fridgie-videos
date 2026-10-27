@@ -1,0 +1,25 @@
+{
+  "title": "The Ghost Shopper",
+  "feature": "shared home for housemates",
+  "energy": "spooky fun",
+  "bpm": 124,
+  "music": "spookyhouse",
+  "palette": "charcoal",
+  "modules": ["hook", "card", "punch", "end"],
+  "scenes": [
+    {"type": "hook", "beats": 4, "text": "POV: a <b>ghost</b> filled your fridge", "sub": "(it was Sam 👀)"},
+    {"type": "card", "beats": 6, "emoji": "🥚", "name": "Eggs", "days": 14, "left": 100, "sticker": "Added by Sam 👻"},
+    {"type": "punch", "beats": 6, "text": "One <b>shared</b> fridge. 🏠"},
+    {"type": "end", "beats": 4}
+  ],
+  "caption": "Your housemate went shopping, and the whole house can see it straight away. 👻 Share one fridge list at fridgeroo.netlify.app 🏠",
+  "hashtags": ["#fridgeroo", "#halloween", "#sharedhouse", "#housemates", "#studentlife"],
+  "cover": {"words": "Ghost shopper", "emoji": "👻"},
+  "igSound": "Season of the Witch – Lana Del Rey",
+  "ytTitle": "The Ghost Shopper: Your Housemate Restocked the Fridge 👻",
+  "slot": "2026-10-29T18:30:00+01:00",
+  "beatsTotal": 20,
+  "seconds": 9.68,
+  "score": 8,
+  "why": "Shared-home feature shown as a housemate adding food everyone can see (not a blame joke like Who Ate My Cheese?). Spookyhouse/charcoal, hook-card-punch-end differs from disco/berry and trap/grape neighbours."
+}

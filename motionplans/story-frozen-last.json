@@ -1,0 +1,27 @@
+{
+  "slug": "story-frozen-last",
+  "title": "Frozen Last",
+  "kind": "video",
+  "template": "motion",
+  "feature": "shopping list sorted for you",
+  "energy": "bright tip",
+  "bpm": 122,
+  "music": "house",
+  "palette": "forest",
+  "modules": ["text", "list", "end"],
+  "scenes": [
+    {"type": "text", "beats": 4, "text": "Ice cream melted on the way <b>home</b>? 🍦", "pill": "Quick tip"},
+    {"type": "list", "beats": 8, "title": "Fridgeroo sorts your list", "numbered": true, "stepBeats": 1.5, "items": [
+      {"emoji": "🥦", "text": "Veg first"},
+      {"emoji": "🥫", "text": "Cans next"},
+      {"emoji": "🍝", "text": "Pasta and rice"},
+      {"emoji": "🧊", "text": "<b>Frozen</b> last"}
+    ]},
+    {"type": "end", "beats": 4}
+  ],
+  "slot": "2026-10-29T15:30:00+01:00",
+  "score": 8,
+  "beats": 16,
+  "seconds": 7.87,
+  "why": "Quick tip with a relatable melted-ice-cream hook; shows the sorted shopping list. House/forest, text-list-end differs from the tropical/lagoon and lofi/sunset neighbours and from the feed video."
+}
