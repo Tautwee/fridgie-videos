@@ -1,0 +1,20 @@
+{
+  "slug": "story-boo-tomorrow",
+  "title": "Boo Tomorrow",
+  "feature": "evening \"goes off tomorrow\" notification",
+  "energy": "spooky teaser",
+  "bpm": 126,
+  "music": "spookyhouse",
+  "palette": "berry",
+  "modules": ["hook", "text", "punch", "end"],
+  "scenes": [
+    {"type": "hook", "beats": 4, "text": "A <b>ghost</b> knocks at 9 PM 👻"},
+    {"type": "text", "beats": 4, "text": "Your yoghurt goes off <b>tomorrow</b>.", "pill": "Evening reminder"},
+    {"type": "punch", "beats": 4, "text": "Eat it. <b>Tonight</b>."},
+    {"type": "end", "beats": 4}
+  ],
+  "score": 8,
+  "beats": 16,
+  "seconds": 7.62,
+  "slot": "2026-10-30T15:30:00+01:00"
+}

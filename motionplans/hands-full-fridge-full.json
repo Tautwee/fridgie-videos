@@ -1,0 +1,25 @@
+{
+  "title": "Hands Full, Fridge Full",
+  "feature": "voice add",
+  "energy": "bouncy afro",
+  "bpm": 112,
+  "music": "afro",
+  "palette": "cobalt",
+  "modules": ["punch", "list", "text", "end"],
+  "scenes": [
+    {"type": "punch", "beats": 4, "text": "Hands full? Use your <b>voice</b>."},
+    {"type": "list", "beats": 6, "title": "Say what you <b>bought</b>", "items": [{"emoji": "🥛", "text": "Milk"}, {"emoji": "🥚", "text": "Eggs"}, {"emoji": "🎃", "text": "Pumpkin"}, {"emoji": "🧀", "text": "Cheese"}], "stepBeats": 1},
+    {"type": "text", "beats": 4, "text": "Added. No <b>typing</b>.", "pill": "Voice add 🎤"},
+    {"type": "end", "beats": 4}
+  ],
+  "caption": "Hands full of Halloween snacks? Say them out loud and Fridgeroo adds them. 🎤🎃 Free at fridgeroo.netlify.app",
+  "hashtags": ["#fridgeroo", "#fyp", "#halloween2026", "#handsfree", "#studentkitchen"],
+  "cover": {"words": "Hands full?", "emoji": "🎤"},
+  "igSound": "Disturbia – Rihanna",
+  "ytTitle": "Add Food to Your Fridge With Your Voice 🎤",
+  "slot": "2026-10-30T18:30:00+01:00",
+  "beatsTotal": 18,
+  "seconds": 9.64,
+  "score": 9,
+  "why": "Voice add shown in one idea: hands full, say the items, they land in the list. Afro/cobalt and punch-list-text-end differ from trap/grape and spookyhouse/charcoal neighbours; Halloween snacks tie-in for Halloween eve."
+}
