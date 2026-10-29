@@ -1,0 +1,46 @@
+{
+ "title": "Party Tonight?",
+ "feature": "morning breakfast notification",
+ "energy": "cheeky teaser",
+ "bpm": 104,
+ "music": "tropical",
+ "palette": "grape",
+ "modules": [
+  "punch",
+  "text",
+  "card",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "punch",
+   "beats": 4,
+   "text": "Party <b>tonight</b>? 🎃"
+  },
+  {
+   "type": "text",
+   "beats": 4,
+   "text": "Tomorrow 9 AM: a <b>breakfast</b> idea",
+   "pill": "Morning ping 🔔"
+  },
+  {
+   "type": "card",
+   "beats": 4,
+   "emoji": "🥚",
+   "name": "Eggs",
+   "days": 2,
+   "left": 60,
+   "sticker": "Eggs on toast 🍳"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "igSound": "Abracadabra – Lady Gaga",
+ "slot": "2026-10-31T15:30:00+01:00",
+ "beats": 16,
+ "seconds": 9.23,
+ "score": 8,
+ "why": "Halloween-night teaser for the morning breakfast ping; tropical/grape and punch-text-card-end differ from the house/forest and spookyhouse/berry stories before it."
+}

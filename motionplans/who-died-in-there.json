@@ -1,0 +1,58 @@
+{
+ "title": "Who Died in There?",
+ "feature": "Ate it / Binned it buttons",
+ "energy": "spooky synth",
+ "bpm": 100,
+ "music": "synthwave",
+ "palette": "lagoon",
+ "modules": [
+  "hook",
+  "grid",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Halloween night. Scary <b>fridge</b>? 👻"
+  },
+  {
+   "type": "grid",
+   "beats": 6,
+   "title": "Which one is <b>dead</b>?",
+   "items": [
+    "🥛",
+    "🥬",
+    "🧀",
+    "🍞"
+   ],
+   "loser": 1,
+   "dead": "💀",
+   "verdict": "Dead? Tap <b>Binned it</b>",
+   "stepBeats": 0.5
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Which one is dead? 💀 Tap Ate it or Binned it and keep your fridge honest. Try it free: fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#halloweennight",
+  "#foodhacks",
+  "#nofoodwaste",
+  "#studentfridge"
+ ],
+ "cover": {
+  "words": "Which one died?",
+  "emoji": "💀"
+ },
+ "ytTitle": "Which One Is Dead? Halloween Fridge Check 💀",
+ "igSound": "This Is Halloween – Danny Elfman",
+ "slot": "2026-10-31T18:30:00+01:00",
+ "beatsTotal": 14,
+ "seconds": 8.4,
+ "score": 9,
+ "why": "Ate it / Binned it shown as a Halloween 'which one is dead?' guessing game; synthwave/lagoon and hook-grid-end differ from the afro/cobalt and spookyhouse/charcoal neighbours."
+}
