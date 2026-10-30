@@ -72,7 +72,7 @@
   {
    "dur": 1.9,
    "cam": "fstare",
-   "label": "POV: YOUR FRIDGE IS <b>DONE WITH YOU</b>",
+   "label": "POV: YOUR FRIDGE IS<br><b>DONE WITH YOU</b>",
    "do": [
     "stare"
    ],

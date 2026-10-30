@@ -116,7 +116,7 @@ t = dr; bar = 0
 while t < en:
     ch = prog[bar % 4]
     dd = min(4 * B, en - t)
-    add(supersaw(ch[1:], dd, 5000, 0.01, 1.5, 0.7), t, 0.5); add(choir(ch[1:], dd), t, 0.25)
+    add(supersaw(ch[1:], dd, 2600, 0.01, 1.5, 0.7), t, 0.45); add(choir(ch[1:], dd), t, 0.25)
     add(flt(saw(hz(ch[0] - 12), dd), 400) * env(int(SR * dd), 0.01, 2, 0.8), t, 0.5)
     for b in range(4):
         if t + b * B >= en: break
@@ -126,15 +126,21 @@ while t < en:
     t += 4 * B; bar += 1
 # ---------------- E: end hit + sparkle tail
 # clean, warm ending: soft D-major chime chord + choir swell + one soft low note (no noise)
-for j, m in enumerate([62, 66, 69, 74, 78, 81]): add(bell(m, 2.2) * env(int(SR * 2.2), 0.002, 0.9), en + 0.06 * j, 0.16, (j % 2) * 0.6 - 0.3)
-add(choir([62, 66, 69, 74], 2.0), en, 0.3)
+def soft(m, d):
+    t = tt(d); f = hz(m); return (np.sin(2 * np.pi * f * t) + 0.25 * np.sin(4 * np.pi * f * t)) * env(len(t), 0.004, 0.8, 0.0, 0.2)
+for j, m in enumerate([62, 66, 69, 74]): add(soft(m, 2.0), en + 0.07 * j, 0.22, (j % 2) * 0.5 - 0.25)
+add(flt(choir([62, 66, 69, 74], 2.0), 1500), en, 0.25)
 add(np.sin(2 * np.pi * hz(38) * tt(1.8)) * env(int(SR * 1.8), 0.01, 0.7), en, 0.45)
 
 # ---------------- master: duck everything under the hit's silence, reverb, glue
 mix = np.stack([L, Rr], 1)[:int(SR * T)]
 ir = rng.normal(0, 1, int(SR * 1.2)) * np.exp(-np.arange(int(SR * 1.2)) / (SR * 0.35)); ir = flt(ir, 5000) * 0.03
 for c in range(2): mix[:, c] += fftconvolve(mix[:, c], ir)[:len(mix)] * 0.6
-fade = int(0.3 * SR); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
+e0 = int(K['end'] * SR); xf = int(0.15 * SR)
+for c in range(2):
+    lp = flt(mix[:, c], 1400, o=4); w = np.zeros(len(mix)); w[e0:e0 + xf] = np.linspace(0, 1, len(w[e0:e0 + xf])); w[e0 + xf:] = 1
+    mix[:, c] = mix[:, c] * (1 - w) + lp * w
+fade = int(0.6 * SR); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
 mix = np.tanh(mix * 1.1) / np.tanh(1.1); mix *= 0.9 / (np.abs(mix).max() + 1e-9)
 with wave.open(OUT, 'w') as o:
     o.setnchannels(2); o.setsampwidth(2); o.setframerate(SR); o.writeframes((mix * 32767).astype(np.int16).tobytes())
