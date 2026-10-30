@@ -181,6 +181,9 @@ const IT={
 const BIN=grp(0,0,0,S);
 box(0.42,0.5,0.42,'#5d6b80',0,0.25,0,BIN);box(0.46,0.05,0.46,'#3f4a5c',0,0.47,0,BIN);box(0.46,0.05,0.46,'#3f4a5c',0,0.06,0,BIN);
 const binIn=box(0.36,0.02,0.36,'#1a1f29',0,0.48,0,BIN);
+const lid=grp(0,0.5,-0.23,BIN);box(0.48,0.05,0.48,'#3f4a5c',0,0.025,0.23,lid);box(0.14,0.05,0.06,'#2b3240',0,0.07,0.4,lid);
+const BIN_FLOOR=new V3(-0.66,0,1.02);
+document.querySelector('#end .sl').textContent=P.slogan||'Know before it goes.';
 const BIN_HOLD=new V3(-0.6,0.42,0.1);  // student-local, bin bottom
 const flies=[];for(let i=0;i<8;i++)flies.push(box(0.04,0.03,0.04,'#111',0,0,0,S));
 const stink=[];for(let i=0;i<10;i++){const m=new THREE.Mesh(SPH(0.06),new THREE.MeshStandardMaterial({color:'#9bd65a',transparent:true,opacity:.5,emissive:'#6fbf2a',emissiveIntensity:.4,depthWrite:false}));S.add(m);stink.push(m)}
@@ -188,25 +191,28 @@ const stink=[];for(let i=0;i<10;i++){const m=new THREE.Mesh(SPH(0.06),new THREE.
 // ---------------- timeline
 const clamp=x=>x<0?0:x>1?1:x;
 const EZ={io:x=>{x=clamp(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},sm:x=>{x=clamp(x);return x*x*(3-2*x)},back:x=>{x=clamp(x);const c1=2.0,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)},out:x=>{x=clamp(x);return 1-Math.pow(1-x,3)}};
-const V={yaw:0,door:0,rot:1,shock:0,disgust:0,happy:0,phone:0,scanN:0,glasses:0,dim:0,lean:0,flean:0,fang:0.5,fsmile:0,binDown:0,holdBin:0,look:0,stare:0};
+const V={stuX:-0.3,walk:0,lid:0,lidHand:0,yuck:0,yaw:0,door:0,rot:1,shock:0,disgust:0,happy:0,phone:0,scanN:0,glasses:0,dim:0,lean:0,flean:0,fang:0.5,fsmile:0,binDown:0,holdBin:0,look:0,stare:0};
 const TR={};for(const k in V)TR[k]=[];
 function set(k,to,t0,d,e='io'){const tr=TR[k];const from=tr.length?tr[tr.length-1].to:V[k];tr.push({t0,t1:t0+d,from,to,e})}
 function val(k,t){let v=V[k];for(const s of TR[k]){if(t<s.t0)break;v=s.from+(s.to-s.from)*EZ[s.e]((t-s.t0)/(s.t1-s.t0||1e-6))}return v}
 // grab jobs: each = {it, t0, kind:'toss'|'show'}
 const JOBS=[];const TOSS=0.38;
 const ACT={
- cleanout:(t,s)=>{set('yaw',1.25,t,0.25);set('holdBin',1,t,0.25);set('door',1,t,0.3);set('disgust',1,t+0.2,0.3);
-   (s.toss||['pizza','milk','takeaway','cheese','sandwich','pasta']).forEach((n,i)=>JOBS.push({it:IT[n],t0:t+0.3+i*TOSS,kind:'toss'}))},
- yogurt:(t,s)=>{JOBS.push({it:IT.yogurt,t0:t+0.05,kind:'show',hold:s.hold||6.9});set('disgust',0,t+0.5,0.2);set('shock',1,t+0.62,0.12,'back');set('look',1,t+0.45,0.25);set('flean',1,t+0.9,0.5);set('yaw',0.45,t+0.45,0.35)},
+ cleanout:(t,s)=>{set('stuX',-2.3,t,0.001);set('yaw',1.57,t,0.001);set('holdBin',1,t,0.001);set('walk',1,t,0.001);
+   set('stuX',-0.3,t+0.02,1.3,'sm');set('walk',0,t+1.2,0.15);set('binDown',1,t+1.3,0.3,'sm');set('holdBin',0,t+1.45,0.15);
+   set('lidHand',1,t+1.48,0.12);set('lid',1,t+1.62,0.22,'back');set('lidHand',0,t+1.8,0.18);set('yaw',1.25,t+1.62,0.25);
+   set('door',1,t+1.72,0.3);set('disgust',1,t+1.85,0.3);
+   (s.toss||['pizza','milk','takeaway','cheese','sandwich','pasta']).forEach((n,i)=>JOBS.push({it:IT[n],t0:t+(s.tossStart||1.3)+i*TOSS,kind:'toss'}))},
+ yogurt:(t,s)=>{JOBS.push({it:IT.yogurt,t0:t+0.05,kind:'show',hold:s.hold||6.9});set('disgust',0,t+0.5,0.2);set('look',1,t+0.5,0.25);set('yuck',1,t+0.75,0.18,'back');set('flean',1,t+1.0,0.5);set('yaw',0.45,t+0.45,0.35)},
  stare:(t)=>{set('stare',1,t,0.25);set('fang',1,t,0.3)},
  dim:(t,s)=>{set('dim',1,t,0.2);set('dim',0,t+s.dur-0.15,0.15)},
- phone:(t)=>{set('binDown',1,t,0.35);set('holdBin',0,t+0.2,0.25);set('yaw',0.35,t,0.4);set('shock',0,t,0.2);set('look',0,t,0.2);set('phone',1,t+0.3,0.35);set('stare',0,t,0.2)},
+ phone:(t)=>{set('yuck',0,t,0.2);set('lid',0,t+0.1,0.2);set('yaw',0.35,t,0.4);set('shock',0,t,0.2);set('look',0,t,0.2);set('phone',1,t+0.3,0.35);set('stare',0,t,0.2)},
  scan:(t,s)=>{(s.scanAt||[0.8,0.95,1.1,1.25]).forEach((o,i)=>set('scanN',i+1,t+o,0.01))},
  shades:(t,s)=>{set('glasses',1,t+(s.shadesAt||0.5),0.45,'back');set('fang',0,t+(s.shadesAt||0.5),0.3);set('fsmile',1,t+(s.shadesAt||0.5)+0.2,0.3);set('flean',0,t,0.4);set('happy',1,t+(s.shadesAt||0.5)+0.3,0.3)},
 };
 const CAMS={three:[[1.7,1.45,4.0],[0.0,1.05,0.25]],front:[[-0.05,1.45,4.3],[0.05,1.05,0.2]],side:[[-1.9,1.3,3.6],[0.05,1.05,0.3]],
- hero:[[-1.6,0.55,3.4],[0.05,1.15,0.2]],yog:[[-0.15,1.6,2.4],[-0.12,1.45,0.6]],fmed:[[0.4,1.55,3.0],[0.35,1.35,0]],
- fstare:[[0.36,1.8,2.5],[0.36,1.72,0]],fside:[[1.25,1.75,2.9],[0.3,1.55,0]],phone:[[0.2,1.45,3.3],[-0.2,1.2,0.5]],binTop:[[0.2,2.3,2.2],[-0.35,0.7,0.85]]};
+ hero:[[-1.6,0.55,3.4],[0.05,1.15,0.2]],yog:[[0.05,1.55,2.9],[-0.15,1.4,0.6]],fmed:[[0.4,1.55,3.0],[0.35,1.35,0]],
+ fstare:[[0.36,1.8,2.5],[0.36,1.72,0]],fside:[[1.25,1.75,2.9],[0.3,1.55,0]],ftalk:[[0.55,1.8,2.4],[0.42,1.72,0]],fside2:[[1.75,1.82,1.35],[0.42,1.74,0.25]],phone:[[0.2,1.45,3.3],[-0.2,1.2,0.5]],binTop:[[0.2,2.3,2.2],[-0.35,0.7,0.85]]};
 const SC=[];let T0=0;const VOX=[];
 P.scenes.forEach((s)=>{const sc={...s,start:T0};SC.push(sc);
  if(s.type!=='end')(s.do||[]).forEach(a=>ACT[a]&&ACT[a](T0,s));
@@ -244,23 +250,24 @@ window.render=function(t){
  // reset food to shelves each frame (deterministic)
  for(const k in IT){const it=IT[k];if(it.parent!==FR){FR.add(it)}it.position.copy(it.userData.home);it.rotation.set(0,0,0);it.visible=true;it.scale.setScalar(it.userData.kind==='milk'?0.72:1)}
  // ---- student pose
- ST.rotation.y=g('yaw');ST.updateMatrixWorld(true);
+ ST.position.x=g('stuX');ST.rotation.y=g('yaw');const wk=g('walk');legL.rotation.x=Math.sin(t*15)*0.6*wk;legR.rotation.x=-Math.sin(t*15)*0.6*wk;ST.updateMatrixWorld(true);
  const ts=talk('stu',t),idle=Math.sin(t*2.6);
  const sh=g('shock'),dis=g('disgust'),hap=g('happy'),ph=g('phone'),look=g('look'),hb=g('holdBin');
  torso.rotation.set(0,0,idle*0.02);head.rotation.set(sh*-0.08+look*0.12,look*0.5,idle*0.03);
  armL.quaternion.identity();armR.quaternion.identity();armL.rotation.set(0,0,-0.08);armR.rotation.set(0,0,0.08);
  // breathing / bob
- body.position.y=Math.abs(Math.sin(t*3))*0.006;
+ body.position.y=Math.abs(Math.sin(t*3))*0.006+Math.abs(Math.sin(t*15))*0.04*wk;
  // ---- bin: held at left side or set on floor
  const holdW=SL(BIN_HOLD);
  if(!window._binFloor||g('binDown')<0.01)window._binFloor=null;
- const bd=g('binDown');let binP=holdW.clone();if(bd>0){const fp=SL(new V3(-0.62,0,0.25));binP=holdW.clone().lerp(fp,EZ.sm(bd))}
- BIN.position.copy(binP);BIN.rotation.y=g('yaw')*0.9;
+ const bd=g('binDown');let binP=holdW.clone();if(bd>0){binP=holdW.clone().lerp(BIN_FLOOR,bd);binP.y=holdW.y*(1-bd)}
+ BIN.position.copy(binP);BIN.rotation.y=g('yaw')*0.9*(1-bd)+0.35*bd;lid.rotation.x=-g('lid')*1.95;
  ST.updateMatrixWorld(true);
  if(hb>0.01){torso.updateMatrixWorld(true);aimArm(armL,binP.clone().add(new V3(0,0.5,0)).add(new V3(0.12,0,0).applyQuaternion(ST.quaternion)),hb)}
+ const lh=g('lidHand');if(lh>0.01){torso.updateMatrixWorld(true);const lp=new V3(0,0.05,0.4);lid.updateWorldMatrix(true,false);aimArm(armL,lp.applyMatrix4(lid.matrixWorld),lh);torso.rotation.x=0.35*lh}
  // ---- active grab job
  let job=null;for(const j of JOBS){const span=j.kind==='toss'?TOSS+0.6:(j.hold||4);if(t>=j.t0&&t<j.t0+span)job=j}
- const rest=SL(new V3(0.42,0.75,0.25)),mid=SL(new V3(0.05,1.2,0.5)),face=SL(new V3(0.12,1.5,0.42));
+ const rest=SL(new V3(0.42,0.75,0.25)),mid=SL(new V3(0.05,1.2,0.5)),face=SL(new V3(0.2,1.38,0.55));
  // items already tossed: hidden in bin; in flight: arc
  for(const j of JOBS){if(t<j.t0)continue;const it=j.it;if(j.kind==='show'&&t>j.t0+j.hold){it.visible=false;continue}
   if(j.kind==='toss'){const rel=j.t0+0.24;
@@ -290,6 +297,8 @@ window.render=function(t){
  const mo=Math.min(1,ts*1.15);mouthC.scale.set(1-sh*0.2+hap*0.6+mo*0.2+dis*0.3,1+sh*3.4+hap*0.4+mo*3.4,1);mouthC.position.y=0.1-sh*0.05-mo*0.045;
  mouthL.position.y=mouthR.position.y=0.12+hap*0.035-dis*0.05;mouthL.position.x=-0.09-hap*0.04-dis*0.03;mouthR.position.x=0.09+hap*0.04+dis*0.03;mouthL.visible=mouthR.visible=sh<0.5;
  tongue.visible=dis>0.5&&sh<0.5;blush.forEach(b=>b.visible=hap>0.3);
+ const yk=g('yuck');if(yk>0.01){eyeW.forEach(e=>e.scale.y*=1-0.6*yk);pup.forEach(p=>p.scale.y*=1-0.6*yk);mouthC.scale.set(1.7,1.6+Math.abs(Math.sin(t*9))*0.8*yk,1);mouthC.position.y=0.08;mouthL.visible=mouthR.visible=false;tongue.visible=true;tongue.position.y=0.04;
+  brL.rotation.z=-0.35*yk;brR.rotation.z=0.35*yk;head.rotation.x-=0.18*yk;head.rotation.z+=Math.sin(t*16)*0.05*yk;torso.rotation.x-=0.1*yk}else tongue.position.y=0.07;
  // ---- fridge
  const tf=talk('fridge',t),fang=g('fang'),fl=g('flean'),st=g('stare'),fs=g('fsmile');
  door.rotation.y=g('door')*1.95;fl1.intensity=g('door')*3.2;

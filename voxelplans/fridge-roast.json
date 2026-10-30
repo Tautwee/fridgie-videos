@@ -7,15 +7,19 @@
  },
  "scenes": [
   {
-   "dur": 3.1,
+   "dur": 4.5,
    "cams": [
     [
-     "front",
+     "ftalk",
      0
     ],
     [
+     "front",
+     1.15
+    ],
+    [
      "three",
-     1.3
+     3.1
     ]
    ],
    "label": "SUNDAY FRIDGE <b>CLEAN-OUT</b> 🤢",
@@ -35,24 +39,21 @@
     "src": "fridge",
     "a": 0.0,
     "b": 2.45,
-    "at": 0.6
+    "at": 0.15
    },
-   "say": "Oh, look who|finally <b>showed up.</b>"
+   "say": "Oh, look who|finally <b>showed up.</b>",
+   "tossStart": 1.95
   },
   {
    "dur": 4.0,
    "cams": [
     [
-     "front",
+     "yog",
      0
     ],
     [
-     "yog",
-     0.9
-    ],
-    [
-     "fmed",
-     2.1
+     "fside2",
+     1.6
     ]
    ],
    "do": [
@@ -66,7 +67,7 @@
     "at": 0.1
    },
    "say": "You pushed it|to the back...|what did you <b>THINK</b>|would happen?",
-   "hold": 7.3
+   "hold": 5.7
   },
   {
    "dur": 1.9,
@@ -83,30 +84,6 @@
     "at": 0.1
    },
    "say": "Yeah.|I'm talking to <b>YOU.</b>"
-  },
-  {
-   "dur": 1.6,
-   "cam": "front",
-   "do": [
-    "dim"
-   ],
-   "poll": {
-    "q": "What's hiding at the back of <b>YOUR</b> fridge?",
-    "opts": [
-     [
-      "🥛 Old milk",
-      64
-     ],
-     [
-      "🍝 Leftovers",
-      81
-     ],
-     [
-      "🧀 Mystery cheese",
-      47
-     ]
-    ]
-   }
   },
   {
    "dur": 3.3,
@@ -149,6 +126,7 @@
    "type": "end"
   }
  ],
- "caption": "Be honest… what's at the back of YOUR fridge right now? 👇 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app",
- "hashtags": "#fridgeroo #foodwaste #pov #studentlife #relatable"
+ "caption": "Be honest… what's hiding at the back of YOUR fridge? 👇 Use it or lose it. Fridgeroo warns you before food goes off – free at fridgeroo.netlify.app",
+ "hashtags": "#fridgeroo #foodwaste #pov #studentlife #relatable",
+ "slogan": "Use it or lose it."
 }
