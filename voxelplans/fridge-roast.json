@@ -1,0 +1,16 @@
+{"title":"POV: your fridge is done with you","music":"tropical","stage":"voxel_stage2.html",
+ "voices":{"fridge":"../voxaudio/fridge_roast.wav"},
+ "scenes":[
+  {"dur":2.7,"cams":[["front",0],["three",1.3]],"label":"SUNDAY FRIDGE <b>CLEAN-OUT</b> 🤢","do":["cleanout"],"toss":["pizza","milk","takeaway","cheese","sandwich","pasta"],
+   "voice":{"who":"fridge","len":1.8,"at":0.75},"say":"Oh, look who|finally <b>showed up.</b>"},
+  {"dur":3.4,"cams":[["front",0],["yog",0.9],["fmed",2.1]],"do":["yogurt"],
+   "voice":{"who":"fridge","len":3.2,"at":0.15},"say":"You pushed it|to the back...|what did you <b>THINK</b>|would happen?"},
+  {"dur":2.0,"cam":"fstare","label":"POV: YOUR FRIDGE IS <b>DONE WITH YOU</b>","do":["stare"],
+   "voice":{"who":"fridge","len":1.7,"at":0.15},"say":"Yeah.|I'm talking to <b>YOU.</b>"},
+  {"dur":1.7,"cam":"front","do":["dim"],"poll":{"q":"What's hiding at the back of <b>YOUR</b> fridge?","opts":[["🥛 Old milk",64],["🍝 Leftovers",81],["🧀 Mystery cheese",47]]}},
+  {"dur":3.0,"cams":[["phone",0],["three",1.5]],"label":"SO HE GOT <b>FRIDGEROO</b>","do":["phone","scan","shades"],"scanAt":[0.75,0.9,1.05,1.2],"shadesAt":1.7,
+   "notif":"Yogurt goes off <b>tomorrow</b> 🥣","notifAt":0.9,"voice":{"who":"fridge","len":2.4,"at":0.5},"say":"Fine.|Now you'll know|<b>before</b> it goes off."},
+  {"dur":1.8,"type":"end"}
+ ],
+ "caption":"Be honest… what's at the back of YOUR fridge right now? 👇 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app",
+ "hashtags":"#fridgeroo #foodwaste #pov #studentlife #relatable"}

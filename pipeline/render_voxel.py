@@ -23,7 +23,7 @@ D = Path(__file__).resolve().parent
 PLAN = Path(sys.argv[1]).resolve()
 plan = json.load(open(PLAN)); OUT = os.path.abspath(sys.argv[2]); FPS = 30; SR = 44100
 FR = D / 'frames_vox'; shutil.rmtree(FR, ignore_errors=True); FR.mkdir()
-STAGE = (D / 'voxel_stage.html').read_text()
+STAGE = (D / plan.get('stage', 'voxel_stage.html')).read_text()
 
 
 def load(path):
@@ -33,11 +33,11 @@ def load(path):
     return x
 
 
-VO = {k: load(PLAN.parent / v) for k, v in plan.get('voices', {}).items()}
+VO = {k: load(PLAN.parent / v) for k, v in plan.get('voices', {}).items() if (PLAN.parent / v).exists()}
 clips = []  # (scene index, samples)
 for i, s in enumerate(plan['scenes']):
     v = s.get('voice')
-    if not v: continue
+    if not v or 'src' not in v: continue
     x = VO[v['src']][int(v['a'] * SR):int(v['b'] * SR)].copy()
     fade = int(0.03 * SR); x[:fade] *= np.linspace(0, 1, fade); x[-fade:] *= np.linspace(1, 0, fade)
     rms = np.sqrt(np.mean(x[np.abs(x) > 0.005] ** 2) + 1e-9); x *= 0.16 / rms  # same loudness for every line
@@ -121,6 +121,8 @@ FX = {
  'boing': lambda: np.sin(2 * np.pi * (220 + 60 * np.sin(2 * np.pi * 9 * tt(.45))) * tt(.45)) * env(int(SR * .45), .005, .2) * .3,
  'swish': lambda: flt(noise(.45), 3000) * np.linspace(0, 1, int(SR * .45)) ** 2 * .3,
  'click': lambda: (flt(noise(.05), 2000, 'high') * env(int(SR * .05), .001, .008) * .7 + np.sin(2 * np.pi * 1200 * tt(.05)) * env(int(SR * .05), .001, .01) * .3),
+ 'squelch': lambda: flt(noise(.35), 500) * np.sin(2 * np.pi * 7 * tt(.35)) ** 2 * env(int(SR * .35), .01, .12) * .8,
+ 'zoom': lambda: flt(noise(.6), 1500) * np.linspace(0, 1, int(SR * .6)) ** 3 * .35 + np.sin(2 * np.pi * (200 + 600 * tt(.6)) * tt(.6)) * np.linspace(0, 1, int(SR * .6)) ** 2 * .12,
  'ding': lambda: (np.sin(2 * np.pi * 1318 * tt(.6)) + .5 * np.sin(2 * np.pi * 2637 * tt(.6))) * env(int(SR * .6), .002, .2) * .18,
 }
 sfx = np.zeros(N, np.float32)
