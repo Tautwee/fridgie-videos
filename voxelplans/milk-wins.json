@@ -1,0 +1,11 @@
+{"title":"The fridge always wins","music":"tropical",
+ "scenes":[
+  {"dur":3.0,"cam":"wide","label":"SUNDAY · <b>BIG SHOP</b>","say":"I spent <b>€40</b> on food","do":["walk_in"]},
+  {"dur":3.6,"cam":"fridge","label":"WEDNESDAY · <b>OOPS</b>","say":"then opened my fridge to <b>this</b>","do":["open","rot","shock"],"shake":true,"counter":{"label":"WASTED","from":0,"to":18,"tone":"bad"}},
+  {"dur":3.0,"cam":"face","say":"every. single. <b>week.</b>","per":3,"do":["sad","close"],"counter":{"label":"WASTED THIS YEAR","from":18,"to":300,"tone":"bad"}},
+  {"dur":4.0,"cam":"phone","label":"SO I GOT <b>FRIDGEROO</b>","say":"now it warns me <b>before</b> food goes off","do":["phone","scan"],"notif":"Milk goes off <b>tomorrow</b> 🥛 Pancakes tonight?"},
+  {"dur":4.2,"cam":"duo","label":"ONE WEEK LATER","say":"pancakes, zero waste, <b>happy</b> fridge","do":["fresh","peek","happy","eat","shades"],"counter":{"label":"SAVED","from":0,"to":34,"tone":"good"}},
+  {"dur":3.0,"type":"end"}
+ ],
+ "caption":"POV: your fridge stops winning 🥛 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app",
+ "hashtags":"#fridgeroo #foodwaste #studentlife #budgetfood #relatable"}

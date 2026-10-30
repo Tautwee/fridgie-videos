@@ -4,3 +4,4 @@ pipeline/timeline.json
 pipeline/__pycache__/
 pipeline/app/
 pipeline/frames_motion/
+pipeline/frames_vox/
