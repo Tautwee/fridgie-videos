@@ -1,0 +1,19 @@
+{"title":"Your fridge is talking (short)","music":"tropical",
+ "voices":{"student":"../voxaudio/student_fast.wav","fridge":"../voxaudio/fridge_fast.wav"},
+ "scenes":[
+  {"dur":2.4,"cams":[["fmed",0],["hero",0.7],["med",1.5]],"do":["open_stink"],"voice":{"who":"stu","src":"student","a":1.10,"b":3.08,"at":0.35},
+   "say":"When did <b>YOU</b>|last throw|food away?"},
+  {"dur":2.9,"cams":[["fmed",0],["bintop",1.0],["three",1.9]],"label":"WEDNESDAY · <b>OOPS</b>","do":["spit"],"spit":[0.25,0.9,1.75],
+   "voice":{"who":"fridge","src":"fridge","a":1.43,"b":3.79,"at":0.15},"say":"Milk.|Cheese.|Half a <b>pizza.</b>",
+   "counter":{"label":"WASTED","from":0,"to":18,"tone":"bad","over":2.2}},
+  {"dur":3.3,"cams":[["bintop",0],["med",1.1],["hero",2.2]],"do":["coins","shock"],"shakeAt":1.1,"voice":{"who":"stu","src":"student","a":4.27,"b":7.34,"at":0.1},
+   "say":"That's <b>€300</b> a year...|in the bin!","counter":{"label":"WASTED THIS YEAR","from":18,"to":300,"tone":"bad","over":2.4}},
+  {"dur":1.7,"cam":"three","do":["dim","calm","close"],"poll":{"q":"What do <b>YOU</b> waste most?","opts":[["🥛 Milk",72],["🥬 Veggies",54],["🍞 Bread",38]]}},
+  {"dur":2.2,"cams":[["phone",0],["ots",1.1]],"label":"SO I GOT <b>FRIDGEROO</b>","do":["phone","scan"],"scanAt":[0.5,0.65,0.8,0.95],"notif":"Milk goes off <b>tomorrow</b> 🥛","notifAt":1.15,
+   "voice":{"who":"stu","src":"student","a":8.15,"b":9.40,"at":0.1},"say":"So I tried <b>Fridgeroo.</b>","per":4},
+  {"dur":2.1,"cams":[["fmed",0],["three",1.0]],"label":"ONE WEEK LATER","do":["fresh","happy","eat","shades"],"shadesAt":1.05,
+   "voice":{"who":"fridge","src":"fridge","a":5.78,"b":7.02,"at":0.1},"say":"Pancakes <b>tonight?</b>","counter":{"label":"SAVED","from":0,"to":34,"tone":"good","over":1.4}},
+  {"dur":1.8,"type":"end"}
+ ],
+ "caption":"Be honest: what did you throw away this week? 👇 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app",
+ "hashtags":"#fridgeroo #foodwaste #studentlife #relatable #budgetfood"}
