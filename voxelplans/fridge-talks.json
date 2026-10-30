@@ -1,0 +1,20 @@
+{"title":"Your fridge is talking","music":"tropical",
+ "voices":{"student":"../voxaudio/student.wav","fridge":"../voxaudio/fridge.wav"},
+ "scenes":[
+  {"dur":3.9,"cams":[["duo",0],["face",1.0]],"do":["open_stink"],"voice":{"who":"stu","src":"student","a":0.0,"b":3.45,"at":0.25},
+   "say":"Be honest...|when did <b>YOU</b>|last throw|food away?"},
+  {"dur":4.7,"cams":[["fface",0],["bin",1.6]],"label":"WEDNESDAY · <b>OOPS</b>","do":["spit"],"spit":[1.9,2.6,3.5],
+   "voice":{"who":"fridge","src":"fridge","a":0.0,"b":4.25,"at":0.2},"say":"Three days ago.|Milk.|Cheese.|Half a <b>pizza.</b>",
+   "counter":{"label":"WASTED","from":0,"to":18,"tone":"bad","over":3.6}},
+  {"dur":3.8,"cams":[["bin",0],["face",1.7]],"do":["coins","shock"],"shakeAt":1.7,"voice":{"who":"stu","src":"student","a":4.78,"b":8.22,"at":0.15},
+   "say":"That's <b>€300</b> a year...|in the bin!","counter":{"label":"WASTED THIS YEAR","from":18,"to":300,"tone":"bad","over":2.6}},
+  {"dur":2.8,"cam":"orbit","do":["dim","calm","close"],"poll":{"q":"What do <b>YOU</b> waste most?","opts":[["🥛 Milk",72],["🥬 Veggies",54],["🍞 Bread",38]]}},
+  {"dur":3.6,"cam":"phone","label":"SO I GOT <b>FRIDGEROO</b>","do":["phone","scan"],"scanAt":[1.0,1.25,1.5,1.75],"notif":"Milk goes off <b>tomorrow</b> 🥛","notifAt":2.2,
+   "voice":{"who":"stu","src":"student","a":9.15,"b":10.52,"at":0.15},"say":"So I tried <b>Fridgeroo.</b>"},
+  {"dur":3.2,"cams":[["fface",0],["duo",1.3]],"label":"ONE WEEK LATER","do":["fresh","happy","eat","shades"],"shadesAt":1.5,
+   "voice":{"who":"fridge","src":"fridge","a":6.5,"b":7.85,"at":0.25},"say":"Pancakes <b>tonight?</b>","counter":{"label":"SAVED","from":0,"to":34,"tone":"good","over":2.2}},
+  {"dur":2.9,"cam":"lean","do":["lean"],"voice":{"who":"stu","src":"student","a":11.3,"b":13.71,"at":0.1},"say":"Your fridge is talking.|Are you <b>listening?</b>"},
+  {"dur":2.8,"type":"end"}
+ ],
+ "caption":"Be honest: what did you throw away this week? 👇 Fridgeroo warns you before food goes off. Free at fridgeroo.netlify.app",
+ "hashtags":"#fridgeroo #foodwaste #studentlife #relatable #budgetfood"}
