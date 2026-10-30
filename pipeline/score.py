@@ -115,16 +115,20 @@ prog = [[50, 57, 62, 66, 69], [45, 57, 61, 64, 69], [47, 59, 62, 66, 71], [43, 5
 t = dr; bar = 0
 while t < en:
     ch = prog[bar % 4]
-    add(supersaw(ch[1:], 4 * B, 5000, 0.01, 1.5, 0.7), t, 0.5); add(choir(ch[1:], 4 * B), t, 0.25)
-    add(flt(saw(hz(ch[0] - 12), 4 * B), 400) * env(int(SR * 4 * B), 0.01, 2, 0.8), t, 0.5)
+    dd = min(4 * B, en - t)
+    add(supersaw(ch[1:], dd, 5000, 0.01, 1.5, 0.7), t, 0.5); add(choir(ch[1:], dd), t, 0.25)
+    add(flt(saw(hz(ch[0] - 12), dd), 400) * env(int(SR * dd), 0.01, 2, 0.8), t, 0.5)
     for b in range(4):
+        if t + b * B >= en: break
         add(kick(), t + b * B, 1.1)
         if b % 2: add(clap(), t + b * B, 0.6)
         add(hat(), t + b * B + B / 2, 0.3, 0.3)
     t += 4 * B; bar += 1
 # ---------------- E: end hit + sparkle tail
-add(hitchord([50, 57, 62, 66, 69, 74], 2.0) * 0.8, en, 0.8); add(boom(), en, 0.8)
-for j in range(10): add(bell(86 + (j % 4) * 2, 1.0), en + 0.08 * j, 0.1, (j % 2) * 0.8 - 0.4)
+# clean, warm ending: soft D-major chime chord + choir swell + one soft low note (no noise)
+for j, m in enumerate([62, 66, 69, 74, 78, 81]): add(bell(m, 2.2) * env(int(SR * 2.2), 0.002, 0.9), en + 0.06 * j, 0.16, (j % 2) * 0.6 - 0.3)
+add(choir([62, 66, 69, 74], 2.0), en, 0.3)
+add(np.sin(2 * np.pi * hz(38) * tt(1.8)) * env(int(SR * 1.8), 0.01, 0.7), en, 0.45)
 
 # ---------------- master: duck everything under the hit's silence, reverb, glue
 mix = np.stack([L, Rr], 1)[:int(SR * T)]
