@@ -136,5 +136,5 @@ wav = str(D / 'mix_vox.wav')
 with wave.open(wav, 'w') as o:
     o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((mix * 32767).astype(np.int16).tobytes())
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-framerate', str(FPS), '-i', str(FR / 'f%04d.jpg'), '-i', wav, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
-                '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
+                '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
 print('done', OUT, f'{TOTAL:.1f}s')
