@@ -8,7 +8,7 @@
   {"dur":2.0,"cam":"fstare","label":"POV: YOUR FRIDGE IS <b>DONE WITH YOU</b>","do":["stare"],
    "voice":{"who":"fridge","len":1.7,"at":0.15},"say":"Yeah.|I'm talking to <b>YOU.</b>"},
   {"dur":1.7,"cam":"front","do":["dim"],"poll":{"q":"What's hiding at the back of <b>YOUR</b> fridge?","opts":[["🥛 Old milk",64],["🍝 Leftovers",81],["🧀 Mystery cheese",47]]}},
-  {"dur":3.0,"cams":[["phone",0],["three",1.5]],"label":"SO HE GOT <b>FRIDGEROO</b>","do":["phone","scan","shades"],"scanAt":[0.75,0.9,1.05,1.2],"shadesAt":1.7,
+  {"dur":3.0,"cams":[["phone",0],["fmed",1.4]],"label":"SO HE GOT <b>FRIDGEROO</b>","do":["phone","scan","shades"],"scanAt":[0.75,0.9,1.05,1.2],"shadesAt":1.7,
    "notif":"Yogurt goes off <b>tomorrow</b> 🥣","notifAt":0.9,"voice":{"who":"fridge","len":2.4,"at":0.5},"say":"Fine.|Now you'll know|<b>before</b> it goes off."},
   {"dur":1.8,"type":"end"}
  ],
