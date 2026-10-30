@@ -72,6 +72,7 @@ async def main():
         await pg.evaluate('document.fonts.ready'); await pg.wait_for_timeout(300)
         total = await pg.evaluate('window.TOTAL'); info = await pg.evaluate('({s:window.SCENES,x:window.SFX})')
         times = [float(x) for x in only.split(',')] if only else [i / FPS for i in range(int(round(total * FPS)))]
+        if os.environ.get('AUDIO_FROM'): times = []
         for i, t in enumerate(times):
             await pg.evaluate('t=>render(t)', t)
             await pg.screenshot(path=str(FR / f'f{i:04d}.jpg'), type='jpeg', quality=92)
@@ -88,7 +89,12 @@ tl = {'taps': [], 'beeps': [], 'dings': [], 'scenes': starts, 'total': TOTAL, 'd
 tlp = D / 'timelines'; tlp.mkdir(exist_ok=True)
 tlf = tlp / (os.path.basename(OUT).rsplit('.', 1)[0] + '.json'); json.dump(tl, open(tlf, 'w'))
 mw = str(D / 'music_vox.wav')
-subprocess.run(['python3', str(D / 'music3.py'), plan.get('music', 'house'), mw, os.path.basename(OUT), str(tlf)], check=True, cwd=str(D), stdout=subprocess.DEVNULL)
+if plan.get('score'):
+    mk = {k: starts[v[0]] + v[1] for k, v in plan['score'].items()}
+    json.dump({'total': TOTAL, 'marks': mk}, open(tlf, 'w'))
+    subprocess.run(['python3', str(D / 'score.py'), str(tlf), mw], check=True, cwd=str(D), stdout=subprocess.DEVNULL)
+else:
+    subprocess.run(['python3', str(D / 'music3.py'), plan.get('music', 'house'), mw, os.path.basename(OUT), str(tlf)], check=True, cwd=str(D), stdout=subprocess.DEVNULL)
 w = wave.open(mw); mus = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
 mus = mus.reshape(-1, w.getnchannels()).mean(1) if w.getnchannels() > 1 else mus
 mus = np.pad(mus, (0, max(0, N - len(mus))))[:N]
@@ -137,6 +143,10 @@ mix *= 0.95 / max(1e-6, np.abs(mix).max())
 wav = str(D / 'mix_vox.wav')
 with wave.open(wav, 'w') as o:
     o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((mix * 32767).astype(np.int16).tobytes())
+if os.environ.get('AUDIO_FROM'):  # reuse frames of an already rendered video, redo only the sound
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', os.environ['AUDIO_FROM'], '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
+                    '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
+    print('done', OUT, f'{TOTAL:.1f}s'); sys.exit()
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-framerate', str(FPS), '-i', str(FR / 'f%04d.jpg'), '-i', wav, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                 '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
 print('done', OUT, f'{TOTAL:.1f}s')
