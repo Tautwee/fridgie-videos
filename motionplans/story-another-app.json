@@ -1,0 +1,36 @@
+{
+ "title": "Another App?",
+ "feature": "free, no download",
+ "energy": "cheeky poll",
+ "bpm": 112,
+ "music": "disco",
+ "palette": "mint",
+ "modules": [
+  "hook",
+  "text",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Would you <b>download</b> another app?",
+   "sub": "Vote with your thumb 👇",
+   "size": 90
+  },
+  {
+   "type": "text",
+   "beats": 6,
+   "text": "Fridgeroo needs <b>zero</b> downloads. Just a link.",
+   "pill": "Free. Any phone. 📱"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "",
+ "slot": "2026-11-01T15:30:00+01:00",
+ "beats": 14,
+ "seconds": 7.5
+}

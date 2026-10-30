@@ -1,0 +1,65 @@
+{
+ "title": "Snap. Shop. Done.",
+ "feature": "receipt scan",
+ "energy": "bright futurebass",
+ "bpm": 148,
+ "music": "futurebass",
+ "palette": "forest",
+ "modules": [
+  "hook",
+  "scan",
+  "punch",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Snap the <b>receipt</b>. That's it. 🧾"
+  },
+  {
+   "type": "scan",
+   "beats": 9,
+   "stepBeats": 0.75,
+   "title": "Snap. Shop. <b>Done.</b>",
+   "items": [
+    "🥛",
+    "🥚",
+    "🧀",
+    "🍅",
+    "🥬",
+    "🍞",
+    "🍗",
+    "🥕",
+    "🍌"
+   ],
+   "label": "added"
+  },
+  {
+   "type": "punch",
+   "beats": 4,
+   "text": "Whole shop. <b>3</b> seconds. ⚡"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Snap your receipt and your whole shop is added in seconds 🧾✨ Try it free at fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#groceries",
+  "#foodtok",
+  "#dutchstudent",
+  "#mealprep"
+ ],
+ "cover": {
+  "words": "SNAP THE RECEIPT",
+  "emoji": "🧾"
+ },
+ "ytTitle": "Scan a Receipt, Fill Your Fridge in 3 Seconds",
+ "igSound": "Blinding Lights – The Weeknd",
+ "slot": "2026-11-01T18:30:00+01:00",
+ "beats": 21,
+ "seconds": 8.51
+}
