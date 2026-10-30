@@ -52,7 +52,7 @@
      0
     ],
     [
-     "fside2",
+     "fwide",
      1.6
     ]
    ],
@@ -86,40 +86,50 @@
    "say": "Yeah.|I'm talking to <b>YOU.</b>"
   },
   {
-   "dur": 3.3,
+   "dur": 5.0,
    "cams": [
     [
      "phone",
      0
     ],
     [
-     "fside",
-     1.4
+     "phonezoom",
+     0.5
+    ],
+    [
+     "ftalk",
+     1.3
+    ],
+    [
+     "sky",
+     2.4
+    ],
+    [
+     "pullout",
+     3.6
     ]
    ],
-   "label": "SO HE GOT <b>FRIDGEROO</b>",
+   "label": "HE OPENED <b>FRIDGEROO</b>",
    "do": [
     "phone",
-    "scan",
-    "shades"
+    "shades",
+    "magic"
    ],
-   "scanAt": [
-    0.75,
-    0.9,
-    1.05,
-    1.2
-   ],
-   "shadesAt": 2.2,
+   "shadesAt": 1.55,
    "notif": "Yogurt goes off <b>tomorrow</b> 🥣",
-   "notifAt": 0.9,
+   "notifAt": 0.55,
    "voice": {
     "who": "fridge",
     "src": "fridge",
     "a": 11.7,
     "b": 14.47,
-    "at": 0.4
+    "at": 1.3
    },
-   "say": "Fine.|Now you'll know|<b>before</b> it goes off."
+   "say": "Fine.|Now you'll know|<b>before</b> it goes off.",
+   "magicAt": 1.3,
+   "skyAt": 2.4,
+   "labelEnd": 1.3,
+   "notifEnd": 1.3
   },
   {
    "dur": 1.8,
