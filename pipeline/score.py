@@ -28,7 +28,7 @@ def tt(d): return np.arange(int(SR * d)) / SR
 def hz(m): return 440 * 2 ** ((m - 69) / 12)
 def flt(x, f, kind='low', o=2): return sosfilt(butter(o, f, kind, fs=SR, output='sos'), x)
 def env(n, a, d, s=0.0, r=0.05):
-    e = np.ones(n); na = max(1, int(a * SR)); e[:na] = np.linspace(0, 1, na)
+    e = np.ones(n); na = min(n, max(1, int(a * SR))); e[:na] = np.linspace(0, 1, na)
     k = np.arange(n - na) / SR; e[na:] = s + (1 - s) * np.exp(-k / max(d, 1e-4))
     nr = min(n, int(r * SR)); e[-nr:] *= np.linspace(1, 0, nr); return e
 def add(x, t0, g=1.0, pan=0.0):

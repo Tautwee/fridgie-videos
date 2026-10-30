@@ -22,7 +22,8 @@ from playwright.async_api import async_playwright
 D = Path(__file__).resolve().parent
 PLAN = Path(sys.argv[1]).resolve()
 plan = json.load(open(PLAN)); OUT = os.path.abspath(sys.argv[2]); FPS = 30; SR = 44100
-FR = D / 'frames_vox'; shutil.rmtree(FR, ignore_errors=True); FR.mkdir()
+FR = D / 'frames_vox'
+if not os.environ.get('REUSE_FRAMES'): shutil.rmtree(FR, ignore_errors=True); FR.mkdir()
 STAGE = (D / plan.get('stage', 'voxel_stage.html')).read_text()
 
 
@@ -72,7 +73,7 @@ async def main():
         await pg.evaluate('document.fonts.ready'); await pg.wait_for_timeout(300)
         total = await pg.evaluate('window.TOTAL'); info = await pg.evaluate('({s:window.SCENES,x:window.SFX})')
         times = [float(x) for x in only.split(',')] if only else [i / FPS for i in range(int(round(total * FPS)))]
-        if os.environ.get('AUDIO_FROM'): times = []
+        if os.environ.get('AUDIO_FROM') or os.environ.get('REUSE_FRAMES'): times = []
         for i, t in enumerate(times):
             await pg.evaluate('t=>render(t)', t)
             await pg.screenshot(path=str(FR / f'f{i:04d}.jpg'), type='jpeg', quality=92)
