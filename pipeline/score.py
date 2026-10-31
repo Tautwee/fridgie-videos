@@ -75,7 +75,7 @@ def tremolo(ms, d):
 
 # ---------------- A/B: sneaky groove in D minor (the clean-out + tension)
 s0, s1 = K['sneak'], K['hit']
-walk = [38, None, 41, None, 45, 44, 43, None, 38, None, 41, 43, 45, None, 46, 45]  # D2 ... sneaky
+walk = [50, None, 53, None, 57, 56, 55, None, 50, None, 53, 55, 57, None, 58, 57]  # one octave up: phone speakers  # D2 ... sneaky
 mel = [62, None, 65, None, 69, None, 68, 67, None, None, 62, None, 65, 64, 62, None]
 t = s0; i = 0
 while t < s1 - 0.05:
@@ -111,8 +111,8 @@ def pad(ms, d, a=0.35, g=1.0):  # warm pad: detuned triangles, gently filtered
     return flt(x / (len(ms) * 3), 1600) * env(len(x), a, 3.0, 0.85, 0.35) * g
 def mallet(m, d=0.6):  # soft marimba: fundamental + gentle 4th harmonic
     f = hz(m); t = tt(d); return (np.sin(2 * np.pi * f * t) + 0.18 * np.sin(2 * np.pi * 4 * f * t) * np.exp(-t * 30)) * env(len(t), 0.002, 0.18)
-def sub(m, d): t = tt(d); return np.sin(2 * np.pi * hz(m) * t) * env(len(t), 0.01, 2.0, 0.8, 0.1)
-def softkick(): t = tt(0.3); return np.sin(2 * np.pi * (50 + 70 * np.exp(-t * 35)) * t) * env(len(t), 0.002, 0.09)
+def sub(m, d): t = tt(d); return np.sin(2 * np.pi * hz(m) * t) * env(len(t), 0.03, 2.0, 0.8, 0.3)
+def softkick(): t = tt(0.25); return np.sin(2 * np.pi * (85 + 90 * np.exp(-t * 40)) * t) * env(len(t), 0.002, 0.07)
 def shaker(): return flt(flt(rng.normal(0, 1, int(SR * 0.06)), 3500, 'high'), 7000) * env(int(SR * 0.06), 0.01, 0.015) * 0.5
 def sweep(d):  # tonal riser: a rising sine glide + rising mallet notes (no white noise)
     t = tt(d); f = 220 * 2 ** (2.5 * t / d); x = np.sin(2 * np.pi * np.cumsum(f) / SR) * (t / d) ** 2 * 0.25
@@ -124,23 +124,23 @@ while t < gl:
     add(mallet(arp[i % 6] + 12 * (t > (ap + gl) / 2), 0.5), t, 0.3, (i % 2) * 0.5 - 0.25); t += B / 2; i += 1
 add(sweep(gl - ap), ap, 0.8)
 # glow: big soft major chord bloom
-add(pad([62, 66, 69, 74], dr - gl + 0.4, a=0.05, g=1.0), gl, 0.55); add(sub(38, dr - gl + 0.3), gl, 0.55)
+add(pad([62, 66, 69, 74], dr - gl + 0.4, a=0.05, g=1.0), gl, 0.55); add(sub(50, dr - gl + 0.3), gl, 0.2)
 # drop: I - V - vi - IV, warm and bouncy
 prog = [[50, 57, 62, 66, 69], [45, 57, 61, 64, 69], [47, 59, 62, 66, 71], [43, 55, 59, 62, 67]]
 mel = [74, 76, 78, 76, 74, 73, 71, 73]
 t = dr; bar = 0; k = 0
 while t < en - 0.01:
     ch = prog[bar % 4]; dd = min(4 * B, en - t)
-    add(pad(ch[1:], dd, a=0.02), t, 0.5); add(sub(ch[0] - 12, dd), t, 0.55)
+    add(pad(ch[1:], dd, a=0.02), t, 0.5); add(sub(ch[0], dd), t, 0.2)
     for b in range(8):
         tb = t + b * B / 2
         if tb >= en: break
-        if b % 2 == 0: add(softkick(), tb, 0.9)
+        if b % 2 == 0: add(softkick(), tb, 0.45)
         else: add(shaker(), tb, 0.35, 0.3)
         add(mallet(mel[k % 8], 0.45), tb, 0.32, (k % 2) * 0.4 - 0.2); k += 1
     t += 4 * B; bar += 1
 # ---------------- E: soft ending chord that just rings out
-add(pad([50, 57, 62, 66, 69], 2.2, a=0.02, g=1.0), en, 0.55); add(sub(38, 2.0), en, 0.5)
+add(pad([62, 66, 69, 74, 78], 2.2, a=0.02, g=1.0), en, 0.5)
 for j, m in enumerate([62, 66, 69, 74]): add(mallet(m, 1.2), en + 0.09 * j, 0.3, (j % 2) * 0.5 - 0.25)
 
 # ---------------- master: duck everything under the hit's silence, reverb, glue
@@ -152,7 +152,10 @@ for c in range(2):
     lp = flt(mix[:, c], 1400, o=4); w = np.zeros(len(mix)); w[e0:e0 + xf] = np.linspace(0, 1, len(w[e0:e0 + xf])); w[e0 + xf:] = 1
     mix[:, c] = mix[:, c] * (1 - w) + lp * w
 fade = int(0.6 * SR); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
-mix = np.tanh(mix * 1.1) / np.tanh(1.1); mix *= 0.9 / (np.abs(mix).max() + 1e-9)
+for c in range(2):  # phone speakers can't play deep bass: cut it (it rattles = 'hitting' sound); no saturation
+    hp = flt(mix[:, c], 70, 'high', o=4); hp2 = flt(mix[:, c], 110, 'high', o=4); w = np.zeros(len(mix)); a0 = int(K['app'] * SR); w[a0:] = 1
+    mix[:, c] = hp * (1 - w) + hp2 * w
+mix *= 0.85 / (np.abs(mix).max() + 1e-9)
 with wave.open(OUT, 'w') as o:
     o.setnchannels(2); o.setsampwidth(2); o.setframerate(SR); o.writeframes((mix * 32767).astype(np.int16).tobytes())
 print('score', OUT, f'{T:.1f}s')

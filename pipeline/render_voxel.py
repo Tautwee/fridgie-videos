@@ -115,7 +115,7 @@ def flt(x, f, kind='low'): return sosfilt(butter(2, f, kind, fs=SR, output='sos'
 def env(n, a, d): e = np.exp(-np.arange(n) / (d * SR)); e[:int(a * SR)] *= np.linspace(0, 1, int(a * SR)); return e
 def noise(d): return rng.normal(0, 1, int(SR * d))
 FX = {
- 'thunk': lambda: (np.sin(2 * np.pi * (70 + 90 * np.exp(-tt(.35) * 25)) * tt(.35)) * env(int(SR * .35), .002, .09) + flt(noise(.35), 900) * env(int(SR * .35), .001, .03) * .6) * .9,
+ 'thunk': lambda: (np.sin(2 * np.pi * (130 + 120 * np.exp(-tt(.35) * 25)) * tt(.35)) * env(int(SR * .35), .002, .09) + flt(noise(.35), 900) * env(int(SR * .35), .001, .03) * .6) * .9,
  'whoosh': lambda: flt(noise(.4), 2500) * np.sin(np.linspace(0, np.pi, int(SR * .4))) ** 2 * .35,
  'swoosh': lambda: flt(flt(noise(.25), 1200, 'high'), 6000) * np.sin(np.linspace(0, np.pi, int(SR * .25))) ** 2 * .25,
  'coin': lambda: (np.sin(2 * np.pi * 2093 * tt(.25)) + .6 * np.sin(2 * np.pi * 3136 * tt(.25))) * env(int(SR * .25), .001, .06) * .22,
@@ -123,8 +123,8 @@ FX = {
  'buzz': lambda: np.sign(np.sin(2 * np.pi * 150 * tt(.5))) * (np.sin(2 * np.pi * 8 * tt(.5)) > 0) * .14 * flt(np.ones(int(SR * .5)), 30),
  'pop': lambda: np.sin(2 * np.pi * (500 + 900 * np.exp(-tt(.12) * 40)) * tt(.12)) * env(int(SR * .12), .001, .04) * .45,
  'tick': lambda: flt(noise(.04), 3000, 'high') * env(int(SR * .04), .001, .01) * .4,
- 'door': lambda: (flt(noise(.25), 400) * env(int(SR * .25), .002, .05) + np.sin(2 * np.pi * 95 * tt(.25)) * env(int(SR * .25), .002, .06)) * .5,
- 'stink': lambda: flt(noise(1.0), 600) * np.sin(np.linspace(0, np.pi, SR)) ** 1.5 * .45 + np.sin(2 * np.pi * (60 - 20 * tt(1.0)) * tt(1.0)) * np.sin(np.linspace(0, np.pi, SR)) * .3,
+ 'door': lambda: (flt(noise(.25), 600) * env(int(SR * .25), .002, .05) + np.sin(2 * np.pi * 150 * tt(.25)) * env(int(SR * .25), .002, .06)) * .5,
+ 'stink': lambda: flt(noise(1.0), 600) * np.sin(np.linspace(0, np.pi, SR)) ** 1.5 * .45 + np.sin(2 * np.pi * (140 - 30 * tt(1.0)) * tt(1.0)) * np.sin(np.linspace(0, np.pi, SR)) * .3,
  'boing': lambda: np.sin(2 * np.pi * (220 + 60 * np.sin(2 * np.pi * 9 * tt(.45))) * tt(.45)) * env(int(SR * .45), .005, .2) * .3,
  'swish': lambda: flt(noise(.45), 3000) * np.linspace(0, 1, int(SR * .45)) ** 2 * .3,
  'click': lambda: (flt(noise(.05), 2000, 'high') * env(int(SR * .05), .001, .008) * .7 + np.sin(2 * np.pi * 1200 * tt(.05)) * env(int(SR * .05), .001, .01) * .3),
@@ -139,16 +139,20 @@ for name, t in I['x']:
     x = FX[name](); a = int(t * SR)
     if 0 <= a < N: sfx[a:a + len(x)] += x[:N - a]
 
-mix = mus + voice + sfx
+mix = mus + voice + flt(sfx, 90, 'high')
 mix = mix[:int(TOTAL * SR)]
 mix *= 0.95 / max(1e-6, np.abs(mix).max())
 wav = str(D / 'mix_vox.wav')
 with wave.open(wav, 'w') as o:
     o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((mix * 32767).astype(np.int16).tobytes())
+# two-pass linear loudness (no pumping/distortion at the end)
+_m = subprocess.run(['ffmpeg', '-hide_banner', '-i', wav, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'], capture_output=True, text=True).stderr
+_j = json.loads(_m[_m.rindex('{'):_m.rindex('}') + 1])
+LN = f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={_j['input_lra']}:measured_thresh={_j['input_thresh']}:offset={_j['target_offset']}:linear=true"
 if os.environ.get('AUDIO_FROM'):  # reuse frames of an already rendered video, redo only the sound
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', os.environ['AUDIO_FROM'], '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
-                    '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
+                    '-af', LN, '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
     print('done', OUT, f'{TOTAL:.1f}s'); sys.exit()
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-framerate', str(FPS), '-i', str(FR / 'f%04d.jpg'), '-i', wav, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
-                '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
+                '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-af', LN, '-ar', '44100', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-shortest', OUT], check=True)
 print('done', OUT, f'{TOTAL:.1f}s')

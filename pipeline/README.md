@@ -37,7 +37,7 @@ background, logo outro. Rotate palettes so two days in a row never look the same
 `render_story.py` (still images) is retired.
 
 ## 3D story videos (the format Tautvydas loved, 31 Oct 2026) — every 2 days at 18:30
-Blocky (voxel) 3D mini-stories: the **fridge is the character** and roasts the viewer (POV). Gold example: `voxelplans/fridge-roast.json` → `videos/fridgeroo-3d-roast-v7.mp4`.
+Blocky (voxel) 3D mini-stories: the **fridge is the character** and roasts the viewer (POV). Gold example: `voxelplans/fridge-roast.json` → `videos/fridgeroo-3d-roast-v8.mp4`. **Full rules, story ideas and the Judge: `pipeline/BOT_PLAYBOOK.md`.** Check every finished video with `python3 judge_check.py ../videos/<file>.mp4 <dir>`.
 `cd pipeline && python3 render_voxel.py ../voxelplans/<name>.json ../videos/<out>.mp4` (~12–15 min; `ONLY=1.0,5.5` renders preview frames only into frames_vox/; `REUSE_FRAMES=1` re-encodes sound only).
 - Stage `voxel_stage2.html` (set `"stage":"voxel_stage2.html"` in the plan). Music = `score.py` (story score) when the plan has `"score"` marks `{name:[sceneIndex, secondsIntoScene]}` for sneak, tension, yuck, hit, app, glow, drop, end.
 - Voices: ElevenLabs, fridge voice **"Grampa Werthers – Old & Cranky"** (his account). Bots cannot make voices: he pastes the text, downloads the mp3 and uploads it to the Bot Room. Convert with `ffmpeg -i in.mp3 -ac 1 -ar 44100 -af atempo=1.12 out.wav`, find lines with `silencedetect=noise=-40dB:d=0.15`, cut long pauses, set each scene's `voice:{who:'fridge',src:'fridge',a,b,at}` (seconds in the wav). The fridge's mouth syncs automatically.
