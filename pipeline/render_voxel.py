@@ -129,6 +129,7 @@ FX = {
  'swish': lambda: flt(noise(.45), 3000) * np.linspace(0, 1, int(SR * .45)) ** 2 * .3,
  'click': lambda: (flt(noise(.05), 2000, 'high') * env(int(SR * .05), .001, .008) * .7 + np.sin(2 * np.pi * 1200 * tt(.05)) * env(int(SR * .05), .001, .01) * .3),
  'squelch': lambda: flt(noise(.35), 500) * np.sin(2 * np.pi * 7 * tt(.35)) ** 2 * env(int(SR * .35), .01, .12) * .8,
+ 'sparkle': lambda: (np.sin(2 * np.pi * 1760 * tt(.5)) + .4 * np.sin(2 * np.pi * 2637 * tt(.5))) * env(int(SR * .5), .003, .12) * .08,
  'zoom': lambda: flt(noise(.6), 1500) * np.linspace(0, 1, int(SR * .6)) ** 3 * .35 + np.sin(2 * np.pi * (200 + 600 * tt(.6)) * tt(.6)) * np.linspace(0, 1, int(SR * .6)) ** 2 * .12,
  'ding': lambda: (np.sin(2 * np.pi * 1318 * tt(.6)) + .5 * np.sin(2 * np.pi * 2637 * tt(.6))) * env(int(SR * .6), .002, .2) * .18,
 }

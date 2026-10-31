@@ -3,28 +3,28 @@
  "music": "tropical",
  "stage": "voxel_stage2.html",
  "voices": {
-  "fridge": "../voxaudio/fridge_roast.wav"
+  "fridge": "../voxaudio/fridge_roast_tight.wav"
  },
  "scenes": [
   {
-   "dur": 4.5,
+   "dur": 2.6,
    "cams": [
     [
-     "ftalk",
+     "front",
      0
     ],
     [
-     "front",
-     1.15
+     "ftalk",
+     0.75
     ],
     [
      "three",
-     3.1
+     1.6
     ]
    ],
    "label": "SUNDAY FRIDGE <b>CLEAN-OUT</b> 🤢",
    "do": [
-    "cleanout"
+    "cold"
    ],
    "toss": [
     "pizza",
@@ -38,14 +38,14 @@
     "who": "fridge",
     "src": "fridge",
     "a": 0.0,
-    "b": 2.45,
-    "at": 0.15
+    "b": 2.33,
+    "at": 0.1
    },
    "say": "Oh, look who|finally <b>showed up.</b>",
-   "tossStart": 1.95
+   "tossStart": 0.0
   },
   {
-   "dur": 3.8,
+   "dur": 3.35,
    "cams": [
     [
      "yog",
@@ -53,7 +53,7 @@
     ],
     [
      "fwide",
-     1.9
+     1.7
     ]
    ],
    "do": [
@@ -62,15 +62,15 @@
    "voice": {
     "who": "fridge",
     "src": "fridge",
-    "a": 3.95,
-    "b": 7.75,
+    "a": 2.73,
+    "b": 6.13,
     "at": 0.0
    },
    "say": "You pushed it|to the back...|what did you <b>THINK</b>|would happen?",
-   "hold": 5.5
+   "hold": 4.45
   },
   {
-   "dur": 1.9,
+   "dur": 1.35,
    "cam": "fstare",
    "label": "POV: YOUR FRIDGE IS<br><b>DONE WITH YOU</b>",
    "do": [
@@ -79,14 +79,14 @@
    "voice": {
     "who": "fridge",
     "src": "fridge",
-    "a": 8.65,
-    "b": 10.3,
+    "a": 6.53,
+    "b": 7.45,
     "at": 0.1
    },
-   "say": "Yeah.|I'm talking to <b>YOU.</b>"
+   "say": "I'm talking to <b>YOU.</b>"
   },
   {
-   "dur": 5.6,
+   "dur": 5.0,
    "cams": [
     [
      "phone",
@@ -94,19 +94,19 @@
     ],
     [
      "phonezoom",
-     0.4
+     0.35
     ],
     [
      "ftalk",
-     2.2
+     1.9
     ],
     [
      "sky",
-     3.1
+     2.6
     ],
     [
      "pullout",
-     4.3
+     3.7
     ]
    ],
    "label": "HE OPENED <b>FRIDGEROO</b>",
@@ -115,24 +115,24 @@
     "shades",
     "magic"
    ],
-   "shadesAt": 2.45,
+   "shadesAt": 2.1,
    "notif": "Yogurt goes off <b>tomorrow</b> 🥣",
-   "notifAt": 0.5,
+   "notifAt": 0.45,
    "voice": {
     "who": "fridge",
     "src": "fridge",
-    "a": 11.7,
-    "b": 14.47,
-    "at": 2.2
+    "a": 7.85,
+    "b": 9.711,
+    "at": 2.0
    },
-   "say": "Fine.|Now you'll know|<b>before</b> it goes off.",
-   "magicAt": 2.2,
-   "skyAt": 3.1,
-   "labelEnd": 2.2,
-   "notifEnd": 2.2,
+   "say": "Now you'll know|<b>before</b> it goes off.",
+   "magicAt": 1.9,
+   "skyAt": 2.6,
+   "labelEnd": 1.9,
+   "notifEnd": 1.9,
    "chip": "NO MORE <b>FORGOTTEN FOOD</b> ✨",
-   "chipAt": 3.2,
-   "chipEnd": 4.4
+   "chipAt": 2.7,
+   "chipEnd": 3.7
   },
   {
    "dur": 1.8,
@@ -165,11 +165,11 @@
   ],
   "glow": [
    3,
-   2.2
+   1.9
   ],
   "drop": [
    3,
-   3.1
+   2.6
   ],
   "end": [
    4,

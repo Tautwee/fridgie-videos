@@ -101,36 +101,47 @@ add(riser(0.35) * 0.7, h - 0.35, 0.6)
 add(hitchord([38, 45, 50, 53, 57], 0.9) * env(int(SR * 0.9), 0.001, 0.25), h, 0.75); add(boom() * env(int(SR * 1.4), 0.001, 0.25), h, 0.8)
 for j in range(int((K['app'] - h - 0.3) / 0.75)):  # heartbeat
     add(boom()[:int(SR * 0.3)] * 0.5, h + 0.75 + j * 0.75, 0.3); add(boom()[:int(SR * 0.25)] * 0.35, h + 0.98 + j * 0.75, 0.3)
-# ---------------- D: magic -> major payoff (D major)
+# ---------------- D: magic -> major payoff (D major), CLEAN: only sine/triangle tones, no noise, no buzzy saws
 ap, gl, dr, en = K['app'], K['glow'], K['drop'], K['end']
-arp = [74, 78, 81, 86, 81, 78]
+def tri(f, d): t = tt(d); return 2 * np.abs(2 * ((t * f) % 1) - 1) - 1
+def pad(ms, d, a=0.35, g=1.0):  # warm pad: detuned triangles, gently filtered
+    x = np.zeros(int(SR * d))
+    for m in ms:
+        for dt in (-0.003, 0.0, 0.003): x += tri(hz(m) * (1 + dt), d)
+    return flt(x / (len(ms) * 3), 1600) * env(len(x), a, 3.0, 0.85, 0.35) * g
+def mallet(m, d=0.6):  # soft marimba: fundamental + gentle 4th harmonic
+    f = hz(m); t = tt(d); return (np.sin(2 * np.pi * f * t) + 0.18 * np.sin(2 * np.pi * 4 * f * t) * np.exp(-t * 30)) * env(len(t), 0.002, 0.18)
+def sub(m, d): t = tt(d); return np.sin(2 * np.pi * hz(m) * t) * env(len(t), 0.01, 2.0, 0.8, 0.1)
+def softkick(): t = tt(0.3); return np.sin(2 * np.pi * (50 + 70 * np.exp(-t * 35)) * t) * env(len(t), 0.002, 0.09)
+def shaker(): return flt(flt(rng.normal(0, 1, int(SR * 0.06)), 3500, 'high'), 7000) * env(int(SR * 0.06), 0.01, 0.015) * 0.5
+def sweep(d):  # tonal riser: a rising sine glide + rising mallet notes (no white noise)
+    t = tt(d); f = 220 * 2 ** (2.5 * t / d); x = np.sin(2 * np.pi * np.cumsum(f) / SR) * (t / d) ** 2 * 0.25
+    return flt(x, 2500)
+# magic: rising mallet arpeggio + tonal sweep from app to glow
+arp = [62, 66, 69, 74, 69, 66]
 t = ap; i = 0
-while t < en:
-    add(bell(arp[i % 6] + (12 if t > dr else 0), 0.9), t, 0.18 if t < dr else 0.14, (i % 2) * 0.6 - 0.3); t += B / 2; i += 1
-add(riser(gl - ap + 0.05), ap, 0.7)
-add(choir([62, 66, 69, 74], dr - gl + 0.6), gl, 0.55); add(supersaw([50, 57, 62, 66], dr - gl + 0.3, 3000, 0.01, 1.2, 0.6), gl, 0.5); add(boom() * env(int(SR * 1.4), 0.001, 0.3), gl, 0.6)
-add(hat() * 0, gl)
-# drop: I - V - vi - IV, 1 bar each, kick 4 on the floor
+while t < gl:
+    add(mallet(arp[i % 6] + 12 * (t > (ap + gl) / 2), 0.5), t, 0.3, (i % 2) * 0.5 - 0.25); t += B / 2; i += 1
+add(sweep(gl - ap), ap, 0.8)
+# glow: big soft major chord bloom
+add(pad([62, 66, 69, 74], dr - gl + 0.4, a=0.05, g=1.0), gl, 0.55); add(sub(38, dr - gl + 0.3), gl, 0.55)
+# drop: I - V - vi - IV, warm and bouncy
 prog = [[50, 57, 62, 66, 69], [45, 57, 61, 64, 69], [47, 59, 62, 66, 71], [43, 55, 59, 62, 67]]
-t = dr; bar = 0
-while t < en:
-    ch = prog[bar % 4]
-    dd = min(4 * B, en - t)
-    add(supersaw(ch[1:], dd, 2600, 0.01, 1.5, 0.7), t, 0.45); add(choir(ch[1:], dd), t, 0.25)
-    add(flt(saw(hz(ch[0] - 12), dd), 400) * env(int(SR * dd), 0.01, 2, 0.8), t, 0.5)
-    for b in range(4):
-        if t + b * B >= en: break
-        add(kick(), t + b * B, 1.1)
-        if b % 2: add(clap(), t + b * B, 0.6)
-        add(hat(), t + b * B + B / 2, 0.3, 0.3)
+mel = [74, 76, 78, 76, 74, 73, 71, 73]
+t = dr; bar = 0; k = 0
+while t < en - 0.01:
+    ch = prog[bar % 4]; dd = min(4 * B, en - t)
+    add(pad(ch[1:], dd, a=0.02), t, 0.5); add(sub(ch[0] - 12, dd), t, 0.55)
+    for b in range(8):
+        tb = t + b * B / 2
+        if tb >= en: break
+        if b % 2 == 0: add(softkick(), tb, 0.9)
+        else: add(shaker(), tb, 0.35, 0.3)
+        add(mallet(mel[k % 8], 0.45), tb, 0.32, (k % 2) * 0.4 - 0.2); k += 1
     t += 4 * B; bar += 1
-# ---------------- E: end hit + sparkle tail
-# clean, warm ending: soft D-major chime chord + choir swell + one soft low note (no noise)
-def soft(m, d):
-    t = tt(d); f = hz(m); return (np.sin(2 * np.pi * f * t) + 0.25 * np.sin(4 * np.pi * f * t)) * env(len(t), 0.004, 0.8, 0.0, 0.2)
-for j, m in enumerate([62, 66, 69, 74]): add(soft(m, 2.0), en + 0.07 * j, 0.22, (j % 2) * 0.5 - 0.25)
-add(flt(choir([62, 66, 69, 74], 2.0), 1500), en, 0.25)
-add(np.sin(2 * np.pi * hz(38) * tt(1.8)) * env(int(SR * 1.8), 0.01, 0.7), en, 0.45)
+# ---------------- E: soft ending chord that just rings out
+add(pad([50, 57, 62, 66, 69], 2.2, a=0.02, g=1.0), en, 0.55); add(sub(38, 2.0), en, 0.5)
+for j, m in enumerate([62, 66, 69, 74]): add(mallet(m, 1.2), en + 0.09 * j, 0.3, (j % 2) * 0.5 - 0.25)
 
 # ---------------- master: duck everything under the hit's silence, reverb, glue
 mix = np.stack([L, Rr], 1)[:int(SR * T)]
