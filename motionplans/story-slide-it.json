@@ -1,0 +1,39 @@
+{
+ "title": "Slide It",
+ "feature": "fill level slider",
+ "energy": "chill quick tip",
+ "bpm": 90,
+ "music": "lofi",
+ "palette": "cobalt",
+ "modules": [
+  "card",
+  "text",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "card",
+   "beats": 6,
+   "title": "How much <b>oat milk</b> is left? 🥛",
+   "emoji": "🥛",
+   "name": "Oat milk",
+   "days": 4,
+   "left": 25,
+   "sticker": "25% left"
+  },
+  {
+   "type": "text",
+   "beats": 5,
+   "text": "Drag the <b>slider</b> as you use it up.",
+   "pill": "Know what's left 🥛"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "",
+ "slot": "2026-11-02T15:30:00+01:00",
+ "beats": 15,
+ "seconds": 10.0
+}

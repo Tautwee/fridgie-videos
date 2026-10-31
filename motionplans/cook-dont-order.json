@@ -1,0 +1,62 @@
+{
+ "title": "Cook, Don't Order",
+ "feature": "recipes from what you have",
+ "energy": "dark phonk hype",
+ "bpm": 128,
+ "music": "phonk",
+ "palette": "sunset",
+ "modules": [
+  "punch",
+  "scan",
+  "text",
+  "end"
+ ],
+ "scenes": [
+  {
+   "type": "punch",
+   "beats": 4,
+   "text": "Delivery takes <b>40</b> minutes. 🛵"
+  },
+  {
+   "type": "scan",
+   "beats": 8,
+   "stepBeats": 0.75,
+   "title": "But your fridge has <b>dinner</b>",
+   "items": [
+    "🍚",
+    "🥦",
+    "🥕",
+    "🥚",
+    "🧄"
+   ],
+   "label": "found"
+  },
+  {
+   "type": "text",
+   "beats": 5,
+   "text": "Fried rice takes <b>10</b>. 🍳",
+   "pill": "Recipes from what you have"
+  },
+  {
+   "type": "end",
+   "beats": 4
+  }
+ ],
+ "caption": "Delivery takes 40 minutes. Fried rice takes 10. 🍳 Fridgeroo turns what's already in your fridge into dinner. Try it free at fridgeroo.netlify.app",
+ "hashtags": [
+  "#fridgeroo",
+  "#recipes",
+  "#cooking",
+  "#quickmeals",
+  "#fridgerecipes"
+ ],
+ "cover": {
+  "words": "COOK, DON'T ORDER",
+  "emoji": "🍳"
+ },
+ "ytTitle": "Cook, Don't Order: Dinner From What's in Your Fridge",
+ "igSound": "SICKO MODE – Travis Scott",
+ "slot": "2026-11-02T18:30:00+01:00",
+ "beats": 21,
+ "seconds": 9.84
+}
