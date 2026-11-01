@@ -1,0 +1,221 @@
+{
+ "title": "POV: your eggs hatched",
+ "music": "tropical",
+ "stage": "voxel_stage2.html",
+ "voices": {
+  "fridge": "../voxaudio/egg_hatch.wav"
+ },
+ "scenes": [
+  {
+   "dur": 2.6,
+   "cams": [
+    [
+     "front",
+     0
+    ],
+    [
+     "ftalk",
+     0.75
+    ],
+    [
+     "three",
+     1.6
+    ]
+   ],
+   "label": "5-WEEK-OLD <b>EGGS</b> 🥚👀",
+   "do": [
+    "cold"
+   ],
+   "toss": [
+    "pizza",
+    "takeaway",
+    "sandwich",
+    "pasta",
+    "cheese",
+    "milk"
+   ],
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.1
+   },
+   "say": "Bought eggs|in <b>September.</b>|Bold.",
+   "tossStart": 0.0
+  },
+  {
+   "dur": 3.4,
+   "cams": [
+    [
+     "yog",
+     0
+    ],
+    [
+     "fwide",
+     1.0
+    ]
+   ],
+   "do": [
+    "yogurt",
+    "hatch"
+   ],
+   "reveal": "eggs",
+   "hold": 4.6,
+   "hatchAt": 1.45,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 1.1
+   },
+   "say": "Congrats.|They <b>HATCHED.</b>|You're a parent."
+  },
+  {
+   "dur": 1.9,
+   "cam": "fstare",
+   "label": "POV: YOU FORGOT<br><b>YOUR EGGS</b>",
+   "do": [
+    "stare"
+   ],
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.1
+   },
+   "say": "Don't look away.|You do <b>this too.</b>"
+  },
+  {
+   "dur": 5.0,
+   "cams": [
+    [
+     "phone",
+     0
+    ],
+    [
+     "phonezoom",
+     0.35
+    ],
+    [
+     "ftalk",
+     1.9
+    ],
+    [
+     "sky",
+     2.6
+    ],
+    [
+     "pullout",
+     3.7
+    ]
+   ],
+   "label": "HE OPENED <b>FRIDGEROO</b>",
+   "do": [
+    "phone",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 2.1,
+   "notif": "Eggs go off <b>tomorrow</b> 🥚",
+   "notifAt": 0.45,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 2.0
+   },
+   "say": "Now you'll know|<b>before</b> they hatch.",
+   "magicAt": 1.9,
+   "skyAt": 2.6,
+   "labelEnd": 2.05,
+   "notifEnd": 2.05,
+   "chip": "NO MORE <b>FORGOTTEN FOOD</b> ✨",
+   "chipAt": 2.7,
+   "chipEnd": 3.7
+  },
+  {
+   "dur": 1.8,
+   "type": "end"
+  }
+ ],
+ "appRows": [
+  [
+   "🥚",
+   "Eggs",
+   "tomorrow!",
+   "#ff6b5a"
+  ],
+  [
+   "🥛",
+   "Milk",
+   "4 days",
+   "#FFD43B"
+  ],
+  [
+   "🍅",
+   "Tomatoes",
+   "6 days",
+   "#3DDC97"
+  ],
+  [
+   "🧀",
+   "Cheese",
+   "8 days",
+   "#3DDC97"
+  ]
+ ],
+ "caption": "Use it or lose it. 🐣 Fridgeroo warns you before food goes off, free at fridgeroo.netlify.app, so be honest: how old are the eggs in YOUR fridge?",
+ "hashtags": "#fridgeroo #funny #uni #studentbudget #zerowastekitchen",
+ "slogan": "Use it or lose it.",
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   0.0
+  ],
+  "yuck": [
+   1,
+   0.95
+  ],
+  "hit": [
+   2,
+   0.0
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   3,
+   1.9
+  ],
+  "drop": [
+   3,
+   2.6
+  ],
+  "end": [
+   4,
+   0.0
+  ]
+ },
+ "todo": {
+  "newProps": [
+   "CHICK prop: olive-yellow #c8c24a fuzzy sphere r0.055 with mold dots, black cube eyes, orange cone beak (#ff8c1a) that opens to scream, stub wings, cream half-shell cap; child of eggs group, hidden by default, sits on middle-right egg slot; best in yog/fwide. Alive and grumpy, never limp.",
+   "HATCH action (new ACT entry): third egg wobbles from hatchAt-0.55, at hatchAt egg scales to 0, shell half arcs up and drops out, chick scales in with back ease, bobs, beak opens ~0.9 s; sfx soft crack + one soft peep (not a high ping). Student gag/yuck reaction."
+  ],
+  "judgeNotes": [
+   "Eggs sit on the lowest shelf: check pull path + hand reach in preview ONLY=3.0,4.2,5.0",
+   "Consider one cracked shell flying toward the bin in frame 1 to lift the hook",
+   "Re-time durs to the real voice; re-check gold example frames after adding hatch (playbook §7)"
+  ],
+  "cover": "THEY HATCHED 🐣 — hatch moment in fwide ~4.3 s",
+  "ytTitle": "My fridge roasted me: the eggs hatched 🐣"
+ }
+}
