@@ -1,0 +1,276 @@
+{
+ "title": "POV: you bought milk again",
+ "slot": "2026-11-06 18:30",
+ "look": "toon",
+ "music": "tropical",
+ "stage": "voxel_stage2.html",
+ "voices": {
+  "fridge": "../voxaudio/line_up.wav"
+ },
+ "scenes": [
+  {
+   "dur": 2.6,
+   "cams": [
+    [
+     "binTop",
+     0
+    ],
+    [
+     "ftalk",
+     0.9
+    ],
+    [
+     "three",
+     1.7
+    ]
+   ],
+   "label": "BINNED: <b>2 SOUR MILKS</b> 🥛🥛",
+   "do": [
+    "cold"
+   ],
+   "toss": [
+    "milkA",
+    "milkB",
+    "pizza",
+    "takeaway",
+    "sandwich",
+    "apple"
+   ],
+   "tossStart": 0.0,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.9
+   },
+   "say": "Milk.|<b>Again.</b>",
+   "beats": [
+    "0.00 binTop (bin rim + flying food top-down): student's arm swings, milkA arcs over the rim, sfx whoosh+thunk; music: sneaky bass tick starts, 'sneak'",
+    "0.38 milkB arcs in (whoosh+thunk), student's face: eyes squeezed, brows down (disgust)",
+    "0.76 pizza arcs in; fridge door swings wide behind him (door creak)",
+    "0.90 CUT ftalk: fridge face visible, mouth syncs 'Milk. Again.' (flat, tired); subtitle 'Milk.' then '<b>Again.</b>' yellow; takeaway + sandwich fly (whoosh+thunk each)",
+    "1.30 apple arcs in; student wipes brow with free hand (small shrug)",
+    "1.70 CUT three: wide shot, last items land, bin lid bounces; student turns to the fridge (yaw 0.45) and reaches for the lower shelf; music 'tension' at 1.6"
+   ]
+  },
+  {
+   "dur": 3.9,
+   "cams": [
+    [
+     "yog",
+     0
+    ],
+    [
+     "fwide",
+     0.9
+    ],
+    [
+     "ftalk",
+     2.7
+    ]
+   ],
+   "label": "THE <b>SUSPECTS</b> 🚨",
+   "do": [
+    "yogurt",
+    "lineup"
+   ],
+   "reveal": "milk",
+   "hold": 1.35,
+   "lineAt": 1.45,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.9
+   },
+   "say": "Line 'em up.|<b>Five</b> milks.|One week.",
+   "beats": [
+    "0.00 yog: his hand pulls the lower-shelf milk out toward camera (hand approaches in front of the shelf, then in; milk tilts, MILK label readable); sfx soft slide",
+    "0.35 he lifts it to eye level, squints at the best-before date, brows up then down (look/sniff); no gag",
+    "0.90 CUT fwide: fridge face + shelf visible; fridge orders 'Line 'em up.' (dry) and the line-up obeys right after; subtitle 'Line 'em up.'",
+    "1.35 held milk hand-off: hold ends, held carton scales to 0 in 0.1 s as he steps back (yaw 0.45) with both hands raised in a 'huh?' shrug",
+    "1.45 LINE-UP: spotlight cone snaps on over the upper shelf (sfx lamp clunk + short zap); height-chart panel pops in behind (back ease); milk 1 pops left on the shelf (sfx pop + thunk, tag swings in with a 'ding' as soft wood-block, not high ping), milk 2 center at 1.62, milk 3 right at 1.79; tags 1/2/3 swing and settle",
+    "1.90 milks do a tiny synchronized hop and a nervous wobble; the cone sweeps left to right once (whoosh); student leans in with arms crossed, one brow up; fridge: 'Five milks. One week.' subtitle '<b>Five</b> milks.' / 'One week.' (2 binned + 3 in the line-up = 5)",
+    "2.70 CUT ftalk: fridge smug smile, slow blink while the line finishes; music 'yuck' sting (muted trombone) already at 1.5",
+    "3.40 tag 2 drops off and spins on its string (comic beat) just before the stare cut"
+   ]
+  },
+  {
+   "dur": 2.1,
+   "cam": "fstare",
+   "label": "POV: YOU BOUGHT<br><b>MILK AGAIN</b>",
+   "do": [
+    "stare"
+   ],
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.1
+   },
+   "say": "Yeah, <b>YOU.</b>|Check the|fridge first.",
+   "beats": [
+    "0.00 fstare close-up: fridge leans into the lens, sfx zoom whoosh (existing 'stare' sfx); the spotlight cone is still lit behind its head (cone stays on)",
+    "0.10 fridge: 'Yeah, YOU. Check the fridge first.' subtitle chunks 'Yeah, <b>YOU.</b>' / 'Check the' / 'fridge first.'; blink at 1.0; music 'hit' (dry stab) at 0.0"
+   ]
+  },
+  {
+   "dur": 5.0,
+   "cams": [
+    [
+     "phone",
+     0
+    ],
+    [
+     "phonezoom",
+     0.35
+    ],
+    [
+     "ftalk",
+     1.9
+    ],
+    [
+     "sky",
+     2.6
+    ],
+    [
+     "pullout",
+     3.7
+    ]
+   ],
+   "label": "HE OPENED <b>FRIDGEROO</b>",
+   "do": [
+    "phone",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 2.1,
+   "notif": "Milk: you <b>already have 3</b> 🥛",
+   "notifAt": 0.45,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 2.0
+   },
+   "say": "Now the list|<b>remembers.</b>",
+   "magicAt": 1.9,
+   "skyAt": 2.6,
+   "labelEnd": 1.9,
+   "notifEnd": 1.9,
+   "chip": "NO MORE <b>DOUBLE BUYS</b> ✨",
+   "chipAt": 2.7,
+   "chipEnd": 3.7,
+   "appBlock": {
+    "row": 0,
+    "at": 0.9
+   },
+   "beats": [
+    "0.00 phone: he holds the phone with the 'Shopping list' screen; milk row at the top pulses red",
+    "0.35 phonezoom: screen fills the frame; sfx notification pop (soft, low)",
+    "0.45 notif banner drops in 'Milk: you already have 3'; row 'Milk - you have 3!' pulses red",
+    "0.90 BLOCKED: a red strike line wipes across the milk row with a rubber-stamp thunk (sfx) and the row shows a small hand icon; app stays on screen until 1.9 (1.9 s total with the zoom)",
+    "1.90 CUT ftalk: sunglasses drop (shades at 2.1, swish + click); fridge says 'Now the list remembers.' (grudging, warm); magic glow starts 1.9 (sparkle sfx), music 'glow'",
+    "2.60 sky of fridges (drop beat, music 'drop'); chip 'NO MORE DOUBLE BUYS' 2.7-3.7; pullout 3.7"
+   ]
+  },
+  {
+   "dur": 1.8,
+   "type": "end"
+  }
+ ],
+ "appRows": [
+  [
+   "🥛",
+   "Milk",
+   "you have 3!",
+   "#ff6b5a"
+  ],
+  [
+   "🍞",
+   "Bread",
+   "add",
+   "#3DDC97"
+  ],
+  [
+   "🥚",
+   "Eggs",
+   "add",
+   "#3DDC97"
+  ],
+  [
+   "🧀",
+   "Cheese",
+   "add",
+   "#3DDC97"
+  ]
+ ],
+ "appTitle": "Shopping list",
+ "caption": "Fridgeroo's shopping list knows you already have milk, before you buy a fourth. 🥛 Use it or lose it. Free at fridgeroo.netlify.app – be honest, how many milks do you own right now? 👇",
+ "hashtags": "#fridgeroo #relatable #supermarket #studentproblems #groceryrun",
+ "slogan": "Use it or lose it.",
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   0,
+   1.6
+  ],
+  "yuck": [
+   1,
+   1.5
+  ],
+  "hit": [
+   2,
+   0.0
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   3,
+   1.9
+  ],
+  "drop": [
+   3,
+   2.6
+  ],
+  "end": [
+   4,
+   0.0
+  ]
+ },
+ "todo": {
+  "voiceText": "[flat, tired] Milk. Again. [long pause] [dry, bossy] Line 'em up. Five milks. One week. [long pause] [deadpan, serious] Yeah, YOU. Check the fridge first. [long pause] [grudging, warm] Now the list remembers.",
+  "newProps": [
+   "MILK EXTRAS: IT.milkA (-0.30,0.57,0.14) and IT.milkB (-0.08,0.57,0.16) = item('milk',...) clones of the existing milk (same MILK label), used only as toss items in scene 0; they sit on the lower shelf in view, so move the cheese 0.06 right if they overlap.",
+   "LINEUP trio LU1/LU2/LU3: three identical milk() clones as children of the fridge group FR, hidden by default (scale 0.001), on the UPPER shelf y=1.0, z=0.18, x=-0.22 / 0.0 / +0.22 (0.22 apart so none overlap), facing front, all the same height. Best camera: fwide, then ftalk.",
+   "NUMBER TAGS: 3 white cards 0.11x0.08x0.01 with a black numeral 1/2/3 (canvas texture, 64px bold), hanging from each carton cap by a thin red string 0.06 long; swing +-0.25 rad with damping. Hidden until lineAt.",
+   "HEIGHT-CHART PANEL: white box 0.74x0.52x0.02 at fridge-local (0,1.22,-0.30) behind the upper shelf, 5 black horizontal tick bars (0.5 wide, 0.012 high, 0.1 spacing) and tiny numerals on the left edge; pops in with back ease at lineAt. Make sure it sits in front of the fridge back wall and does not clip yogurt (yogurt/carrot get hidden by the lineup action).",
+   "SPOTLIGHT CONE: open CylinderGeometry(0.03,0.34,0.95,20,1,true), additive material #fff6c8 opacity 0.28 (+ tiny black lamp housing 0.08 cube at the apex), apex at fridge-local (0,1.5,0.2) pointing straight down onto the three cartons; sweeps +-0.1 rad once; hidden by default; must stay inside the fridge compartment (clamp apex below the ceiling).",
+   "APP: drawApp optional P.appTitle (replaces the 'Fridgeroo' header text with 'Shopping list') and P.scenes[i].appBlock={row,at}: from `at` seconds a red strike line (#ff6b5a, 6 px) wipes across that row in 0.15 s and a small hand/stop icon appears at the right end. Row 0 keeps the red pulse."
+  ],
+  "newActs": [
+   "lineup (new ACT entry): lineAt (default 1.45 s after scene start). t+lineAt-0.1: yogurt/carrot/apple scale to 0 over 0.1 s (clear the upper shelf); t+lineAt: spotlight cone on + sweep, height chart pops, LU1 pops at lineAt, LU2 at +0.17, LU3 at +0.34 (back ease 0.22 s each, sfx pop + thunk), tags swing in 0.12 s later; t+lineAt+0.45: trio hops 0.03 together; at t+3.4 tag 2 detaches and spins on its string. Student: yaw 0.45, arms raised in shrug at hold end (t+1.35), then crossed arms with one brow up at t+1.9. sfx: lamp clunk + zap at lineAt, pop+thunk x3, soft wood-block per tag.",
+   "yogurt action with reveal:'milk' and hold 1.35: held carton scales to 0 in 0.1 s when hold ends (instead of returning to shelf), so the hand-off to LU2 is invisible. Skip sniff/gag/flyNose for milk (set via scene flag \"calm\": true, if the existing action cannot skip them add `s.calm` guard that only plays the squint and brows)."
+  ],
+  "judgeNotes": [
+   "Three cartons must be IDENTICAL and evenly spaced, or the police line-up gag does not read; check fwide frame at ~4.5 s (scene 1 + 1.8 s).",
+   "Pitch killed 'Which one is the guilty one?' as a spoken line, because it reads as a poll; the fridge only states ('Third milk this week. Line 'em up.').",
+   "Sound-off: 0:01 = milk cartons flying into the bin from above (binTop), 0:02 fridge face talking and more food flying, 0:03 student reaches for another milk. Spot-check ONLY=0.5,1.5,2.7 and 4.0,4.6,5.4 for the lineup.",
+   "Toon outline pass: LU tags and the height-chart tick bars are thin boxes, so verify they are not swallowed by the 1.06 outline shell (disable outline for the tags via userData.noLook if they blob).",
+   "Re-render gold preview frames after adding lineup (playbook section 7): ONLY=0.4,4.0,6.6,8.0,10.5",
+   "Re-time all durs to the real voice (target total 15.4 s; talk time about 7.5 s).",
+   "Judge 1 (3 Nov): reordered scene-1 voice so 'Line 'em up.' (voice at 0.9) lands just before lineAt 1.45 – the fridge commands, the line-up obeys. Count now consistent: 2 sour milks binned + 3 in the line-up = 'Five milks. One week.'; app says 'you already have 3'. Keep the 2 binned milks visibly olive/moldy so binning them reads."
+  ],
+  "cover": "3 MILKS?! 🥛 – police line-up frame in fwide at ~4.6 s",
+  "ytTitle": "My fridge put 3 milks in a police line-up 🥛🚨"
+ }
+}

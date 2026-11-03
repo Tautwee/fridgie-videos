@@ -1,0 +1,272 @@
+{
+ "title": "POV: someone put it back empty",
+ "slot": "2026-11-08 18:30",
+ "look": "clay",
+ "music": "tropical",
+ "stage": "voxel_stage2.html",
+ "voices": {
+  "fridge": "../voxaudio/empty_carton.wav"
+ },
+ "bareFridge": true,
+ "scenes": [
+  {
+   "dur": 2.6,
+   "cams": [
+    [
+     "front",
+     0
+    ],
+    [
+     "ftalk",
+     1.0
+    ],
+    [
+     "three",
+     1.8
+    ]
+   ],
+   "label": "PUT BACK <b>EMPTY</b> 😤",
+   "do": [
+    "dustburst"
+   ],
+   "burstItem": "juice",
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.9
+   },
+   "say": "Somebody put it|back <b>EMPTY.</b>",
+   "beats": [
+    "0.00 front, frame 1 already mid-action: door open, he has just ripped open the ORANGE JUICE carton and a huge beige DUST CLOUD (about 20 puffs, 0.3 m wide) explodes at his face, a moth flaps out of the carton straight at his nose; sfx loud 'FWOOMP' dust burst + moth flutter; music 'sneak' starts",
+    "0.25 he is blown back one step (yaw -0.3, back ease), eyes squeezed, mouth open, coughing (cough sfx x2, 0.25 s apart), both hands flap at the cloud; the moth loops around his head",
+    "0.70 he holds the carton upside down and shakes it over his open mouth: nothing falls, a last tiny puff; hollow 'tok'",
+    "0.90 CUT ftalk: fridge face visible, flat stare; 'Somebody put it back EMPTY.' subtitles 'Somebody put it' / 'back <b>EMPTY.</b>'",
+    "1.80 CUT three: wide, he slaps the empty juice carton back onto the shelf in disgust (thunk), the moth lands on the fridge door; music 'tension' at 2.0"
+   ]
+  },
+  {
+   "dur": 3.6,
+   "cams": [
+    [
+     "yog",
+     0
+    ],
+    [
+     "fwide",
+     0.9
+    ],
+    [
+     "ftalk",
+     2.6
+    ]
+   ],
+   "label": "INSTANT <b>REPLAY</b> 📺",
+   "do": [
+    "varreplay"
+   ],
+   "replayAt": 0.3,
+   "cardAt": 2.6,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 1.1
+   },
+   "say": "Replay shows...|<b>Sam.</b> Red card.",
+   "beats": [
+    "0.00 yog: the bare shelf with the empty orange juice carton standing alone; the student leans in with arms crossed; sfx low sting",
+    "0.30 a VAR SCREEN pops up on the back wall of the fridge (back ease, TV 'bwomp' sfx): a framed 'REPLAY' screen with a rewinding scrub bar (rewind whirr, soft); the screen shows a ghostly translucent white-grey figure labelled 'SAM' sneaking in and putting the empty carton back",
+    "0.60 the ghost Sam tiptoes in from the right, sets the carton down, looks to the camera and shrugs; the real student's mouth drops open",
+    "0.90 CUT fwide: fridge face + the VAR screen in one frame; a referee WHISTLE blast (sfx, short, not shrill, low-passed) and the replay freezes on the ghost's guilty shrug with a green circle drawn around the carton",
+    "1.10 fridge (dry, referee voice): 'Replay shows... Sam. Red card.' subtitles 'Replay shows...' / '<b>Sam.</b> Red card.'; the student points at the screen, then at the carton; music 'yuck' (muted trombone) at 1.0",
+    "2.60 CUT ftalk: a big RED CARD on a short stick rises from behind the open fridge door beside the face (pop-up, back ease, whistle sfx x2) reading SAM in white; the fridge stares smugly; the student claps once slowly"
+   ]
+  },
+  {
+   "dur": 2.4,
+   "cam": "fstare",
+   "label": "POV: YOUR HOUSEMATE<br><b>PUTS EMPTIES BACK</b>",
+   "do": [
+    "stare"
+   ],
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 0.1
+   },
+   "say": "Hey, <b>you.</b>|Your housemate|does this too.",
+   "beats": [
+    "0.00 fstare close-up: fridge leans into the lens (zoom sfx); the red SAM card still waves beside it",
+    "0.10 'Hey, you. Your housemate does this too.' subtitles 'Hey, <b>you.</b>' / 'Your housemate' / 'does this too.'; music 'hit' (dry stab) at 0.0"
+   ]
+  },
+  {
+   "dur": 5.3,
+   "cams": [
+    [
+     "phone",
+     0
+    ],
+    [
+     "phonezoom",
+     0.35
+    ],
+    [
+     "ftalk",
+     2.3
+    ],
+    [
+     "sky",
+     3.1
+    ],
+    [
+     "pullout",
+     4.1
+    ]
+   ],
+   "label": "SHARED HOME 🏠 <b>FRIDGEROO</b>",
+   "do": [
+    "phone",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 2.5,
+   "notif": "Sam set Juice to <b>EMPTY</b> · added to list ✅",
+   "notifAt": 1.15,
+   "voice": {
+    "who": "fridge",
+    "src": "fridge",
+    "a": 0,
+    "b": 0,
+    "at": 2.3
+   },
+   "say": "Now you know|<b>before</b> breakfast.",
+   "magicAt": 2.3,
+   "skyAt": 3.1,
+   "labelEnd": 2.3,
+   "notifEnd": 2.3,
+   "chip": "NO MORE <b>EMPTY SURPRISES</b> ✨",
+   "chipAt": 3.1,
+   "chipEnd": 4.1,
+   "appSlider": {
+    "item": "🧃",
+    "from": 0.35,
+    "to": 1.1,
+    "who": "Sam"
+   },
+   "beats": [
+    "0.00 phone: he holds the phone; the shared-home app shows the Juice fill-level slider at 100% and a small 'Sam' avatar chip (mint circle, white S)",
+    "0.35 phonezoom: Sam's slider slides from full to EMPTY (0.35-1.1), the bar drains and turns red, sfx soft slide + tick",
+    "1.10 slider hits 0 with a thunk; the juice row pulses red 'Sam: EMPTY ✅'",
+    "1.15 notif drops in 'Sam set Juice to EMPTY · added to list ✅' (soft pop); the app stays on screen until 2.3 (2.3 s total with the zoom), so the viewer sees you get warned, not surprised",
+    "2.30 CUT ftalk: sunglasses drop at 2.5 (swish + click); fridge: 'Now you know before breakfast.' (grudging, warm); magic glow 2.3 (sparkle sfx), music 'glow'",
+    "3.10 sky of fridges ('drop'), chip 'NO MORE EMPTY SURPRISES' 3.1-4.1; pullout at 4.1"
+   ]
+  },
+  {
+   "dur": 1.8,
+   "type": "end"
+  }
+ ],
+ "appRows": [
+  [
+   "🧃",
+   "Juice",
+   "Sam: EMPTY ✅",
+   "#ff6b5a"
+  ],
+  [
+   "🍓",
+   "Jam",
+   "3 days",
+   "#3DDC97"
+  ],
+  [
+   "🧈",
+   "Butter",
+   "8 days",
+   "#3DDC97"
+  ],
+  [
+   "🥚",
+   "Eggs",
+   "6 days",
+   "#3DDC97"
+  ]
+ ],
+ "caption": "Fridgeroo's shared home shows the moment a housemate sets the juice to empty and puts it on your shopping list. 🧃 Use it or lose it. Free at fridgeroo.netlify.app – who in YOUR house puts empties back?",
+ "hashtags": "#fridgeroo #roommates #claymation #housemateproblems #emptyfridge",
+ "slogan": "Use it or lose it.",
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   0,
+   2.0
+  ],
+  "yuck": [
+   1,
+   1.0
+  ],
+  "hit": [
+   2,
+   0.0
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   3,
+   2.3
+  ],
+  "drop": [
+   3,
+   3.1
+  ],
+  "end": [
+   4,
+   0.0
+  ]
+ },
+ "todo": {
+  "voiceText": "[flat, exasperated] Somebody put it back EMPTY. [long pause] [dry, referee] Replay shows... Sam. Red card. [long pause] [deadpan, serious] Hey, you. Your housemate does this too. [long pause] [grudging, warm] Now you know before breakfast.",
+  "newProps": [
+   "JUICE carton (key item, no milk anywhere): orange #ff9f1c box 0.1x0.18x0.07, white gable top that can be ripped open (rotate top flap 70 deg), white label with an orange-slice icon; item('juice', 0.18,0.57,0.12); empty carton leans slightly. Best camera: front / yog.",
+   "DUST CLOUD: ~20 beige #e9d9b8 spheres r0.03-0.06 (reuse the stink[] pool, recolour, extend count) bursting from the carton opening toward the camera and student's face over 0.5 s, fading by 0.9 s; plus a soft pale #f4ecd8 additive plane for volume. Best camera: front.",
+   "MOTH: grey-brown #8a7a6a body box 0.02x0.02x0.06, two flat wings (boxes 0.07x0.005x0.05) flapping +-0.6 rad at 14 Hz, loops around the student's head 0.0-1.2 s, then lands on the fridge door (wings folded); hidden by default.",
+   "VAR SCREEN: dark frame box 0.62x0.42x0.03 (#222) with a lit panel 0.56x0.36 (canvas texture: 'REPLAY' tag top-left, scrub bar bottom with a moving playhead, 'SAM' caption), mounted on the fridge back wall at fridge-local (0,1.25,-0.28), hidden by default (scale 0.001), pops in with back ease. No blue: panel background dark grey #2a2a2a, accents mint #3DDC97 and white.",
+   "GHOST SAM (inside the screen): a small blocky figure (head 0.06 cube, body 0.07x0.1x0.04, 2 stub legs) in translucent white-grey #e6e6e6 opacity 0.55, parented to the screen; tiptoes in from the right, sets down a tiny orange carton, shrugs. Hidden by default.",
+   "GREEN CIRCLE: thin torus r0.05 mint #3DDC97 that draws around the carton in the replay at freeze time (scale in 0.2 s).",
+   "REFEREE WHISTLE: no geometry; sfx only (short low-passed whistle blast, about 0.35 s, no shrill highs).",
+   "RED CARD: box 0.16x0.22x0.01 in red #e0262d with a big white 'SAM' (canvas texture, bold) on a 0.02x0.2x0.02 grey stick; pivots up from behind the fridge door's edge next to the face at cardAt (back ease 0.25 s, small wave); hidden by default. Must not cover the fridge face. Best camera: ftalk / fstare.",
+   "BARE FRIDGE flag (plan bareFridge:true): hide every IT item except the juice so the replay and the carton read.",
+   "APP: drawApp optional P.scenes[i].appSlider={item,from,to,who}: replaces the fridge icon block (y 52-164) with a rounded track 180x16 at y 108, a round thumb moving from full (mint) to empty (#ff6b5a) between `from` and `to` s of the scene, a big % label, the carton emoji at the left, and a mint avatar circle with the first letter of `who` (S) at the right; row 0 then flashes."
+  ],
+  "newActs": [
+   "dustburst (new ACT entry): effect already in progress at frame 1 (start internal time at t-0.1). Student at the open fridge, juice carton at face height (s.burstItem); dust cloud + moth appear instantly; yaw -0.3 with back ease 0.25 s, disgust 1, coughs at t+0.3 and t+0.55 (small head jerks), hands flap; at t+0.7 carton shaken upside down (tok); at t+1.8 slapped back onto the shelf (thunk). sfx: FWOOMP dust (low-passed noise burst, no harsh hiss), moth flutter (soft ticks), 2 coughs, hollow tok, thunk.",
+   "varreplay (new ACT entry): replayAt (default 0.3): VAR screen pops in (back ease 0.25 s, 'bwomp'), rewind whirr 0.3 s, ghost Sam tiptoes in 0.6 s, sets the carton, shrugs; at t+0.9 whistle blast, replay freezes, green circle draws round the carton; student points at the screen (t+1.1) then the carton (t+1.5); at cardAt (default 2.6) the red card rises with 2 whistle blasts, student claps once slowly. The card stays up through the stare scene (carry via a scene flag cardStays:true, or re-trigger at stare t+0).",
+   "phone scene extras: appSlider timing as in plan; notif text is the exact feature message."
+  ],
+  "judgeNotes": [
+   "Different from the 6 Nov line-up on purpose: no police, no tape, no numbered tags, no siren emoji, and the key item is orange juice, not milk. Sports-referee / VAR gag only.",
+   "Hook with sound off: frame 1 = dust cloud blasting at his face and a moth flying out of the juice carton, 0:01 coughing/flailing, 0:02 fridge face + 'EMPTY', 0:03 the VAR screen pops up. Check the dust does not hide his face for more than 0.4 s and is not grey/ugly in clay look.",
+   "Ghost Sam is a simple translucent figure on the screen (not a second full character); if it looks muddy in clay look, replace it with a silhouette cut-out in solid #cfcfcf. The replay must be readable at phone size: carton and ghost >= 40% of the screen height.",
+   "Red card must not cover the fridge face; check ftalk at 2.6-3.6 s and fstare.",
+   "App PREVENTS the surprise: shared home + fill slider, notif 'Sam set Juice to EMPTY · added to list ✅'. App on screen 2.3 s.",
+   "No blue anywhere (brand rule: no blue+yellow); orange carton, red card, mint accents.",
+   "Re-render gold preview frames after adding props (playbook section 7): ONLY=0.4,4.0,6.6,8.0,10.5",
+   "Re-time durs to the real voice (target total 15.7 s; talk time about 7.5 s).",
+   "Judge 1 final (3 Nov): scene-0 label changed from 'BREAKFAST? NOPE.' to 'PUT BACK EMPTY' so the problem is named at 0:01 with sound off; cover time fixed (the card rises at 5.2 s, so 4.6 s showed no card)."
+  ],
+  "cover": "RED CARD FOR SAM 🟥 – red card next to the fridge face + VAR screen in ftalk at ~5.6 s (scene 1 + 3.0 s)",
+  "ytTitle": "My fridge gave my housemate a red card for the empty juice 🟥🧃"
+ }
+}
