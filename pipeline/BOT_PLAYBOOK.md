@@ -27,6 +27,13 @@ Gold reference: `voxelplans/fridge-roast.json` → `videos/fridgeroo-3d-roast-v8
 - **Small text.** Subtitles about 146 px, labels about 62 px, at most about 3 words per subtitle chunk, one yellow keyword.
 - **A kangaroo, a blue-and-yellow color pair, or the name "Fridgie".** The brand is Fridgeroo, the logo is the fridge with sunglasses, and the slogan on the end card is **"Use it or lose it."**
 
+## 1b. Hook, variety and "never repeat" rules (added 3 Nov 2026)
+- **The first 3 seconds show the PROBLEM.** In frame 1 something is already going wrong, visibly and loudly: food flying into the bin, a moldy thing exploding out, the fridge yelling. By second 3 the viewer must know what the problem is ("I waste food / I forget what's in my fridge") without sound. If you pause at 0:01, 0:02 and 0:03, each frame must be interesting on its own.
+- **Fast and active:** a new shot, action or reaction at least every 1–1.5 s; every action has a sound; music on the beat. No calm intro, no logo at the start, no slow walking.
+- **Rotate the animation STYLE (plan `"look"`):** `voxel` (classic blocky, navy room), `toon` (cartoon outlines, purple room, flat cel shading), `clay` (warm peach room, soft matte claymation feel), `neon` (dark night room, pink/cyan rim light). Never the same look twice in a row; use each look at least once every 5 videos. You may invent new looks (section 7) to keep the feed fresh; many creators use blocky 3D, so our story and style must stand out.
+- **No repeats for a long time:** compare against the last 15 videos in "videos" (about a month): never reuse the same premise, the same reveal item, the same opening action + camera, the same roast punchline, the same caption question or the same hashtag set. The same app feature may come back, but with a different story.
+- **Detail:** every plan lists, per scene, the exact seconds, the camera, what each character does with their hands/face, which food moves where, the sound effect for each action, the subtitle chunks and the music marks. A plan without that level of detail fails Gate 1.
+
 ## 2. The story formula (beat sheet, about 14 s)
 | Beat | Time | What happens | Purpose |
 |---|---|---|---|
@@ -115,6 +122,7 @@ Pass = every score ≥ 8 and the last one ≥ 9. Write the scores and one senten
 Track the Yes rate: count approved vs. rejected over the last 10 videos. If fewer than 9 were approved, re-read his rejection comments, add the lesson to section 1 of this file (commit it), and get stricter.
 
 ## 7. Extending the animation (for crazy stories)
+- New props/actions/looks are welcome when a story needs them (that is how we stay unique), but every new piece must be previewed frame by frame for collisions and framing before the full render.
 New stories will need new props and actions (a suitcase, a judge's hammer, a tiny flag, flickering lights). Bots may add them to `voxel_stage2.html` if:
 - New actions are added as new entries in `ACT` and new objects are hidden unless a scene uses them. Never change how existing actions look.
 - After any change, re-render the gold example's preview frames (`ONLY=0.4,4.0,6.6,8.0,10.5`) and confirm they look the same.
