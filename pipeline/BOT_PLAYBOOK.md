@@ -27,6 +27,9 @@ Gold reference: `voxelplans/fridge-roast.json` → `videos/fridgeroo-3d-roast-v8
 - **Small text.** Subtitles about 146 px, labels about 62 px, at most about 3 words per subtitle chunk, one yellow keyword.
 - **A kangaroo, a blue-and-yellow color pair, or the name "Fridgie".** The brand is Fridgeroo, the logo is the fridge with sunglasses, and the slogan on the end card is **"Use it or lose it."**
 
+## 0b. THE FORMAT IS NOW A SERIES: "Fridgeroo on Tour" (since 3 Nov 2026)
+Every 3D video is the next PART of **Fridgeroo on Tour**: Fridgeroo (white fridge, sunglasses, red cape, the grumpy-grandpa ElevenLabs voice) crashes into a new house, roasts the resident, fixes their fridge disaster with ONE app feature, and ends with a teaser for the next house. The series bible with the episode recipe and the planned houses/features is **`voxelplans/tour/EPISODES.md`**. Read it first. Part numbers count up (the next part = highest `part` in "videos" + 1), the teaser always names the next house in the list, and every part must still work alone. The fridge-roast rules below (problem in the first 3 s, fast action, short lines, collisions, sound, Judge) all still apply; in the tour the HERO talks (voice key "hero").
+
 ## 1b. Hook, variety and "never repeat" rules (added 3 Nov 2026)
 - **The first 3 seconds show the PROBLEM.** In frame 1 something is already going wrong, visibly and loudly: food flying into the bin, a moldy thing exploding out, the fridge yelling. By second 3 the viewer must know what the problem is ("I waste food / I forget what's in my fridge") without sound. If you pause at 0:01, 0:02 and 0:03, each frame must be interesting on its own.
 - **Fast and active:** a new shot, action or reaction at least every 1–1.5 s; every action has a sound; music on the beat. No calm intro, no logo at the start, no slow walking.

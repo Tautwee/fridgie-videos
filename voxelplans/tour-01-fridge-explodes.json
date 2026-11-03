@@ -1,0 +1,232 @@
+{
+ "title": "Fridgeroo on Tour – Part 1: The fridge that exploded",
+ "series": "Fridgeroo on Tour",
+ "part": 1,
+ "tour": true,
+ "look": "toon",
+ "stage": "voxel_stage2.html",
+ "feature": "expiry alerts (goes off tomorrow)",
+ "cast": {
+  "hoodie": "#ff9d5c",
+  "hair": "#2b1b10",
+  "skin": "#c98d64",
+  "acc": "headphones",
+  "accColor": "#3DDC97"
+ },
+ "voices": {},
+ "appRows": [
+  [
+   "🥛",
+   "Milk",
+   "tomorrow!",
+   "#ff6b5a"
+  ],
+  [
+   "🥣",
+   "Yogurt",
+   "2 days",
+   "#FFD43B"
+  ],
+  [
+   "🍕",
+   "Pizza",
+   "3 days",
+   "#3DDC97"
+  ],
+  [
+   "🥚",
+   "Eggs",
+   "9 days",
+   "#3DDC97"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 2.4,
+   "do": [
+    "tour",
+    "burst"
+   ],
+   "spill": [
+    "milk",
+    "pizza",
+    "takeaway",
+    "cheese",
+    "pasta",
+    "sandwich",
+    "yogurt"
+   ],
+   "cams": [
+    [
+     "three",
+     0
+    ],
+    [
+     "front",
+     1.15
+    ]
+   ],
+   "label": "🚨 <b>FRIDGE EMERGENCY</b>",
+   "say": "His fridge|just <b>EXPLODED</b>"
+  },
+  {
+   "dur": 2.3,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.35,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "duo3",
+     1.1
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "len": 1.4,
+    "at": 0.85
+   },
+   "say": "Fridge emergency.|<b>Stand back.</b>"
+  },
+  {
+   "dur": 3.0,
+   "do": [
+    "herostare"
+   ],
+   "cams": [
+    [
+     "herocam",
+     0
+    ],
+    [
+     "hstare",
+     1.7
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "len": 2.6,
+    "at": 0.1
+   },
+   "say": "Two milks...|three yogurts...|<b>zero</b> clue.|Yeah, <b>YOU.</b>"
+  },
+  {
+   "dur": 3.1,
+   "do": [
+    "holo",
+    "restore"
+   ],
+   "holoAt": 0.15,
+   "restoreAt": 1.25,
+   "holoKeep": 0,
+   "cams": [
+    [
+     "holocam",
+     0
+    ],
+    [
+     "duo3",
+     1.5
+    ]
+   ],
+   "notif": "Milk goes off <b>tomorrow</b> 🥛",
+   "notifAt": 0.7,
+   "notifEnd": 2.4,
+   "voice": {
+    "who": "hero",
+    "len": 2.4,
+    "at": 0.3
+   },
+   "say": "Fridgeroo warns you|<b>before</b> it goes off."
+  },
+  {
+   "dur": 2.2,
+   "do": [
+    "celebrate",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 0.25,
+   "magicAt": 0.15,
+   "skyAt": 0.95,
+   "cams": [
+    [
+     "fmed",
+     0
+    ],
+    [
+     "sky",
+     0.95
+    ]
+   ],
+   "chip": "FRIDGE <b>SAVED</b> ✅",
+   "chipAt": 0.95,
+   "chipEnd": 2.2
+  },
+  {
+   "dur": 1.6,
+   "cam": "duo3",
+   "teaser": {
+    "next": "The freezer<br>from hell 🧊",
+    "part": 2
+   }
+  },
+  {
+   "dur": 1.8,
+   "type": "end"
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   1.2
+  ],
+  "yuck": [
+   2,
+   0.9
+  ],
+  "hit": [
+   2,
+   1.7
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   4,
+   0.15
+  ],
+  "drop": [
+   4,
+   0.95
+  ],
+  "end": [
+   6,
+   0.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "caption": "Part 1 of Fridgeroo on Tour 🚨 This fridge was one yogurt away from exploding. How many milks are in YOUR fridge right now? 👇 Use it or lose it – fridgeroo.netlify.app",
+ "hashtags": "#fridgeroo #fridgerooontour #foodwaste #studentlife #part1",
+ "pos": {
+  "stu": [
+   -0.6,
+   0.7
+  ],
+  "yaw": 0.6,
+  "hero": [
+   -0.02,
+   1.15
+  ]
+ }
+}
