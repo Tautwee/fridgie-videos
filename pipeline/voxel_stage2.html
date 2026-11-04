@@ -31,6 +31,9 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0b1226
 #teaser .nx{font-weight:800;font-size:58px;letter-spacing:4px;color:#e0492f}
 #teaser .tt{font-weight:800;font-size:96px;line-height:1.02;color:#13223F;margin:14px 0 24px}
 #teaser .pp{display:inline-block;background:#1FAF74;color:#fff;font-weight:800;font-size:66px;padding:14px 40px;border-radius:60px}
+body.comic #sub{color:#13223F;text-shadow:none;font-size:118px}
+body.comic #sub span.bub{display:inline-block;background:#fff;border:9px solid #13223F;border-radius:40px;padding:14px 34px;box-shadow:12px 12px 0 #13223F}
+body.comic #sub b{color:#e0492f}
 #chip span{background:#1FAF74;color:#fff;font-weight:800;font-size:74px;padding:20px 44px;border-radius:60px;box-shadow:0 10px 0 #12784f}
 #poll{top:420px;display:flex;justify-content:center}
 #poll .bx{background:#fffaf0;border:8px solid #13223F;border-radius:44px;width:860px;padding:44px 50px 50px;box-shadow:0 16px 0 rgba(0,0,0,.35)}
@@ -48,6 +51,7 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0b1226
 #flash{inset:0;top:0;background:#fff;opacity:0}
 </style></head><body>
 <canvas id="c" width="1080" height="1920"></canvas>
+<div id="fx" class="ov" style="inset:0;top:0;display:none"></div>
 <div id="flash" class="ov"></div>
 <div id="part" class="ov"><span></span></div>
 <div id="teaser" class="ov"><div class="tz"><div class="nx">NEXT HOUSE</div><div class="tt"></div><div class="pp"></div></div></div>
@@ -307,6 +311,29 @@ const LOOK=P.look||'voxel';window.CAM_SCALE=1;
   const p1=new THREE.PointLight(0xff3df0,7,8);p1.position.set(-2,2.4,2);S.add(p1);const p2=new THREE.PointLight(0x30f0ff,7,8);p2.position.set(2.2,2,2.2);S.add(p2);
   gh.material.opacity=1;window.BASEF='saturate(1.35) contrast(1.1)';const rimN=new THREE.DirectionalLight(0x30f0ff,2.5);rimN.position.set(3,2,-3);S.add(rimN);
  }
+ if(LOOK==='pixel'){ // retro 8-bit: render tiny, scale up with hard pixels, 4-step colours
+  const gc=document.createElement('canvas');gc.width=3;gc.height=1;const gg=gc.getContext('2d');['#666','#bbb','#fff'].forEach((c,i)=>{gg.fillStyle=c;gg.fillRect(i,0,1,1)});const grad=new THREE.CanvasTexture(gc);grad.minFilter=grad.magFilter=THREE.NearestFilter;
+  each(m=>{const o=m.material;const n=new THREE.MeshToonMaterial({color:o.color.clone(),map:o.map||null,gradientMap:grad,transparent:o.transparent,opacity:o.opacity});if(o.emissive){n.emissive=o.emissive.clone();n.emissiveIntensity=o.emissiveIntensity||0}m.material=n});
+  R.setPixelRatio(1);R.setSize(216,384,false);const cv=document.getElementById('c');cv.style.width='1080px';cv.style.height='1920px';cv.style.imageRendering='pixelated';
+  room({wall:'#3b1f6e',floor:'#1d1240',counter:'#ff4fa0',cab:'#ffb000'});setBg('#1d1240');window.BASEF='none';
+ }
+ if(LOOK==='comic'){ // comic book: cel shading, thick ink outlines, halftone dots, speech-bubble captions
+  const gc=document.createElement('canvas');gc.width=2;gc.height=1;const gg=gc.getContext('2d');['#8a8a8a','#fff'].forEach((c,i)=>{gg.fillStyle=c;gg.fillRect(i,0,1,1)});const grad=new THREE.CanvasTexture(gc);grad.minFilter=grad.magFilter=THREE.NearestFilter;
+  const ink=new THREE.MeshBasicMaterial({color:'#0d0d14',side:THREE.BackSide});
+  each(m=>{const o=m.material;const n=new THREE.MeshToonMaterial({color:o.color.clone(),map:o.map||null,gradientMap:grad,transparent:o.transparent,opacity:o.opacity});if(o.emissive){n.emissive=o.emissive.clone();n.emissiveIntensity=o.emissiveIntensity||0}m.material=n;
+   if(!m.geometry.type.startsWith('Plane')&&!n.transparent){const e=new THREE.Mesh(m.geometry,ink);e.scale.setScalar(1.1);e.userData.noLook=1;m.add(e)}});
+  room({wall:'#ffd23f',floor:'#3a86ff',counter:'#ff006e',cab:'#fb5607'});setBg('#ffd23f');gh.visible=false;
+  const fx=document.getElementById('fx');fx.style.display='block';fx.style.background='radial-gradient(rgba(10,10,30,.22) 1.6px, transparent 2.2px) 0 0/11px 11px';fx.style.mixBlendMode='multiply';
+  document.body.classList.add('comic');window.BASEF='saturate(1.35) contrast(1.15)';
+ }
+ if(LOOK==='paper'){ // paper cut-out stop-motion: flat 2-tone, kraft colours, paper grain, 12 fps steps + hand jitter
+  const gc=document.createElement('canvas');gc.width=2;gc.height=1;const gg=gc.getContext('2d');['#c9c9c9','#fff'].forEach((c,i)=>{gg.fillStyle=c;gg.fillRect(i,0,1,1)});const grad=new THREE.CanvasTexture(gc);grad.minFilter=grad.magFilter=THREE.NearestFilter;
+  each(m=>{const o=m.material;const n=new THREE.MeshToonMaterial({color:o.color.clone(),map:o.map||null,gradientMap:grad,transparent:o.transparent,opacity:o.opacity});m.material=n});
+  room({wall:'#e9dcc3',floor:'#c8a77e',counter:'#e07a5f',cab:'#81b29a'});setBg('#e9dcc3');gh.visible=false;
+  const fx=document.getElementById('fx');fx.style.display='block';fx.style.opacity='0.35';fx.style.mixBlendMode='multiply';
+  fx.style.backgroundImage="url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.3  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")";
+  window.STEP=1/12;window.JITTER=0.012;
+ }
 })();
 // ---------------- timeline
 const clamp=x=>x<0?0:x>1?1:x;
@@ -413,7 +440,7 @@ function tourFx(t){if(!TOUR)return;iceFx(t);const g=k=>val(k,t);
   const bt=t-ho-0.5;hbeam.visible=scanLine.visible=bt>0&&bt<1.5;
   if(hbeam.visible){const a=hp2.clone().add(new V3(0,-0.56,0)),b=new V3(0.35,0.2+1.7*((bt*1.1)%1),0.3);hbeam.position.copy(a.clone().add(b).multiplyScalar(0.5));hbeam.scale.set(1,a.distanceTo(b),1);hbeam.quaternion.setFromUnitVectors(new V3(0,1,0),b.clone().sub(a).normalize());hbeam.material.opacity=0.45+0.3*Math.sin(t*30);scanLine.position.copy(b)}}
  else{holo.visible=holoGlow.visible=hbeam.visible=scanLine.visible=false}}
-window.render=function(t){
+window.render=function(t){if(window.STEP)t=Math.floor(t/window.STEP+1e-6)*window.STEP;
  const sc=SC.filter(s=>t>=s.start).pop()||SC[0];const u=t-sc.start;const isEnd=sc.type==='end';const g=k=>val(k,t);
  // reset food to shelves each frame (deterministic)
  for(const k in IT){const it=IT[k];if(it.parent!==FR){FR.add(it)}it.position.copy(it.userData.home);it.rotation.set(0,0,0);it.visible=true;it.scale.setScalar(it.userData.kind==='milk'?0.72:1)}
@@ -495,7 +522,7 @@ window.render=function(t){
  let ck=sc.cam||'front',cu=u;if(sc.cams){for(const [k,a] of sc.cams){if(u>=a){ck=k;cu=u-a}}}
  const cB=CAMS[ck];const punch=1-0.1*(1-EZ.out(cu/0.3))-0.06*Math.min(1,cu/2.5);
  const p=cB[0],l=cB[1];const ps=punch*(window.CAM_SCALE||1);cam.position.set(l[0]+(p[0]-l[0])*ps,l[1]+(p[1]-l[1])*ps,l[2]+(p[2]-l[2])*ps);
- cam.position.x+=Math.sin(t*1.7)*0.01;cam.position.y+=Math.sin(t*2.3)*0.008;
+ cam.position.x+=Math.sin(t*1.7)*0.01;cam.position.y+=Math.sin(t*2.3)*0.008;if(window.JITTER){const q=Math.floor(t*12);cam.position.x+=Math.sin(q*12.9898)*window.JITTER;cam.position.y+=Math.sin(q*78.233)*window.JITTER}
  if(ck==='fstare'){cam.position.z-=EZ.sm(cu/1.6)*0.25}
  if(ck==='phonezoom'||ck==='pullout'){const pp=new V3();phone.getWorldPosition(pp);const nq=new THREE.Quaternion();phone.getWorldQuaternion(nq);const nrm=new V3(0,0,1).applyQuaternion(nq);
   const near=pp.clone().add(nrm.clone().multiplyScalar(0.34)).add(new V3(0,0.02,0));
@@ -526,7 +553,7 @@ window.render=function(t){
   pl.querySelector('.cta').style.transform=`scale(${EZ.back((u-0.75)/0.25)*(1+0.05*Math.sin(t*12))})`}
  const chp=$('#chip');const cOn=sc.chip&&u>=(sc.chipAt||0)&&!(sc.chipEnd&&u>sc.chipEnd);chp.style.display=cOn?'flex':'none';if(cOn){chp.firstChild.innerHTML=sc.chip;chp.firstChild.style.transform=`scale(${EZ.back((u-(sc.chipAt||0))/0.25)})`}
  const sb=$('#sub');let ci=-1;(sc.ct||[]).forEach((x,i)=>{if(t>=x)ci=i});
- if(ci<0||sc.poll||sc.teaser){sb.style.display='none'}else{sb.style.display='block';sb.innerHTML=sc.chunks[ci];const pu=t-sc.ct[ci];sb.style.transform=`scale(${0.55+0.45*EZ.back(pu/0.14)}) rotate(${(ci%2?1:-1)*1.5}deg)`}
+ if(ci<0||sc.poll||sc.teaser){sb.style.display='none'}else{sb.style.display='block';sb.innerHTML=document.body.classList.contains('comic')?'<span class="bub">'+sc.chunks[ci]+'</span>':sc.chunks[ci];const pu=t-sc.ct[ci];sb.style.transform=`scale(${0.55+0.45*EZ.back(pu/0.14)}) rotate(${(ci%2?1:-1)*1.5}deg)`}
 };
 window.READY=true;
 </script></body></html>
