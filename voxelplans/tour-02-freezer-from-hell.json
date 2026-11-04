@@ -13,7 +13,9 @@
   "acc": "glasses",
   "accColor": "#111111"
  },
- "voices": {},
+ "voices": {
+  "hero": "../voxaudio/tour02.wav"
+ },
  "appRows": [
   [
    "🍕",
@@ -64,7 +66,7 @@
    "note": "frame 1 (t=0.0) must already be action: freezer door already flung open, block already ~30% out in a frost puff, 2019 tag readable; never a closed door"
   },
   {
-   "dur": 2.3,
+   "dur": 2.6,
    "do": [
     "arrive"
    ],
@@ -82,13 +84,15 @@
    ],
    "voice": {
     "who": "hero",
-    "len": 1.6,
-    "at": 0.8
+    "src": "hero",
+    "a": 0.0,
+    "b": 2.19,
+    "at": 0.4
    },
    "say": "Freezer's got an|<b>iceberg</b>. Move!"
   },
   {
-   "dur": 3.0,
+   "dur": 3.62,
    "do": [
     "herostare"
    ],
@@ -99,16 +103,19 @@
     ],
     [
      "hstare",
-     1.7
+     2.07
     ]
    ],
    "voice": {
     "who": "hero",
-    "len": 2.8,
+    "src": "hero",
+    "a": 2.59,
+    "b": 5.86,
     "at": 0.1
    },
    "say": "Pizza|from 2019,|Dad?|<b>YOU</b> have|one too.",
-   "note": "hero taps the block (hollow tonk) on line 2; dad facepalms; stare on 'YOU'"
+   "note": "hero taps the block (hollow tonk) on line 2; dad facepalms; stare on 'YOU'",
+   "stareAt": 2.12
   },
   {
    "dur": 3.1,
@@ -134,13 +141,15 @@
    "notifEnd": 2.4,
    "voice": {
     "who": "hero",
-    "len": 2.4,
+    "src": "hero",
+    "a": 6.26,
+    "b": 8.398,
     "at": 0.3
    },
    "say": "Fridgeroo knows|how <b>long</b>|it's been frozen."
   },
   {
-   "dur": 2.2,
+   "dur": 2.0,
    "do": [
     "celebrate",
     "shades",
@@ -164,7 +173,7 @@
    "chipEnd": 2.2
   },
   {
-   "dur": 1.6,
+   "dur": 1.5,
    "cam": "duo3",
    "teaser": {
     "next": "The party flat<br>🎉",
@@ -172,7 +181,7 @@
    }
   },
   {
-   "dur": 1.8,
+   "dur": 1.6,
    "type": "end"
   }
  ],
@@ -187,11 +196,11 @@
   ],
   "yuck": [
    2,
-   0.9
+   0.4
   ],
   "hit": [
    2,
-   1.7
+   2.07
   ],
   "app": [
    3,
@@ -220,8 +229,8 @@
   ],
   "yaw": 0.6,
   "hero": [
-   -0.1,
-   1.3
+   -0.02,
+   1.15
   ]
  },
  "newProps": {

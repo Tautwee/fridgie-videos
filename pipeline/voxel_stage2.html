@@ -258,6 +258,25 @@ if(C.acc==='glasses'){box(0.5,0.03,0.02,'#111',0,0.36,0.3,head);box(0.17,0.15,0.
 if(C.acc==='bun'){box(0.26,0.22,0.26,HAIR,0,0.86,-0.12,head)}
 if(P.pos&&P.pos.stu)ST.position.z=P.pos.stu[1];
 const TSP={spill:null,ret:null,arrive:null,holo:null,holoEnd:99,crash:null};
+// ---- ICE BLOCK (Part 2 "freezer from hell"): action iceslide {slideAt} slides a frozen block out; {crackAt} shatters it
+const ICE={slide:null,crack:null};
+const iceMat=new THREE.MeshStandardMaterial({color:'#bfefff',transparent:true,opacity:0.42,roughness:0.15,metalness:0.1,emissive:'#5fd6ff',emissiveIntensity:0.18,depthWrite:false});
+const iceG=grp(0,0,0,S);iceG.visible=false;const iceB=new THREE.Mesh(new THREE.BoxGeometry(0.86,0.6,0.66),iceMat);iceB.position.y=0.3;iceB.castShadow=true;iceB.userData.noLook=1;iceG.add(iceB);iceG.scale.setScalar(1.15);
+for(let i=0;i<5;i++){const c=new THREE.Mesh(new THREE.BoxGeometry(0.02,0.4,0.01),new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:0.7}));c.position.set(-0.3+i*0.15,0.32,0.335);c.rotation.z=(i%2?0.5:-0.4);c.userData.noLook=1;iceG.add(c)}
+const icePiz=grp(0,0,0,S);MAKE.pizza(icePiz);icePiz.scale.setScalar(1.5);icePiz.visible=false;
+const iceTag=(()=>{const c=document.createElement('canvas');c.width=256;c.height=128;const g=c.getContext('2d');g.fillStyle='#e0492f';g.beginPath();g.roundRect(6,6,244,116,22);g.fill();g.fillStyle='#fff';g.font='800 78px G';g.textAlign='center';g.textBaseline='middle';g.fillText('2019',128,70);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;const m=new THREE.Mesh(new THREE.PlaneGeometry(0.34,0.17),new THREE.MeshBasicMaterial({map:t,toneMapped:false}));m.userData.noLook=1;return m})();
+iceTag.position.set(0.18,0.5,0.335);iceTag.rotation.z=-0.12;iceG.add(iceTag);
+const shards=[];for(let i=0;i<12;i++){const m=new THREE.Mesh(new THREE.BoxGeometry(0.12+(i%3)*0.06,0.1+(i%2)*0.08,0.1),iceMat.clone());m.userData.noLook=1;m.visible=false;S.add(m);shards.push(m)}
+const mist=[];for(let i=0;i<10;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(0.07,8,6),new THREE.MeshBasicMaterial({color:'#e8fbff',transparent:true,opacity:0,depthWrite:false}));m.userData.noLook=1;S.add(m);mist.push(m)}
+function iceFx(t){const sl=ICE.slide;if(sl===null){iceG.visible=icePiz.visible=false;return}
+ const A=new V3(0.35,0.12,-0.2),Bp=new V3(0.5,0,0.5);const k=Math.min(1,Math.max(0,(t-sl)/0.55));const p=A.clone().lerp(Bp,EZ.out(k));
+ if(k>=1){const b=t-sl-0.55;if(b<0.3)p.y=Math.abs(Math.sin(b/0.3*Math.PI))*0.05*(1-b/0.3)}
+ const cr=ICE.crack;const broken=cr!==null&&t>=cr;iceG.visible=t>=sl&&!broken;iceG.position.copy(p);iceG.rotation.y=-0.35*EZ.out(k)+0.05*Math.sin(t*2);
+ icePiz.visible=t>=sl;if(!broken){icePiz.position.copy(p).add(new V3(0,0.24,0));icePiz.rotation.set(0.25,iceG.rotation.y+0.4,0)}
+ else{const d=t-cr;const q=Math.min(1,d/0.45);icePiz.position.set(p.x,0.24*(1-q)+Math.sin(q*Math.PI)*0.35+0.02,p.z+0.1*q);icePiz.rotation.set(0.25*(1-q),iceG.rotation.y+0.4+q*3.2,0)}
+ shards.forEach((m,i)=>{const d=cr!==null?t-cr:-1;m.visible=d>0&&d<1.3;if(!m.visible)return;const a=i/12*Math.PI*2;const v=new V3(Math.cos(a)*(0.9+(i%3)*0.3),1.4+(i%4)*0.35,Math.sin(a)*0.6+0.5);
+  let y=0.3+v.y*d-4.9*d*d;if(y<0.04)y=0.04;m.position.set(p.x+v.x*Math.min(d,0.8),y,p.z+v.z*Math.min(d,0.8));m.rotation.set(d*7+i,d*5,i);m.material.opacity=0.62*(1-d/1.3)});
+ mist.forEach((m,i)=>{const ph=((t-sl)*0.5+i/10)%1;m.visible=t>=sl&&!broken;m.position.set(p.x+Math.sin(i*2.3)*0.45,0.1+ph*0.9,p.z+Math.cos(i*1.7)*0.35);m.material.opacity=0.45*(1-ph);m.scale.setScalar(1+ph*1.5)})}
 // ---------------- LOOKS: same story, different animation style (plan "look": voxel | toon | clay | neon | diorama)
 const LOOK=P.look||'voxel';window.CAM_SCALE=1;
 (function(){
@@ -300,9 +319,10 @@ function val(k,t){let v=V[k];for(const s of TR[k]){if(t<s.t0)break;v=s.from+(s.t
 const JOBS=[];const TOSS=0.38;
 const ACT={
  tour:(t,s)=>{const z=t-0.02;const st=(P.pos||{}).stu||[-0.55,0.75];set('stuX',st[0],z,0.001);set('yaw',(P.pos||{}).yaw||0.6,z,0.001);set('binHide',1,z,0.001);set('holdBin',0,z,0.001)},
+ iceslide:(t,s)=>{if(s.crackAt!==undefined){ICE.crack=t+s.crackAt}else{ICE.slide=t+(s.slideAt||0);set('door',1,t,0.18,'back');set('shock',1,t+0.35,0.1,'back');set('look',1,t+0.3,0.2);set('shock',0,t+1.7,0.25)}},
  burst:(t,s)=>{TSP.spill={t0:t+0.05,items:s.spill||['milk','pizza','takeaway','cheese','pasta','sandwich']};set('door',1,t,0.18,'back');set('shock',1,t+0.15,0.1,'back');set('look',1,t+0.15,0.2);set('disgust',1,t+1.2,0.3);set('shock',0,t+1.2,0.25)},
  arrive:(t,s)=>{TSP.crash=t+(s.crashAt||0);TSP.arrive=t+(s.crashAt||0)+0.15;set('hyaw',(s.heroYaw!==undefined?s.heroYaw:-0.75),t,0.001);set('look',0,TSP.crash,0.2);set('yaw',0.95,TSP.crash,0.25);set('disgust',0,TSP.crash,0.2);set('shock',1,TSP.crash+0.05,0.1,'back');set('shock',0,TSP.crash+0.9,0.3)},
- herostare:(t)=>{set('hstare',1,t,0.25)},
+ herostare:(t,s)=>{set('hstare',1,t+(s.stareAt||0),0.25)},
  holo:(t,s)=>{TSP.holo=t+(s.holoAt||0.2);TSP.holoEnd=t+s.dur+(s.holoKeep||0);set('hstare',0,t,0.2)},
  restore:(t,s)=>{TSP.ret=t+(s.restoreAt||0.3);set('rot',0,TSP.ret,0.6);set('disgust',0,t,0.2);set('door',0,TSP.ret+1.0,0.3)},
  celebrate:(t)=>{set('happy',1,t,0.25,'back');set('hjoy',1,t,0.2)},
@@ -352,7 +372,8 @@ SC.forEach(s=>{const t=s.start;(s.do||[]).forEach(a=>{
  if(a==='arrive'){const c=t+(s.crashAt||0);SFX.push(['crash',c]);for(let k=0;k<3;k++)SFX.push(['boing',c+0.15+k*0.4+0.18])}
  if(a==='holo'){SFX.push(['swish',t+(s.holoAt||0.2)-0.3],['ding',t+(s.holoAt||0.2)]);for(let k=0;k<4;k++)SFX.push(['beep',t+(s.holoAt||0.2)+0.55+k*0.15])}
  if(a==='restore'){const r=t+(s.restoreAt||0.3);for(let k=0;k<6;k++)SFX.push(['swoosh',r+k*0.1]);SFX.push(['door',r+1.0])}
- if(a==='celebrate')SFX.push(['sparkle',t]);});
+ if(a==='celebrate')SFX.push(['sparkle',t]);
+ if(a==='iceslide'){if(s.crackAt!==undefined)SFX.push(['crack',t+s.crackAt]);else{const t0=t+(s.slideAt||0);SFX.push(['door',t0],['whoosh',t0+0.05],['thunk',t0+0.55],['pop',t0+0.6])}}});
  if(s.teaser)SFX.push(['pop',t+0.05],['pop',t+0.45]);});
 window.SFX=SFX;
 // ---------------- IK + paths
@@ -366,7 +387,7 @@ const SL=p=>ST.localToWorld(p.clone()); // student-local -> world
 function itemWorld(it){it.parent.updateWorldMatrix(true,false);return it.userData.home.clone().applyMatrix4(it.parent.matrixWorld)}
 function cr(pts,u){return new THREE.CatmullRomCurve3(pts,false,'centripetal').getPoint(clamp(u))}
 let lastN=-1;const $=q=>document.querySelector(q);
-function tourFx(t){if(!TOUR)return;const g=k=>val(k,t);
+function tourFx(t){if(!TOUR)return;iceFx(t);const g=k=>val(k,t);
  // house door crash + debris
  const cr=TSP.crash;const ck=cr!==null&&t>=cr?EZ.back((t-cr)/0.22):0;hdHinge.rotation.y=-1.75*ck;hdLight.visible=ck>0.02;
  debris.forEach((d,i)=>{const dt=cr!==null?t-cr:-1;d.visible=dt>0&&dt<1.6;if(!d.visible)return;const vx=-0.6+((i*37)%10)/10*1.4,vy=1.6+((i*53)%10)/10*1.2,vz=1.2+((i*71)%10)/10*1.3;

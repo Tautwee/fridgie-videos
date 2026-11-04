@@ -13,7 +13,9 @@
   "acc": "headphones",
   "accColor": "#3DDC97"
  },
- "voices": {},
+ "voices": {
+  "hero": "../voxaudio/tour01.wav"
+ },
  "appRows": [
   [
    "🥛",
@@ -88,13 +90,15 @@
    ],
    "voice": {
     "who": "hero",
-    "len": 1.4,
-    "at": 0.85
+    "src": "hero",
+    "a": 0.0,
+    "b": 1.85,
+    "at": 0.4
    },
    "say": "Fridge emergency.|<b>Stand back.</b>"
   },
   {
-   "dur": 3.0,
+   "dur": 4.62,
    "do": [
     "herostare"
    ],
@@ -105,15 +109,18 @@
     ],
     [
      "hstare",
-     1.7
+     3.34
     ]
    ],
    "voice": {
     "who": "hero",
-    "len": 2.6,
+    "src": "hero",
+    "a": 2.25,
+    "b": 6.52,
     "at": 0.1
    },
-   "say": "Two milks...|three yogurts...|<b>zero</b> clue.|Yeah, <b>YOU.</b>"
+   "say": "Two milks...|three yogurts...|<b>zero</b> clue.|Yeah, <b>YOU.</b>",
+   "stareAt": 3.39
   },
   {
    "dur": 3.1,
@@ -139,13 +146,15 @@
    "notifEnd": 2.4,
    "voice": {
     "who": "hero",
-    "len": 2.4,
+    "src": "hero",
+    "a": 6.92,
+    "b": 9.36,
     "at": 0.3
    },
    "say": "Fridgeroo warns you|<b>before</b> it goes off."
   },
   {
-   "dur": 2.2,
+   "dur": 2.0,
    "do": [
     "celebrate",
     "shades",
@@ -169,7 +178,7 @@
    "chipEnd": 2.2
   },
   {
-   "dur": 1.6,
+   "dur": 1.5,
    "cam": "duo3",
    "teaser": {
     "next": "The freezer<br>from hell 🧊",
@@ -177,7 +186,7 @@
    }
   },
   {
-   "dur": 1.8,
+   "dur": 1.6,
    "type": "end"
   }
  ],
@@ -192,11 +201,11 @@
   ],
   "yuck": [
    2,
-   0.9
+   2.2
   ],
   "hit": [
    2,
-   1.7
+   3.34
   ],
   "app": [
    3,

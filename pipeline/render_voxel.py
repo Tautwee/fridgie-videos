@@ -22,7 +22,7 @@ from playwright.async_api import async_playwright
 D = Path(__file__).resolve().parent
 PLAN = Path(sys.argv[1]).resolve()
 plan = json.load(open(PLAN)); OUT = os.path.abspath(sys.argv[2]); FPS = 30; SR = 44100
-FR = D / 'frames_vox'
+FR = D / os.environ.get('FRAMES', 'frames_vox')
 if not os.environ.get('REUSE_FRAMES'): shutil.rmtree(FR, ignore_errors=True); FR.mkdir()
 STAGE = (D / plan.get('stage', 'voxel_stage.html')).read_text()
 
@@ -130,6 +130,7 @@ FX = {
  'click': lambda: (flt(noise(.05), 2000, 'high') * env(int(SR * .05), .001, .008) * .7 + np.sin(2 * np.pi * 1200 * tt(.05)) * env(int(SR * .05), .001, .01) * .3),
  'squelch': lambda: flt(noise(.35), 500) * np.sin(2 * np.pi * 7 * tt(.35)) ** 2 * env(int(SR * .35), .01, .12) * .8,
  'crash': lambda: (flt(noise(.5), 2500) * env(int(SR * .5), .001, .09) * .8 + np.sin(2 * np.pi * (180 + 200 * np.exp(-tt(.5) * 30)) * tt(.5)) * env(int(SR * .5), .001, .08) * .7),
+ 'crack': lambda: (flt(noise(.45), 3000, 'high') * env(int(SR * .45), .001, .07) * .5 + sum(np.sin(2 * np.pi * f * tt(.45)) * env(int(SR * .45), .001, .05 + i * .02) for i, f in enumerate((1850, 2600, 3300))) * .15),
  'sparkle': lambda: (np.sin(2 * np.pi * 1760 * tt(.5)) + .4 * np.sin(2 * np.pi * 2637 * tt(.5))) * env(int(SR * .5), .003, .12) * .08,
  'zoom': lambda: flt(noise(.6), 1500) * np.linspace(0, 1, int(SR * .6)) ** 3 * .35 + np.sin(2 * np.pi * (200 + 600 * tt(.6)) * tt(.6)) * np.linspace(0, 1, int(SR * .6)) ** 2 * .12,
  'ding': lambda: (np.sin(2 * np.pi * 1318 * tt(.6)) + .5 * np.sin(2 * np.pi * 2637 * tt(.6))) * env(int(SR * .6), .002, .2) * .18,

@@ -7,3 +7,4 @@ pipeline/frames_motion/
 pipeline/frames_vox/
 pipeline/music_vox.wav
 pipeline/mix_vox.wav
+pipeline/frames_p*/
