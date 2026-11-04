@@ -130,7 +130,7 @@ FX = {
  'click': lambda: (flt(noise(.05), 2000, 'high') * env(int(SR * .05), .001, .008) * .7 + np.sin(2 * np.pi * 1200 * tt(.05)) * env(int(SR * .05), .001, .01) * .3),
  'squelch': lambda: flt(noise(.35), 500) * np.sin(2 * np.pi * 7 * tt(.35)) ** 2 * env(int(SR * .35), .01, .12) * .8,
  'crash': lambda: (flt(noise(.5), 2500) * env(int(SR * .5), .001, .09) * .8 + np.sin(2 * np.pi * (180 + 200 * np.exp(-tt(.5) * 30)) * tt(.5)) * env(int(SR * .5), .001, .08) * .7),
- 'crack': lambda: (flt(noise(.45), 3000, 'high') * env(int(SR * .45), .001, .07) * .5 + sum(np.sin(2 * np.pi * f * tt(.45)) * env(int(SR * .45), .001, .05 + i * .02) for i, f in enumerate((1850, 2600, 3300))) * .15),
+ 'crack': lambda: (flt(flt(noise(.45), 1500, 'high'), 5000) * env(int(SR * .45), .001, .07) * .35 + sum(np.sin(2 * np.pi * f * tt(.45)) * env(int(SR * .45), .001, .05 + i * .02) for i, f in enumerate((1850, 2600, 3300))) * .15),
  'sparkle': lambda: (np.sin(2 * np.pi * 1760 * tt(.5)) + .4 * np.sin(2 * np.pi * 2637 * tt(.5))) * env(int(SR * .5), .003, .12) * .08,
  'zoom': lambda: flt(noise(.6), 1500) * np.linspace(0, 1, int(SR * .6)) ** 3 * .35 + np.sin(2 * np.pi * (200 + 600 * tt(.6)) * tt(.6)) * np.linspace(0, 1, int(SR * .6)) ** 2 * .12,
  'ding': lambda: (np.sin(2 * np.pi * 1318 * tt(.6)) + .5 * np.sin(2 * np.pi * 2637 * tt(.6))) * env(int(SR * .6), .002, .2) * .18,
@@ -141,8 +141,11 @@ for name, t in I['x']:
     x = FX[name](); a = int(t * SR)
     if 0 <= a < N: sfx[a:a + len(x)] += x[:N - a]
 
+# deep voices rattle phone speakers: steep high-pass on the voice
+voice = sosfilt(butter(4, 105, 'high', fs=SR, output='sos'), voice)
 mix = mus + voice + flt(sfx, 90, 'high')
 mix = mix[:int(TOTAL * SR)]
+_fo = int(1.3 * SR); mix[-_fo:] *= np.linspace(1, 0, _fo) ** 2  # clean fade to silence
 mix *= 0.95 / max(1e-6, np.abs(mix).max())
 wav = str(D / 'mix_vox.wav')
 with wave.open(wav, 'w') as o:
