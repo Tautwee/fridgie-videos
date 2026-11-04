@@ -9,3 +9,4 @@ pipeline/music_vox.wav
 pipeline/mix_vox.wav
 pipeline/frames_p*/
 voxaudio/*_raw.wav
+pipeline/frames_*/
