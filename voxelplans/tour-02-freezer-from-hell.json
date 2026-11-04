@@ -1,0 +1,235 @@
+{
+ "title": "Fridgeroo on Tour – Part 2: The freezer from hell",
+ "series": "Fridgeroo on Tour",
+ "part": 2,
+ "tour": true,
+ "look": "neon",
+ "stage": "voxel_stage2.html",
+ "feature": "freezer tracking (what is in the freezer and since when)",
+ "cast": {
+  "hoodie": "#3a7bd5",
+  "hair": "#6b6b6b",
+  "skin": "#e0b08a",
+  "acc": "glasses",
+  "accColor": "#111111"
+ },
+ "voices": {},
+ "appRows": [
+  [
+   "🍕",
+   "Pizza",
+   "2019 · 7 yrs",
+   "#ff6b5a"
+  ],
+  [
+   "🥦",
+   "Broccoli",
+   "2022 · 4 yrs",
+   "#FFD43B"
+  ],
+  [
+   "🍞",
+   "Bread",
+   "6 months",
+   "#3DDC97"
+  ],
+  [
+   "🍟",
+   "Fries",
+   "3 weeks",
+   "#3DDC97"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 2.4,
+   "do": [
+    "tour",
+    "iceslide"
+   ],
+   "slideAt": 0.0,
+   "cams": [
+    [
+     "three",
+     0
+    ],
+    [
+     "front",
+     1.15
+    ]
+   ],
+   "label": "🚨 <b>ICE AGE</b> FREEZER",
+   "say": "Is that a|<b>PIZZA</b>?!",
+   "sfx": "door pop 0.0, whoosh slide 0.05, thunk stop 0.55, pop on 2019 tag 0.6; dad jumps back, glasses slip (shock)",
+   "note": "frame 1 (t=0.0) must already be action: freezer door already flung open, block already ~30% out in a frost puff, 2019 tag readable; never a closed door"
+  },
+  {
+   "dur": 2.3,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.35,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "duo3",
+     1.1
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "len": 1.6,
+    "at": 0.8
+   },
+   "say": "Freezer's got an|<b>iceberg</b>. Move!"
+  },
+  {
+   "dur": 3.0,
+   "do": [
+    "herostare"
+   ],
+   "cams": [
+    [
+     "herocam",
+     0
+    ],
+    [
+     "hstare",
+     1.7
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "len": 2.8,
+    "at": 0.1
+   },
+   "say": "Pizza|from 2019,|Dad?|<b>YOU</b> have|one too.",
+   "note": "hero taps the block (hollow tonk) on line 2; dad facepalms; stare on 'YOU'"
+  },
+  {
+   "dur": 3.1,
+   "do": [
+    "holo",
+    "iceslide"
+   ],
+   "crackAt": 1.25,
+   "holoAt": 0.15,
+   "holoKeep": 0,
+   "cams": [
+    [
+     "holocam",
+     0
+    ],
+    [
+     "duo3",
+     1.5
+    ]
+   ],
+   "notif": "Frozen <b>since 2019</b> 🍕",
+   "notifAt": 0.7,
+   "notifEnd": 2.4,
+   "voice": {
+    "who": "hero",
+    "len": 2.4,
+    "at": 0.3
+   },
+   "say": "Fridgeroo knows|how <b>long</b>|it's been frozen."
+  },
+  {
+   "dur": 2.2,
+   "do": [
+    "celebrate",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 0.25,
+   "magicAt": 0.15,
+   "skyAt": 0.95,
+   "cams": [
+    [
+     "fmed",
+     0
+    ],
+    [
+     "sky",
+     0.95
+    ]
+   ],
+   "chip": "FREEZER <b>SAVED</b> ✅",
+   "chipAt": 0.95,
+   "chipEnd": 2.2
+  },
+  {
+   "dur": 1.6,
+   "cam": "duo3",
+   "teaser": {
+    "next": "The party flat<br>🎉",
+    "part": 3
+   }
+  },
+  {
+   "dur": 1.8,
+   "type": "end"
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   1.2
+  ],
+  "yuck": [
+   2,
+   0.9
+  ],
+  "hit": [
+   2,
+   1.7
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   4,
+   0.15
+  ],
+  "drop": [
+   4,
+   0.95
+  ],
+  "end": [
+   6,
+   0.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "caption": "Part 2 of Fridgeroo on Tour 🧊 This pizza has been frozen since 2019. Fridgeroo tracks what's in your freezer and since when. Use it or lose it. fridgeroo.netlify.app 👇 What's the oldest thing in YOUR freezer?",
+ "hashtags": "#fridgeroo #fridgerooontour #kitchenhacks #freezertips #freezermeals",
+ "pos": {
+  "stu": [
+   -0.6,
+   0.7
+  ],
+  "yaw": 0.6,
+  "hero": [
+   -0.1,
+   1.3
+  ]
+ },
+ "newProps": {
+  "iceblock": "translucent cyan box (opacity ~0.38, cyan edge outline, rim light), pizza as fixed child at ~60% scale, big '2019' tag sprite on the front face (same font/colour as the app's 2019). Action iceslide {slideAt, crackAt}: door pops, block slides out to ~(0.55,0.31,0.85) with wobble + settle; at crackAt it shatters into <=12 cyan triangle shards (<1 s), the pizza drops onto a plate beside the freezer, freezer door swings shut with a neon glow. Preview slide + crack frames before the full render."
+ },
+ "voiceText": "[shouting, heroic] Freezer's got an iceberg. Move! [long pause] [deadpan, sarcastic] Pizza from 2019, Dad? [long pause] [slow, serious, to camera] YOU have one too. [long pause] [grudging, then warm] Fridgeroo knows how long it's been frozen.",
+ "ytTitle": "A pizza frozen since 2019?! The freezer from hell | Fridgeroo on Tour 2",
+ "cover": {
+  "words": "PART 2 · ICE AGE FREEZER 🧊"
+ }
+}
