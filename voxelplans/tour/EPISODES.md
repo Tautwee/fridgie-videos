@@ -19,8 +19,8 @@ Voice lines are spoken by the hero: `voice:{who:'hero', src:'hero', a, b, at}` (
 ## Episode list (update the status column; bots may improve premises, never repeat one)
 | Part | House | Problem / crazy premise | Feature | Look | Resident | Status |
 |---|---|---|---|---|---|---|
-| 1 | Student house | The fridge is so overstuffed it explodes | Expiry alerts ("goes off tomorrow") | toon | orange hoodie, headphones | built (needs voice) |
-| 2 | The freezer from hell 🧊 | An ice-age freezer: a 2019 pizza frozen in a giant ice block | Freezer tracking | neon | dad with glasses | planned (gate 1 passed 4 Nov, needs voice; plan voxelplans/tour-02-freezer-from-hell.json) |
+| 1 | Student house | The fridge is so overstuffed it explodes | Expiry alerts ("goes off tomorrow") | toon | orange hoodie, headphones | in review (slot Fri 6 Nov 18:30) |
+| 2 | The freezer from hell 🧊 | An ice-age freezer: a 2019 pizza frozen in a giant ice block | Freezer tracking | neon | dad with glasses | in review (slot Sun 8 Nov 18:30; plan voxelplans/tour-02-freezer-from-hell.json) |
 | 3 | The party flat 🎉 | The receipt is so long it rolls out across the whole floor | Receipt scan | clay | girl with a bun | planned |
 | 4 | The gym bro's kitchen 💪 | 14 identical unlabeled tubs — which one is chicken? | Barcode scan + tags | voxel | guy with a cap | planned |
 | 5 | The shared house ⚔️ | Housemate shelf war: name tags, food crossing borders | Shared home | toon | two housemates (add if possible) | planned |
