@@ -1,0 +1,257 @@
+{
+ "title": "Fridgeroo on Tour – Part 5: The shared house",
+ "series": "Fridgeroo on Tour",
+ "part": 5,
+ "tour": true,
+ "look": "toon",
+ "stage": "voxel_stage2.html",
+ "feature": "shared home (one fridge list for the whole house, every item shows its owner)",
+ "cast": {
+  "hoodie": "#e63946",
+  "hair": "#2a1a10",
+  "skin": "#e7b98f",
+  "acc": "headphones",
+  "accColor": "#222222",
+  "second": {
+   "hoodie": "#3a7bd5",
+   "hair": "#d9a441",
+   "skin": "#f2c9a5",
+   "acc": "bun",
+   "accColor": "#d9a441"
+  }
+ },
+ "voices": {
+  "hero": "../voxaudio/tour05.wav"
+ },
+ "appRows": [
+  [
+   "🥛",
+   "Yogurt",
+   "Mia 🔴",
+   "#ff6b5a"
+  ],
+  [
+   "🧀",
+   "Cheese",
+   "Tom 🔵",
+   "#4dabf7"
+  ],
+  [
+   "🍕",
+   "Pizza",
+   "Tom 🔵",
+   "#4dabf7"
+  ],
+  [
+   "🍎",
+   "Apples",
+   "Shared",
+   "#3DDC97"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 2.4,
+   "do": [
+    "tour",
+    "shelfwar"
+   ],
+   "cams": [
+    [
+     "three",
+     0
+    ],
+    [
+     "front",
+     1.15
+    ]
+   ],
+   "label": "🚨 <b>SHELF</b> WAR",
+   "say": "Tape on a|<b>FRIDGE</b>?!",
+   "sfx": "tug creak 0.0/0.5/1.0, tape rip 0.3, tags flutter 1.4; both housemates pull a yogurt across a masking-tape line on the open fridge's middle shelf",
+   "note": "frame 1: tug-of-war mid-pull, red tags on left half, blue tags on right half; two housemates (second cast) both visible"
+  },
+  {
+   "dur": 2.6,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.35,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "duo3",
+     1.1
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.4
+   },
+   "say": "Tape on a fridge?|<b>Adorable</b>."
+  },
+  {
+   "dur": 3.62,
+   "do": [
+    "herostare"
+   ],
+   "cams": [
+    [
+     "herocam",
+     0
+    ],
+    [
+     "hstare",
+     2.07
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.1
+   },
+   "say": "Shelf two is a|<b>war zone</b>.|<b>YOU</b> ate the|yogurt. I know.",
+   "note": "hero steps between them, yogurt pops free and he catches it; stare on 'YOU'",
+   "stareAt": null
+  },
+  {
+   "do": [
+    "holo",
+    "shelfwar"
+   ],
+   "sortAt": 0.6,
+   "say": "Shared list. Everyone|sees what's <b>theirs</b>.",
+   "note": "hologram list with red/blue owner dots; tags snap onto items and food floats back to the matching coloured side; housemates fist-bump",
+   "holoAt": 0.15,
+   "holoKeep": 0,
+   "cams": [
+    [
+     "holocam",
+     0
+    ],
+    [
+     "duo3",
+     1.5
+    ]
+   ],
+   "notif": "Yogurt belongs to <b>Mia</b> 🔴",
+   "notifAt": 0.7,
+   "notifEnd": 2.4,
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.3
+   },
+   "dur": 3.1
+  },
+  {
+   "dur": 2.0,
+   "do": [
+    "celebrate",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 0.25,
+   "magicAt": 0.15,
+   "skyAt": 0.95,
+   "cams": [
+    [
+     "fmed",
+     0
+    ],
+    [
+     "sky",
+     0.95
+    ]
+   ],
+   "chip": "FRIENDSHIP <b>SAVED</b> ✅",
+   "chipAt": 0.95,
+   "chipEnd": 2.2
+  },
+  {
+   "dur": 1.5,
+   "cam": "duo3",
+   "teaser": {
+    "next": "The 'nothing<br>to eat' flat 🍜",
+    "part": 6
+   }
+  },
+  {
+   "dur": 1.6,
+   "type": "end"
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   1.2
+  ],
+  "yuck": [
+   2,
+   0.4
+  ],
+  "hit": [
+   2,
+   2.07
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   4,
+   0.15
+  ],
+  "drop": [
+   4,
+   0.95
+  ],
+  "end": [
+   6,
+   0.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "caption": "Part 5 of Fridgeroo on Tour: two housemates, one yogurt and a tape line, until Fridgeroo's shared list showed who owns what 🥛 Use it or lose it. fridgeroo.netlify.app – Who in your house is the yogurt thief?",
+ "hashtags": "#fridgeroo #fridgerooontour #roommates #sharedhouse #housemates",
+ "pos": {
+  "stu": [
+   -0.75,
+   0.7
+  ],
+  "stu2": [
+   0.45,
+   0.7
+  ],
+  "yaw": 0.6,
+  "hero": [
+   -0.1,
+   1.2
+  ]
+ },
+ "newProps": {
+  "secondResident": "second housemate from cast.second, stands at pos.stu2, mirrored pose; both face the fridge in scene 1.",
+  "shelfwar": "masking-tape line down the middle shelf, red tags left / blue tags right. Action shelfwar {sortAt}: tug-of-war on one yogurt (both pull, rubber-band stretch), at sortAt tags snap onto items and mismatched foods float (arc, no clipping through shelves) back to their colour side; end with a fist-bump."
+ },
+ "voiceText": "[amused, sarcastic] Tape on a fridge? Adorable. [long pause] [heroic] Shelf two is a war zone. [long pause] [slow, serious, to camera] YOU ate the yogurt. I know. [long pause] [grudging, then warm] Shared list. Everyone sees what's theirs.",
+ "ytTitle": "Housemates fight over ONE yogurt | Fridgeroo on Tour 5",
+ "cover": {
+  "words": "PART 5 · WHOSE YOGURT? 🥛"
+ },
+ "voiceNote": "voice a/b/at and stareAt are set from his mp3 (silencedetect) at build time"
+}

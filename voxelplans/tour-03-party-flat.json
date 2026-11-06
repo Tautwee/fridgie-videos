@@ -1,0 +1,248 @@
+{
+ "title": "Fridgeroo on Tour – Part 3: The party flat",
+ "series": "Fridgeroo on Tour",
+ "part": 3,
+ "tour": true,
+ "look": "clay",
+ "stage": "voxel_stage2.html",
+ "feature": "receipt scan (photo of the receipt → every item lands in the app)",
+ "cast": {
+  "hoodie": "#e85d9a",
+  "hair": "#5a3a22",
+  "skin": "#f0c29a",
+  "acc": "bun",
+  "accColor": "#5a3a22"
+ },
+ "voices": {
+  "hero": "../voxaudio/tour03.wav"
+ },
+ "appRows": [
+  [
+   "🍋",
+   "Limes ×40",
+   "added",
+   "#3DDC97"
+  ],
+  [
+   "🍕",
+   "Pizza ×6",
+   "added",
+   "#3DDC97"
+  ],
+  [
+   "🧀",
+   "Dip",
+   "added",
+   "#3DDC97"
+  ],
+  [
+   "🥤",
+   "Cola ×12",
+   "added",
+   "#3DDC97"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 2.4,
+   "do": [
+    "tour",
+    "receipt"
+   ],
+   "cams": [
+    [
+     "three",
+     0
+    ],
+    [
+     "front",
+     1.15
+    ]
+   ],
+   "label": "🚨 <b>9-METRE</b> RECEIPT",
+   "say": "Who bought|forty <b>LIMES</b>?!",
+   "sfx": "paper whirr 0.0, cups knocked 0.6/1.2, pizza box flop 1.5; bun girl stumbles after the roll (shock)",
+   "note": "frame 1: receipt already half across the floor from her hand, past cups + pizza boxes, '40× LIME' line readable; party lights in clay look",
+   "rollAt": 0.0
+  },
+  {
+   "dur": 2.6,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.35,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "duo3",
+     1.1
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.4
+   },
+   "say": "Who bought|forty <b>limes</b>?"
+  },
+  {
+   "dur": 3.62,
+   "do": [
+    "herostare"
+   ],
+   "cams": [
+    [
+     "herocam",
+     0
+    ],
+    [
+     "hstare",
+     2.07
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.1
+   },
+   "say": "Your receipt|needs a <b>map</b>.|<b>YOU</b> lost yours|too. Admit it.",
+   "note": "hero hops on the receipt and SKATEBOARDS along it (skateboard prop under him), stops in front of her; stare on 'YOU'",
+   "stareAt": null
+  },
+  {
+   "do": [
+    "holo",
+    "receipt"
+   ],
+   "reelAt": 0.4,
+   "say": "Scan it.|Every item's <b>in</b>.",
+   "note": "scan beam runs down the receipt, it reels up into her phone; mini limes/pizza hop into the hologram rows",
+   "holoAt": 0.15,
+   "holoKeep": 0,
+   "cams": [
+    [
+     "holocam",
+     0
+    ],
+    [
+     "duo3",
+     1.5
+    ]
+   ],
+   "notif": "<b>42 items</b> added 🧾",
+   "notifAt": 0.7,
+   "notifEnd": 2.4,
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.3
+   },
+   "dur": 3.1
+  },
+  {
+   "dur": 2.0,
+   "do": [
+    "celebrate",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 0.25,
+   "magicAt": 0.15,
+   "skyAt": 0.95,
+   "cams": [
+    [
+     "fmed",
+     0
+    ],
+    [
+     "sky",
+     0.95
+    ]
+   ],
+   "chip": "PARTY <b>SAVED</b> ✅",
+   "chipAt": 0.95,
+   "chipEnd": 2.2
+  },
+  {
+   "dur": 1.5,
+   "cam": "duo3",
+   "teaser": {
+    "next": "The gym bro's<br>kitchen 💪",
+    "part": 4
+   }
+  },
+  {
+   "dur": 1.6,
+   "type": "end"
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   1.2
+  ],
+  "yuck": [
+   2,
+   0.4
+  ],
+  "hit": [
+   2,
+   2.07
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   4,
+   0.15
+  ],
+  "drop": [
+   4,
+   0.95
+  ],
+  "end": [
+   6,
+   0.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "caption": "Part 3 of Fridgeroo on Tour: after the party, one receipt covered the whole floor, so Fridgeroo skated it, scanned it and landed 42 items in the app 🛹 Use it or lose it. fridgeroo.netlify.app – Who in your group buys forty limes?",
+ "hashtags": "#fridgeroo #fridgerooontour #foodwaste #receiptscan #partyleftovers",
+ "pos": {
+  "stu": [
+   -0.6,
+   0.7
+  ],
+  "yaw": 0.6,
+  "hero": [
+   -0.02,
+   1.15
+  ]
+ },
+ "newProps": {
+  "receipt": "flat white strip (~9 m, slight curl, printed rows incl. '40× LIME' sprite) unrolling from her hand across the floor along a gentle S-curve, past cups/pizza boxes (no wrapping around objects). Action receipt {rollAt, reelAt}: unroll with paper whirr; at reelAt a mint scan highlight sweeps along it and it reels back into her phone (shrinking from the far end).",
+  "skateboard": "small board under the hero during scene 2 (hero glides along the receipt with 2 hops, lands, board flips up into his hand).",
+  "lime": "small green sphere with a lighter top dot, as spill/hop item."
+ },
+ "voiceText": "[groggy, disgusted] Who bought forty limes? [long pause] [deadpan, sarcastic] Your receipt needs a map. [long pause] [slow, serious, to camera] YOU lost yours too. Admit it. [long pause] [grudging, then warm] Scan it. Every item's in.",
+ "ytTitle": "A receipt across the whole floor?! The party flat | Fridgeroo on Tour 3",
+ "cover": {
+  "words": "PART 3 · FORTY LIMES? 🧾"
+ },
+ "voiceNote": "voice a/b/at and stareAt are set from his mp3 (silencedetect) at build time"
+}

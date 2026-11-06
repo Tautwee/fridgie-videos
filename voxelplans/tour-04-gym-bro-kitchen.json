@@ -1,0 +1,246 @@
+{
+ "title": "Fridgeroo on Tour – Part 4: The gym bro's kitchen",
+ "series": "Fridgeroo on Tour",
+ "part": 4,
+ "tour": true,
+ "look": "voxel",
+ "stage": "voxel_stage2.html",
+ "feature": "barcode scan + tags (scan a pack, the tub gets a name tag)",
+ "cast": {
+  "hoodie": "#2b2b2b",
+  "hair": "#3a2a1a",
+  "skin": "#c98e66",
+  "acc": "cap",
+  "accColor": "#e63946"
+ },
+ "voices": {
+  "hero": "../voxaudio/tour04.wav"
+ },
+ "appRows": [
+  [
+   "🍗",
+   "Chicken",
+   "Tub 9 · 2 days",
+   "#FFD43B"
+  ],
+  [
+   "🍚",
+   "Rice",
+   "Tub 3 · 3 days",
+   "#3DDC97"
+  ],
+  [
+   "🥣",
+   "Oats",
+   "Tub 5 · 6 days",
+   "#3DDC97"
+  ],
+  [
+   "❓",
+   "Mystery",
+   "Tub 12 · 9 days",
+   "#ff6b5a"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 2.4,
+   "do": [
+    "tour",
+    "tubs"
+   ],
+   "cams": [
+    [
+     "three",
+     0
+    ],
+    [
+     "front",
+     1.15
+    ]
+   ],
+   "label": "🚨 <b>14</b> TUBS. NO NAMES",
+   "say": "Which one's|<b>CHICKEN</b>?!",
+   "sfx": "sniff 0.2, gag 0.6, lid pops in a wave 0.9–1.8 (pop each); cap guy recoils",
+   "note": "frame 1: 14 identical grey tubs in a flat 2×7 grid on the counter, cap guy already sniffing one; NO stacking",
+   "popAt": 0.9
+  },
+  {
+   "dur": 2.6,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.35,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "duo3",
+     1.1
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.4
+   },
+   "say": "Fourteen tubs.|Zero <b>names</b>."
+  },
+  {
+   "dur": 3.62,
+   "do": [
+    "herostare"
+   ],
+   "cams": [
+    [
+     "herocam",
+     0
+    ],
+    [
+     "hstare",
+     2.07
+    ]
+   ],
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.1
+   },
+   "say": "Bro, that's|<b>mystery</b> protein.|<b>YOU</b> sniff-test|your dinner too.",
+   "note": "hero lifts the mystery tub lid (green puff); stare on 'YOU'",
+   "stareAt": null
+  },
+  {
+   "do": [
+    "holo",
+    "tubs"
+   ],
+   "tagAt": 0.5,
+   "say": "Scan it. Tag it.|<b>Chicken</b> found.",
+   "note": "red barcode laser sweeps the grid, name tags stamp onto tubs one by one, Tub 9 glows gold; cap guy hugs it",
+   "holoAt": 0.15,
+   "holoKeep": 0,
+   "cams": [
+    [
+     "holocam",
+     0
+    ],
+    [
+     "duo3",
+     1.5
+    ]
+   ],
+   "notif": "<b>CHICKEN</b> · Tub 9 🍗",
+   "notifAt": 0.7,
+   "notifEnd": 2.4,
+   "voice": {
+    "who": "hero",
+    "src": "hero",
+    "a": null,
+    "b": null,
+    "at": 0.3
+   },
+   "dur": 3.1
+  },
+  {
+   "dur": 2.0,
+   "do": [
+    "celebrate",
+    "shades",
+    "magic"
+   ],
+   "shadesAt": 0.25,
+   "magicAt": 0.15,
+   "skyAt": 0.95,
+   "cams": [
+    [
+     "fmed",
+     0
+    ],
+    [
+     "sky",
+     0.95
+    ]
+   ],
+   "chip": "GAINS <b>SAVED</b> ✅",
+   "chipAt": 0.95,
+   "chipEnd": 2.2
+  },
+  {
+   "dur": 1.5,
+   "cam": "duo3",
+   "teaser": {
+    "next": "The shared<br>house ⚔️",
+    "part": 5
+   }
+  },
+  {
+   "dur": 1.6,
+   "type": "end"
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   1,
+   1.2
+  ],
+  "yuck": [
+   2,
+   0.4
+  ],
+  "hit": [
+   2,
+   2.07
+  ],
+  "app": [
+   3,
+   0.0
+  ],
+  "glow": [
+   4,
+   0.15
+  ],
+  "drop": [
+   4,
+   0.95
+  ],
+  "end": [
+   6,
+   0.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "caption": "Part 4 of Fridgeroo on Tour: 14 identical meal-prep tubs, and one barcode scan plus tags found the chicken in seconds 💪 Use it or lose it. fridgeroo.netlify.app – Which tub would you gamble on?",
+ "hashtags": "#fridgeroo #fridgerooontour #mealprep #barcodescanner #gymfood",
+ "pos": {
+  "stu": [
+   -0.6,
+   0.7
+  ],
+  "yaw": 0.6,
+  "hero": [
+   -0.02,
+   1.15
+  ]
+ },
+ "newProps": {
+  "tubs": "14 identical grey rounded tubs (2×7 flat grid on the counter, never stacked). Action tubs {popAt, tagAt}: lids pop open in a wave (rice, oats, beige slop, one green mystery with puff); at tagAt a red laser line sweeps the grid and white name tags (CHICKEN/RICE/OATS/???) stamp onto the fronts with a squash; tub 9 gets a gold glow."
+ },
+ "voiceText": "[shouting, heroic] Fourteen tubs. Zero names. [long pause] [deadpan, unimpressed] Bro, that's mystery protein. [long pause] [slow, serious, to camera] YOU sniff-test your dinner too. [long pause] [proud, warm] Scan it. Tag it. Chicken found.",
+ "ytTitle": "14 identical meal-prep tubs. Which one is chicken? | Fridgeroo on Tour 4",
+ "cover": {
+  "words": "PART 4 · FIND THE CHICKEN 🍗"
+ },
+ "voiceNote": "voice a/b/at and stareAt are set from his mp3 (silencedetect) at build time"
+}

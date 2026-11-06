@@ -19,11 +19,11 @@ Voice lines are spoken by the hero: `voice:{who:'hero', src:'hero', a, b, at}` (
 ## Episode list (update the status column; bots may improve premises, never repeat one)
 | Part | House | Problem / crazy premise | Feature | Look | Resident | Status |
 |---|---|---|---|---|---|---|
-| 1 | Student house | The fridge is so overstuffed it explodes | Expiry alerts ("goes off tomorrow") | toon | orange hoodie, headphones | in review (slot Fri 6 Nov 18:30) |
-| 2 | The freezer from hell 🧊 | An ice-age freezer: a 2019 pizza frozen in a giant ice block | Freezer tracking | neon | dad with glasses | in review (slot Sun 8 Nov 18:30; plan voxelplans/tour-02-freezer-from-hell.json) |
-| 3 | The party flat 🎉 | The receipt is so long it rolls out across the whole floor | Receipt scan | clay | girl with a bun | planned |
-| 4 | The gym bro's kitchen 💪 | 14 identical unlabeled tubs — which one is chicken? | Barcode scan + tags | voxel | guy with a cap | planned |
-| 5 | The shared house ⚔️ | Housemate shelf war: name tags, food crossing borders | Shared home | toon | two housemates (add if possible) | planned |
+| 1 | Student house | The fridge is so overstuffed it explodes | Expiry alerts ("goes off tomorrow") | toon | orange hoodie, headphones | scheduled Fri 6 Nov 18:30 (Metricool) |
+| 2 | The freezer from hell 🧊 | An ice-age freezer: a 2019 pizza frozen in a giant ice block | Freezer tracking | neon | dad with glasses | scheduled Sun 8 Nov 18:30 (Metricool; plan voxelplans/tour-02-freezer-from-hell.json) |
+| 3 | The party flat 🎉 | The receipt is so long it rolls out across the whole floor | Receipt scan | clay | girl with a bun | gate 1 passed, waiting for voice (slot Tue 10 Nov 18:30; plan voxelplans/tour-03-party-flat.json – receipt skateboard + scan reel) |
+| 4 | The gym bro's kitchen 💪 | 14 identical unlabeled tubs — which one is chicken? | Barcode scan + tags | voxel | guy with a cap | gate 1 passed, waiting for voice (slot Thu 12 Nov 18:30; plan voxelplans/tour-04-gym-bro-kitchen.json – lid-pop wave + laser tags) |
+| 5 | The shared house ⚔️ | Housemate shelf war: name tags, food crossing borders | Shared home | toon | two housemates (add if possible) | gate 1 passed, waiting for voice (slot Sat 14 Nov 18:30; plan voxelplans/tour-05-shared-house.json – yogurt tug-of-war, red/blue tags) |
 | 6 | "Nothing to eat" flat 🍜 | Full fridge, he still orders takeaway | Recipes from what you have | clay | hoodie, no accessory | planned |
 | 7 | The triple-milk house 🥛 | Milk bought three times — police line-up of cartons | Shopping list that knows what you have | neon | glasses | planned |
 | 8 | The 2 p.m. breakfast 🥣 | Cereal at 2 p.m. while eggs go off | Morning breakfast idea notification | voxel | headphones | planned |

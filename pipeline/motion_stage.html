@@ -75,7 +75,7 @@ function build(o){const d=o.el;
  if(o.type==='scan'){const n=Math.min(9,o.items.length);let h=`<div class="c big ti" style="top:330px;font-size:${o.size||88}px">${fmt(o.title)}</div><div class="phone" style="left:270px;top:620px;width:540px;height:860px"><div style="position:absolute;top:34px;left:0;right:0;text-align:center;font-size:36px;font-weight:800;display:flex;gap:12px;justify-content:center;align-items:center"><span style="width:44px;height:44px;display:inline-block">${LOGO_FACE}</span>Fridgeroo</div>`;
    for(let s=0;s<3;s++)h+=`<div class="shelf" style="top:${300+s*210}px"></div>`;
    for(let k=0;k<n;k++){const x=60+(k%3)*140,y=160+Math.floor(k/3)*210;h+=`<div class="e it" style="position:absolute;left:${x}px;top:${y}px;font-size:118px;opacity:0">${o.items[k]}</div>`}
-   h+=`</div><div class="label beep" style="position:absolute;font-size:44px;color:#3fdc9c;opacity:0">BEEP!</div><div class="c cnt" style="top:1530px;font-size:62px;font-weight:800"></div>`;d.innerHTML=h}
+   h+=`</div><div class="label beep" style="position:absolute;font-size:44px;color:#3fdc9c;opacity:0">BEEP!</div><div class="c cnt" style="top:1530px;font-size:62px;font-weight:800"></div>`;if(o.tag)h+=`<div class="c tg" style="top:1440px;font-size:74px;opacity:0;white-space:nowrap"><span class="pill">${fmt(o.tag)}</span></div>`;d.innerHTML=h}
  if(o.type==='text'){d.innerHTML=`<div class="c big tx" style="top:${o.pill?760:840}px;font-size:${o.size||92}px">${fmt(o.text)}</div>${o.pill?`<div class="c pl" style="top:${o.text.length>20?1010:920}px;font-size:66px"><span class="pill">${fmt(o.pill)}</span></div>`:''}`}
  if(o.type==='punch'){d.innerHTML=`<div class="c big pu" style="top:840px;font-size:${o.size||150}px">${fmt(o.text)}</div>`}
  if(o.type==='list'){d.innerHTML=`<div class="c big ti" style="top:330px;font-size:${o.size||88}px">${fmt(o.title)}</div>`+o.items.slice(0,5).map((r,k)=>`<div class="row" style="top:${700+k*168}px;opacity:0">${o.numbered?`<span class="n">${k+1}</span>`:''}<span class="e" style="font-size:76px">${r.emoji||''}</span><span>${fmt(r.text)}</span></div>`).join('')}
@@ -85,7 +85,7 @@ function build(o){const d=o.el;
 function sty(el,op,x=0,y=0,s=1,r=0){if(!el)return;el.style.opacity=op;el.style.transform=`translate(${x}px,${y}px) scale(${s}) rotate(${r}deg)`}
 function anim(o,lt,t){const b=lt/BEAT;const d=o.el;
  if(o.type==='hook'){const h=q(o,'.h');const k=o.i===0?eb(lt/0.28+0.35):eb(lt/0.3);const build=cl((b-(o.beats-1))/1);
-   sty(h,cl(o.i===0?1:lt/0.12),Math.sin(t*55)*10*build,0,lerp(1.3,1,k)*(1+0.04*build),-3+Math.sin(t*2.3)*1.2);
+   const pf=o.pulse?(b%1):1;/* optional pulse (8 Nov 2026): punch + shiver on every beat */const pz=o.pulse?0.09*Math.exp(-pf*7):0;sty(h,cl(o.i===0?1:lt/0.12),Math.sin(t*55)*10*build+(o.pulse?Math.sin(t*70)*7*Math.exp(-pf*6):0),0,lerp(1.3,1,k)*(1+0.04*build+pz),-3+Math.sin(t*2.3)*1.2+(o.pulse?Math.sin(t*40)*2.5*Math.exp(-pf*5):0));
    const s=q(o,'.s');if(s){const k2=eb((b-1.25)/0.6);sty(s,cl((b-1.25)/0.3),Math.sin(t*55+1)*8*build,lerp(40,0,k2),lerp(.85,1,k2),0)}}
  if(o.type==='countdown'){const step=o.stepBeats||2,n=o.from||3,fb=o.beats-n*step;const si=Math.floor(b/step);const inSteps=si<n;const sf=(b%step)/step;
    const cols=o.colors||['#13a86b','#f0a417','#ee4a2c'];const fin=o.finColor||'#c8174d';
@@ -110,7 +110,8 @@ function anim(o,lt,t){const b=lt/BEAT;const d=o.el;
    const its=d.querySelectorAll('.it');const st=o.stepBeats||0.5;let n=0;its.forEach((it,k2)=>{const a=(b-0.75-k2*st)*BEAT;if(a>0)n=k2+1;const kk=eo(a/0.22);
      sty(it,cl(a/0.06),lerp(260+rnd(k2)*120,0,kk),lerp(520,0,kk),lerp(1.6,1,kk)*(1+0.15*Math.exp(-Math.max(0,a-0.22)*12)),lerp(40,0,kk))});
    const bp=q(o,'.beep');const last=(b-0.75-(n-1)*st)*BEAT;if(n>0&&last<0.35){bp.style.left=(n%2?180:760)+'px';bp.style.top=(780+((n*137)%500))+'px';sty(bp,1-last/0.35,0,-last*80,1,n%2?-12:12)}else sty(bp,0);
-   const c=q(o,'.cnt');c.textContent=n?`${n} item${n>1?'s':''} ${o.label||'added'}`:'';sty(c,n?1:0,0,0,1+0.08*Math.exp(-Math.max(0,last)*10),0)}
+   const c=q(o,'.cnt');c.textContent=n?`${n} item${n>1?'s':''} ${o.label||'added'}`:'';sty(c,n?1:0,0,0,1+0.08*Math.exp(-Math.max(0,last)*10),0);
+   if(o.tag){/* optional (8 Nov 2026): after the last item lands the phone zooms in and a big tag pops on the beat */const za=(b-(0.75+(its.length-1)*st+0.5))*BEAT;if(za>0){const kz=eb(za/0.35);const ph=q(o,'.phone');sty(ph,1,0,lerp(0,-150,kz),lerp(1,1.42,kz),0);sty(c,cl(1-za/0.15));const tg=q(o,'.tg');const a2=za-0.3;const kt=eb(a2/0.3);sty(tg,cl(a2/0.08),0,0,a2>0?lerp(.3,1,kt):.3,a2>0?-4+Math.sin(a2*18)*6*Math.exp(-a2*3):0)}}}
  if(o.type==='text'){const tx=q(o,'.tx');const k=eb(lt/0.32);sty(tx,cl(lt/0.12),0,lerp(50,0,k),lerp(.88,1,k),0);
    const pl=q(o,'.pl');if(pl){const a=(b-1)*BEAT;const kk=eb(a/0.35);sty(pl,cl(a/0.1),0,0,a>0?lerp(.3,1,kk):.3,a>0?Math.sin(a*18)*6*Math.exp(-a*3):0)}}
  if(o.type==='punch'){const pu=q(o,'.pu');const k=eb(lt/0.3);sty(pu,cl(lt/0.1),0,0,lerp(.55,1,k)+0.02*Math.sin(t*6),-2)}
