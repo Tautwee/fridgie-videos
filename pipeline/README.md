@@ -35,7 +35,7 @@ Look at `examples/` (his 4 reference ads; `fridgeroo-story-countdown-SOUND.mp4` 
 fast, bouncy, eye-catching motion, cuts and pops on the beat, music genre matching the energy, starry gradient
 background, logo outro. Rotate palettes so two days in a row never look the same.
 `render_story.py` (still images) is retired.
-Optional story fields (8 Nov 2026): `hook.pulse:true` (+ `size`) = the hook punches and shivers on every beat; `scan.tag:"…"` = after the last item lands the phone zooms in and a big tag pops (no `<b>` inside the tag – yellow on yellow). Old plans are unchanged.
+Optional story fields (8 Nov 2026): `hook.pulse:true` (+ `size`) = the hook punches and shivers on every beat; `scan.tag:"…"` = after the last item lands the phone zooms in and a big tag pops (no `<b>` inside the tag – yellow on yellow). Old plans are unchanged. Plan-level `softEnd:true` (9 Nov 2026) = no white flash into the end card.
 
 ## 3D story videos (the format Tautvydas loved, 31 Oct 2026) — every 2 days at 18:30
 Blocky (voxel) 3D mini-stories: the **fridge is the character** and roasts the viewer (POV). Gold example: `voxelplans/fridge-roast.json` → `videos/fridgeroo-3d-roast-v8.mp4`. **Full rules, story ideas and the Judge: `pipeline/BOT_PLAYBOOK.md`.** Check every finished video with `python3 judge_check.py ../videos/<file>.mp4 <dir>`.

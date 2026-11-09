@@ -136,6 +136,6 @@ window.render=function(t){
  document.getElementById('glow').style.background=`radial-gradient(circle at 50% 40%, rgba(255,255,255,${0.10+(after?0.10*Math.exp(-beatPh*6):0.03)}) 0%, transparent ${55+(after?6*Math.exp(-beatPh*6):0)}%)`;
  document.getElementById('stage').style.transform=`scale(${1+(after?0.014*Math.exp(-beatPh*8):0)})`;
  SN.forEach((e,i)=>{const x=rnd(i)*W,y=(rnd(i+99)*H+t*(8+rnd(i+7)*14))%H;e.style.left=x+'px';e.style.top=y+'px';e.style.opacity=0.25+0.55*Math.abs(Math.sin(t*(0.8+rnd(i+3)*2)+i))});
- let fl=0;SC.forEach((sc,i)=>{if(i>0){const dt=t-sc.start;if(dt>=0&&dt<0.25)fl=Math.max(fl,(i===1?0.75:0.28)*(1-dt/0.25))}});document.getElementById('flash').style.opacity=fl;
+ let fl=0;SC.forEach((sc,i)=>{if(i>0&&!(P.softEnd&&sc.type==='end')){/* optional softEnd (9 Nov 2026): no white flash into the end card */const dt=t-sc.start;if(dt>=0&&dt<0.25)fl=Math.max(fl,(i===1?0.75:0.28)*(1-dt/0.25))}});document.getElementById('flash').style.opacity=fl;
 };
 </script></body></html>
