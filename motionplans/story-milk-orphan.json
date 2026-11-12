@@ -1,0 +1,71 @@
+{
+ "title": "Milk Orphan",
+ "feature": "shared home (housemates share one fridge list, every item shows who added it)",
+ "energy": "snappy",
+ "bpm": 120,
+ "music": "afro",
+ "palette": "forest",
+ "modules": [
+  "hook",
+  "list",
+  "card",
+  "punch",
+  "end"
+ ],
+ "mood": "detective roast",
+ "softEnd": true,
+ "audioFilter": "highpass=f=110,highpass=f=110,lowpass=f=7500",
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Whose <b>milk</b> is this? 🥛",
+   "sub": "4 housemates. 0 owners.",
+   "size": 120,
+   "pulse": true
+  },
+  {
+   "type": "list",
+   "beats": 5,
+   "title": "Shared fridge 🏠",
+   "stepBeats": 1,
+   "items": [
+    {
+     "emoji": "🥛",
+     "text": "Milk · added by <b>Jess</b>"
+    },
+    {
+     "emoji": "🧀",
+     "text": "Cheese · added by Tom"
+    },
+    {
+     "emoji": "🥬",
+     "text": "Spinach · added by Ana"
+    }
+   ]
+  },
+  {
+   "type": "card",
+   "beats": 5,
+   "title": "Case <b>closed</b> 🕵️",
+   "emoji": "🥛",
+   "name": "Jess's milk",
+   "days": 1,
+   "left": 20,
+   "sticker": "Jess, drink it 🫵"
+  },
+  {
+   "type": "punch",
+   "beats": 3,
+   "text": "One <b>list</b>. Zero orphans.",
+   "size": 120
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "",
+ "slot": "2026-11-14T15:30:00+01:00",
+ "judge": "Gate 2 FAILED 12 Nov (hook 8, relatable 8, original 6, sound-off 7, app 7, share 8, anim 7, framing 8, colours 6, flow 7, yes 6): third housemate-ownership story after Who Ate My Cheese + Part 5 yogurt war; list text too small, too many yellows. Not sent; not re-rendered because originality can't be fixed in render."
+}
