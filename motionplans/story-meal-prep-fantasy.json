@@ -1,0 +1,74 @@
+{
+ "title": "Meal Prep Fantasy",
+ "feature": "recipes from what you have",
+ "energy": "high",
+ "bpm": 130,
+ "music": "disco",
+ "palette": "berry",
+ "modules": [
+  "hook",
+  "grid",
+  "list",
+  "punch",
+  "end"
+ ],
+ "mood": "chaotic then smug",
+ "softEnd": true,
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Sunday: <b>meal prep</b> 👑",
+   "sub": "Wednesday: 🥣 for dinner",
+   "size": 112,
+   "pulse": true
+  },
+  {
+   "type": "grid",
+   "beats": 6,
+   "title": "Wednesday veg drawer",
+   "items": [
+    "🥕",
+    "🫑",
+    "🍄",
+    "🥬"
+   ],
+   "loser": 2,
+   "dead": "💀",
+   "verdict": "Dinner: <b>cereal</b> 🥣",
+   "stepBeats": 0.5
+  },
+  {
+   "type": "list",
+   "beats": 6,
+   "title": "Fridgeroo <b>recipes</b>",
+   "items": [
+    {
+     "emoji": "🥕",
+     "text": "Carrot + pepper"
+    },
+    {
+     "emoji": "🍄",
+     "text": "Mushroom rescue"
+    },
+    {
+     "emoji": "🍳",
+     "text": "One-pan stir-fry"
+    }
+   ]
+  },
+  {
+   "type": "punch",
+   "beats": 4,
+   "text": "Eaten. <b>€4.20</b> saved 🎉",
+   "size": 130
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "",
+ "slot": "2026-11-14T15:30:00+01:00",
+ "judge": "Gate 1 FAILED 13 Nov (hook 8, relatable 9, original 6, sound-off 6, app 7, share 7; avg 7.2): 4th recipes-rescue story in 3 weeks, € saved repeats Broccoli on Trial, dying mushroom then 'mushroom rescue' confuses. Not rendered, not sent."
+}
