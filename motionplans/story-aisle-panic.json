@@ -1,0 +1,54 @@
+{
+ "title": "Aisle Panic",
+ "feature": "shopping list shows what you already have at home",
+ "energy": "snappy",
+ "bpm": 120,
+ "music": "lofi",
+ "palette": "charcoal",
+ "modules": [
+  "chat",
+  "card",
+  "punch",
+  "end"
+ ],
+ "mood": "texted home, no reply, smug relief",
+ "softEnd": true,
+ "audioFilter": "highpass=f=110,highpass=f=110,lowpass=f=7500",
+ "scenes": [
+  {
+   "type": "chat",
+   "beats": 5,
+   "title": "In the shop 🛒",
+   "msg": "Eggs? 🥚",
+   "seen": "Seen 18:04",
+   "after": "No <b>reply</b>. 💀"
+  },
+  {
+   "type": "card",
+   "beats": 6,
+   "title": "Fridgeroo knows 👀",
+   "emoji": "🥚",
+   "name": "Eggs ×6",
+   "days": 9,
+   "left": 100,
+   "sticker": "Already at home ✅",
+   "big": true,
+   "fillFrom": 10,
+   "barLabel": "Eggs at home"
+  },
+  {
+   "type": "punch",
+   "beats": 3,
+   "text": "Skip the <b>eggs</b> 😎",
+   "size": 150
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "caption": "",
+ "slot": "2026-11-14T15:30:00+01:00",
+ "softCuts": true,
+ "judge": "Gate 1 passed 14 Nov after Judge rewrite (hook 8, relatable 9, original 7, sound-off 9, app 9, share 9; avg 8.5). Gate 2 FAILED after 2 fixes (anim 8, framing 7, colours 8, sound 8, flow 9, app 8, yes 8): chat sits in the top third with empty space below, 'Seen'/'No reply' too small, 'Skip the eggs' is a 1.5 s static hold. Not sent."
+}
