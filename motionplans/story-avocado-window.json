@@ -1,0 +1,19 @@
+{
+ "title": "Avocado Window",
+ "feature": "expiry alert (perfect today / goes off tomorrow)",
+ "energy": "high",
+ "bpm": 108,
+ "music": "afro",
+ "palette": "grape",
+ "mood": "playful panic",
+ "softEnd": true,
+ "scenes": [
+  {"type": "hook", "beats": 3, "text": "Avocados: <b>one</b> perfect day 🥑", "size": 150, "pulse": true},
+  {"type": "countdown", "beats": 8, "emoji": "🥑", "from": 3, "stepBeats": 2, "unit": "days left", "unit1": "day left ⚠️", "notify": "Fridgeroo: <b>avocado</b> is perfect TODAY 🥑", "end": "✅ Guac o'clock", "bigNotify": true},
+  {"type": "punch", "beats": 3, "text": "Catch the <b>one</b> day.", "size": 140},
+  {"type": "end", "beats": 5}
+ ],
+ "caption": "",
+ "slot": "2026-11-18T15:30:00+01:00",
+ "judge": "Gate 1 FAILED 16 Nov (hook 8, relatable 9, original 4, sound-off 8, app 8, share 7; avg 7.3): fourth 3-2-1 countdown after milk/chicken/spinach. Judge idea for reuse: a new 'ripeness strip' scene (rock-hard → rock-hard → PERFECT → brown) instead of countdown. Not rendered."
+}
