@@ -1,0 +1,52 @@
+{
+ "title": "Receipt Longer Than CV",
+ "feature": "receipt scan",
+ "energy": "high",
+ "bpm": 110,
+ "music": "trap",
+ "palette": "charcoal",
+ "modules": [
+  "hook",
+  "scan",
+  "punch",
+  "end"
+ ],
+ "softEnd": true,
+ "scenes": [
+  {
+   "type": "hook",
+   "beats": 4,
+   "text": "Receipt longer than your <b>CV</b> 🧾",
+   "pulse": true
+  },
+  {
+   "type": "scan",
+   "beats": 6,
+   "title": "One <b>snap</b> 📸",
+   "items": [
+    "🥛",
+    "🍞",
+    "🧀",
+    "🥚",
+    "🍅",
+    "🍌",
+    "🥬",
+    "🍗"
+   ],
+   "label": "added",
+   "stepBeats": 0.5,
+   "tag": "Receipt → fridge. Done."
+  },
+  {
+   "type": "punch",
+   "beats": 3,
+   "text": "Snap. <b>Done.</b>",
+   "size": 172
+  },
+  {
+   "type": "end",
+   "beats": 5
+  }
+ ],
+ "judge": "Gate 1 FAIL 7.5 (originality 6: same scan-shelves + 'Done.' formula as Sniff Test). Not rendered. Stories need a new scene mechanic (renderer only has hook/scan/list/card/text/punch/countdown/grid/chat) – the formats are exhausted."
+}
