@@ -45,7 +45,7 @@ Every 3D video is the next PART of **Fridgeroo on Tour**: Fridgeroo (white fridg
 | 3. The punch | 6–7.3 s | Fridge stares into the camera: "I'm talking to YOU." + POV label | Breaks the 4th wall; viewer feels called out |
 | 4. The fix | 7.3–9.2 s | He opens Fridgeroo; zoom into the phone, problem food pulsing red, notification | The product, clearly, for 1.5 s or more |
 | 5. The payoff | 9.2–12.3 s | Sunglasses drop, glow, sky full of fridges, "NO MORE FORGOTTEN FOOD" | Emotional high + satisfying visual |
-| 6. End card | 12.3–14 s | Logo, "Use it or lose it.", fridgeroo.netlify.app | Brand recall |
+| 6. End card | 12.3–14 s | Logo, "Use it or lose it.", fridgeroo.com | Brand recall |
 
 You may reorder or replace beats 1–3 for a different story, but beats 4–6 (app, payoff, end card) are always there.
 
@@ -100,7 +100,7 @@ Lines: the fridge talks like a tired, sarcastic grandpa (the voice is ElevenLabs
 - [ ] The hook works with the sound off (the action itself is funny).
 - [ ] The problem is named and shown, and the app screen shows the exact food from the story pulsing red (`appRows`).
 - [ ] The payoff makes the app look like magic; the end card has "Use it or lose it."
-- [ ] The caption is 1–2 sentences with a question to the viewer, "Use it or lose it.", and fridgeroo.netlify.app; plus 5 hashtags.
+- [ ] The caption is 1–2 sentences with a question to the viewer, "Use it or lose it.", and fridgeroo.com; plus 5 hashtags.
 
 ## 5. Build steps (do not skip the gates)
 1. **Plan** (bots): story → beat sheet with exact seconds → scenes JSON (copy `fridge-roast.json` and edit) → fridge lines → ElevenLabs text with audio tags.

@@ -77,7 +77,7 @@ p{{font-size:44px;line-height:1.3;opacity:.85;max-width:860px}}
 </style></head><body><div class="glow"></div><div class="wrap">
 <div class="kick">{safe(plan.get('kicker',''))}</div><h1>{safe(plan.get('title',''))}</h1>
 {f'<p>{safe(plan["body"])}</p>' if plan.get('body') else ''}{shot}{opts}</div>
-<div class="foot">{LOGO}<div>Fridgeroo<small>fridgeroo.netlify.app · Know before it goes.</small></div></div></body></html>"""
+<div class="foot">{LOGO}<div>Fridgeroo<small>fridgeroo.com · Know before it goes.</small></div></div></body></html>"""
 
 
 async def main(path):
