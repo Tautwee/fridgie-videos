@@ -1,0 +1,241 @@
+{
+ "title": "Watch €40 rot (loop short test)",
+ "format": "short-loop",
+ "short": true,
+ "loop": true,
+ "rotGate": true,
+ "tour": true,
+ "look": "clay",
+ "stage": "voxel_stage2.html",
+ "feature": "expiry alerts (goes off tomorrow)",
+ "counter": {
+  "label": "DAY",
+  "rwLabel": "⏪ REWIND"
+ },
+ "cast": {
+  "hoodie": "#7b5cff",
+  "hair": "#1d1d1d",
+  "skin": "#8d5a3b",
+  "acc": "cap",
+  "accColor": "#e0492f"
+ },
+ "appRows": [
+  [
+   "🥪",
+   "Sandwich",
+   "today!",
+   "#ff6b5a"
+  ],
+  [
+   "🥛",
+   "Milk",
+   "tomorrow!",
+   "#ff6b5a"
+  ],
+  [
+   "🧀",
+   "Cheese",
+   "2 days",
+   "#FFD43B"
+  ],
+  [
+   "🍜",
+   "Noodles",
+   "3 days",
+   "#3DDC97"
+  ]
+ ],
+ "scenes": [
+  {
+   "dur": 3.5,
+   "do": [
+    "tour",
+    "lapse"
+   ],
+   "lapseAt": 0.0,
+   "lapseOver": 3.1,
+   "from": 1,
+   "to": 14,
+   "cams": [
+    [
+     "sfront",
+     0
+    ],
+    [
+     "shelf",
+     1.73
+    ],
+    [
+     "three",
+     2.6
+    ]
+   ],
+   "showCount": true,
+   "label": "WATCH <b>€40</b> ROT 🤢",
+   "labelPop": false,
+   "say": "“I'll cook it|<b>tomorrow</b>…”|<b>tomorrow</b>…",
+   "subTimes": [
+    -0.14,
+    1.0,
+    2.2
+   ],
+   "note": "frame 1 = fresh fridge, DAY 1, happy student, hook label already readable; counter ticks faster and faster, food turns olive with mold, stink + flies from ~day 8, student goes happy -> disgusted -> gag"
+  },
+  {
+   "dur": 1.7,
+   "do": [
+    "arrive"
+   ],
+   "crashAt": 0.1,
+   "heroYaw": -0.17,
+   "cams": [
+    [
+     "doorcam",
+     0
+    ],
+    [
+     "sduo2",
+     0.9
+    ]
+   ],
+   "say": "NOT ON|MY <b>WATCH!</b>",
+   "subTimes": [
+    0.25,
+    0.85
+   ],
+   "subYs": [
+    1180,
+    560
+   ]
+  },
+  {
+   "dur": 3.2,
+   "do": [
+    "holo",
+    "herostare",
+    "rewind"
+   ],
+   "holoAt": 0.1,
+   "holoKeep": -1.6,
+   "rewindAt": 1.6,
+   "rewindOver": 1.3,
+   "from": 1,
+   "to": 14,
+   "notif": "Milk goes off <b>tomorrow</b> 🥛",
+   "notifAt": 0.3,
+   "notifEnd": 1.55,
+   "cams": [
+    [
+     "sholo2",
+     0
+    ],
+    [
+     "shelf2",
+     1.6
+    ]
+   ],
+   "showCount": true,
+   "countAt": 1.55,
+   "say": "It warns you|<b>BEFORE</b> it rots",
+   "subTimes": [
+    0.45,
+    1.65
+   ],
+   "stareAt": 0.0
+  },
+  {
+   "dur": 1.6,
+   "do": [
+    "celebrate",
+    "shades"
+   ],
+   "shadesAt": 0.2,
+   "cams": [
+    [
+     "sduo2",
+     0
+    ]
+   ],
+   "chip": "€40 <b>SAVED</b> ✅",
+   "chipAt": 0.45,
+   "url": "fridgeroo.com",
+   "urlAt": 0.6,
+   "label": "Use it or <b>lose it.</b>",
+   "labelAt": 0.25
+  },
+  {
+   "dur": 1.2,
+   "do": [
+    "flyoff"
+   ],
+   "flyAt": 0.1,
+   "cams": [
+    [
+     "sduo2",
+     0
+    ],
+    [
+     "sfront",
+     0.75
+    ]
+   ],
+   "showCount": true,
+   "countAt": 0.5,
+   "label": "WATCH <b>€40</b> ROT 🤢",
+   "labelPop": false,
+   "labelAt": 0.5,
+   "note": "Fridgeroo flies up out of frame; last frame = frame 1 (fresh fridge, DAY 1, label) so the video loops",
+   "say": "“I'll cook it",
+   "subTimes": [
+    0.62
+   ]
+  }
+ ],
+ "score": {
+  "sneak": [
+   0,
+   0.0
+  ],
+  "tension": [
+   0,
+   1.2
+  ],
+  "yuck": [
+   0,
+   2.6
+  ],
+  "hit": [
+   1,
+   0.1
+  ],
+  "app": [
+   2,
+   0.0
+  ],
+  "glow": [
+   2,
+   1.25
+  ],
+  "drop": [
+   3,
+   0.0
+  ],
+  "end": [
+   4,
+   5.0
+  ]
+ },
+ "slogan": "Use it or lose it.",
+ "pos": {
+  "stu": [
+   -0.5,
+   0.75
+  ],
+  "yaw": 0.6,
+  "hero": [
+   1.0,
+   1.25
+  ]
+ },
+ "holoScale": 1.35
+}

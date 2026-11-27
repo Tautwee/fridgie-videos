@@ -92,7 +92,7 @@ tlf = tlp / (os.path.basename(OUT).rsplit('.', 1)[0] + '.json'); json.dump(tl, o
 mw = str(D / 'music_vox.wav')
 if plan.get('score'):
     mk = {k: starts[v[0]] + v[1] for k, v in plan['score'].items()}
-    json.dump({'total': TOTAL, 'marks': mk}, open(tlf, 'w'))
+    json.dump({'total': TOTAL, 'marks': mk, 'loop': bool(plan.get('loop'))}, open(tlf, 'w'))
     subprocess.run(['python3', str(D / 'score.py'), str(tlf), mw], check=True, cwd=str(D), stdout=subprocess.DEVNULL)
 else:
     subprocess.run(['python3', str(D / 'music3.py'), plan.get('music', 'house'), mw, os.path.basename(OUT), str(tlf)], check=True, cwd=str(D), stdout=subprocess.DEVNULL)
@@ -133,6 +133,8 @@ FX = {
  'crack': lambda: (flt(flt(noise(.45), 1500, 'high'), 5000) * env(int(SR * .45), .001, .07) * .35 + sum(np.sin(2 * np.pi * f * tt(.45)) * env(int(SR * .45), .001, .05 + i * .02) for i, f in enumerate((1850, 2600, 3300))) * .15),
  'sparkle': lambda: (np.sin(2 * np.pi * 1760 * tt(.5)) + .4 * np.sin(2 * np.pi * 2637 * tt(.5))) * env(int(SR * .5), .003, .12) * .08,
  'zoom': lambda: flt(noise(.6), 1500) * np.linspace(0, 1, int(SR * .6)) ** 3 * .35 + np.sin(2 * np.pi * (200 + 600 * tt(.6)) * tt(.6)) * np.linspace(0, 1, int(SR * .6)) ** 2 * .12,
+ 'ctick': lambda: (np.sin(2 * np.pi * 1180 * tt(.06)) + .35 * np.sin(2 * np.pi * 1770 * tt(.06))) * env(int(SR * .06), .001, .012) * .28,  # counter tick (tonal, no hiss)
+ 'rclick': lambda: np.sin(2 * np.pi * (950 - 300 * tt(.05) / .05) * tt(.05)) * env(int(SR * .05), .001, .01) * .24,  # rewind click
  'ding': lambda: (np.sin(2 * np.pi * 1318 * tt(.6)) + .5 * np.sin(2 * np.pi * 2637 * tt(.6))) * env(int(SR * .6), .002, .2) * .18,
 }
 sfx = np.zeros(N, np.float32)
@@ -145,7 +147,7 @@ for name, t in I['x']:
 voice = sosfilt(butter(4, 105, 'high', fs=SR, output='sos'), voice)
 mix = mus + voice + flt(sfx, 90, 'high')
 mix = mix[:int(TOTAL * SR)]
-_fo = int(1.3 * SR); mix[-_fo:] *= np.linspace(1, 0, _fo) ** 2  # clean fade to silence
+_fo = int((0.04 if plan.get('loop') else 1.3) * SR); mix[-_fo:] *= np.linspace(1, 0, _fo) ** 2  # clean fade to silence (loop videos: no fade, they restart)
 mix *= 0.95 / max(1e-6, np.abs(mix).max())
 wav = str(D / 'mix_vox.wav')
 with wave.open(wav, 'w') as o:

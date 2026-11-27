@@ -13,7 +13,9 @@ name = os.path.basename(V).rsplit('.', 1)[0]; SR = 44100
 dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', V], capture_output=True, text=True).stdout)
 rep = {'file': name, 'duration': round(dur, 2), 'problems': []}
 P = rep['problems']
-if not 13 <= dur <= 18: P.append(f'duration {dur:.1f}s (story videos must be 13-18 s)')
+SHORT = bool(os.environ.get('SHORT'))  # 10-12 s loop shorts (27 Nov 2026)
+if SHORT and not 9 <= dur <= 13: P.append(f'duration {dur:.1f}s (loop shorts must be 9-13 s)')
+if not SHORT and not 13 <= dur <= 18: P.append(f'duration {dur:.1f}s (story videos must be 13-18 s)')
 
 # ---------- audio
 x = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', V, '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True).stdout, np.int16) / 32768
@@ -31,7 +33,7 @@ else:
         if r > 0.03 and 20 * np.log10(rl / r) > -10: P.append(f'{i / SR:.1f}s: too much deep bass (rattles on phone speakers)')
         if r > 0.03 and 20 * np.log10(rh / r) > -9: P.append(f'{i / SR:.1f}s: harsh/hissy highs (noise)')
     tail = [r for r in rows if r[0] >= dur - 1.0]
-    if tail and tail[-1][1] > -30: P.append('ending does not fade out cleanly')
+    if tail and tail[-1][1] > -30 and not SHORT: P.append('ending does not fade out cleanly')
     silent = [r[0] for r in rows if r[1] < -45 and 0.5 < r[0] < dur - 1.5]
     if silent: P.append(f'dead silence at {silent}')
     rep['audio'] = {'peak': round(peak, 2), 'loudness_by_half_second_db': [round(r[1], 1) for r in rows]}
@@ -52,6 +54,9 @@ rep['picture'] = {'cuts_at': cuts, 'cuts_per_10s': round(len(cuts) / dur * 10, 1
 if first.mean() < 25 or first.std() < 12: P.append('first frame is dark/empty (bad thumbnail and hook)')
 if first_motion < 1.5: P.append('nothing moves in the first second (hook must be ACTION)')
 if longest[0] > 1.6 and longest[1] < dur - 2.5: P.append(f'{longest[0]:.1f}s with almost no movement ending at {longest[1]:.1f}s')
+if SHORT:  # loop seam: the last frame should look like the first one
+    seam = float(np.abs(fr[-1] - fr[0]).mean()); rep['picture']['loop_seam_diff'] = round(seam, 1)
+    if seam > 22: P.append(f'loop seam: last frame differs from the first (diff {seam:.0f}, aim < 22)')
 if len(cuts) / dur * 10 < 4: P.append('too few shot changes (aim for a new shot or big action about every 1-2 s)')
 
 # ---------- sheets for the Judge's eyes

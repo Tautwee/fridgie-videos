@@ -90,7 +90,7 @@ while t < s1 - 0.05:
 tt0 = K['tension']
 for j, ms in enumerate([[50, 53, 57], [51, 54, 58], [52, 55, 59]]):
     a = tt0 + j * 1.2
-    if a < s1: add(tremolo(ms, min(1.3, s1 - a)), a, 0.22, (-0.3, 0.3, 0)[j])
+    if a < s1 - 0.05: add(tremolo(ms, min(1.3, s1 - a)), a, 0.22, (-0.3, 0.3, 0)[j])
 # yuck: sad trombone wah-wah-waaah
 y = K['yuck']
 for j, (m0, m1, d) in enumerate([(58, 57, 0.32), (57, 56, 0.32), (56, 53, 0.9)]):
@@ -151,7 +151,7 @@ e0 = int(K['end'] * SR); xf = int(0.15 * SR)
 for c in range(2):
     lp = flt(mix[:, c], 1400, o=4); w = np.zeros(len(mix)); w[e0:e0 + xf] = np.linspace(0, 1, len(w[e0:e0 + xf])); w[e0 + xf:] = 1
     mix[:, c] = mix[:, c] * (1 - w) + lp * w
-fade = int(0.6 * SR); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
+fade = int((0.04 if M.get('loop') else 0.6) * SR); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]  # loop videos: no fade, they restart
 for c in range(2):  # phone speakers can't play deep bass: cut it (it rattles = 'hitting' sound); no saturation
     hp = flt(mix[:, c], 70, 'high', o=4); hp2 = flt(mix[:, c], 110, 'high', o=4); w = np.zeros(len(mix)); a0 = int(K['app'] * SR); w[a0:] = 1
     mix[:, c] = hp * (1 - w) + hp2 * w
